@@ -69,4 +69,81 @@
         .orb-3 { top: 40%; left: 45%; transform: translate(-50%, -50%); width: 800px; height: 800px; animation: pulseOrb 7s infinite alternate ease-in-out; }
 
         @keyframes moveOrb {
-            0% { transform: translate(0,
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(220px, 160px) scale(1.35); }
+        }
+
+        @keyframes pulseOrb {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+        }
+
+        .glow-red {
+            box-shadow: 0 0 50px rgba(255, 30, 45, 0.25);
+        }
+        .text-glow {
+            text-shadow: 0 0 25px rgba(255, 30, 45, 0.5);
+        }
+        .view-section {
+            display: none;
+        }
+        .view-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white selection:bg-accentRed selection:text-white">
+
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="bg-glow-container">
+        <div class="red-orb orb-1"></div>
+        <div class="red-orb orb-2"></div>
+        <div class="red-orb orb-3"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" onclick="switchView('home')" class="flex items-center space-x-3 cursor-pointer group">
+                <img src="https://ui-avatars.com/api/?name=ATFAM&background=ff1e2d&color=fff" alt="ATFAM Virtual Solution Logo" class="w-12 h-12 rounded-full object-cover mix-blend-screen filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)] group-hover:scale-105 transition-transform">
+                <span class="text-sm sm:text-base font-extrabold tracking-wider uppercase text-white">
+                    ATFAM <span class="text-accentRed">Virtual Solution</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textMuted">
+                <button onclick="switchView('about')" class="hover:text-white transition-colors cursor-pointer">About Me</button>
+                <button onclick="switchView('experience')" class="hover:text-white transition-colors cursor-pointer">Experience</button>
+                <button onclick="switchView('services')" class="hover:text-white transition-colors cursor-pointer">Services</button>
+                <button onclick="switchView('skills')" class="hover:text-white transition-colors cursor-pointer">Skills & Tools</button>
+                <button onclick="switchView('contact')" class="hover:text-white transition-colors cursor-pointer">Contact</button>
+            </nav>
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-cardBg border border-white/10 flex items-center justify-center text-textMuted hover:text-white hover:border-accentRed transition-colors" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+                <button onclick="switchView('contact')" class="inline-flex items-center justify-center bg-accentRed hover:bg-accentRedHover text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-accentRed/30 cursor-pointer">
+                    Let's Talk <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-28 pb-20">
+
+        <section id="view-home" class="view-section active">
+            <div class="relative pt-12 pb-20 overflow-hidden border-b border-white/10">
+                <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-cardBg/90 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-textMuted uppercase backdrop-blur-sm">
+                            <span class="w-2 h-2 rounded-full bg-accentRed animate-pulse"></span>
+                            <span>5+ Years Operations & Admin Experience</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+                            General Virtual <span class="text-accentRed text-glow">Assistant</span>
+                        </h1>
+                        <p class="text-textMuted text-lg sm:text-xl font-normal max-w-xl leading-relaxed">
+                            Hi! I'm Leonard P. Atajar. Bringing robust corporate operations, administration, and team management experience—now professionally trained as a Virtual Assistant.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4 pt-4">
+                            <button onclick="switchView('contact')" class="bg-accentRed hover:bg-accentRedHover text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-xl shadow-accentRed/30 flex items-center cursor-pointer">
+                                Hire Me
