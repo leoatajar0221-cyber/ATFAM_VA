@@ -94,18 +94,22 @@
 </head>
 <body class="bg-darkBg text-white selection:bg-accentRed selection:text-white">
 
+    <!-- Moving Canvas Dots & Grid Animation -->
     <canvas id="bg-canvas"></canvas>
 
+    <!-- Glowing Background Orbs -->
     <div class="bg-glow-container">
         <div class="red-orb orb-1"></div>
         <div class="red-orb orb-2"></div>
         <div class="red-orb orb-3"></div>
     </div>
 
+    <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#home" onclick="switchView('home')" class="flex items-center space-x-3 cursor-pointer group">
-                <img src="https://ui-avatars.com/api/?name=ATFAM&background=ff1e2d&color=fff" alt="ATFAM Virtual Solution Logo" class="w-12 h-12 rounded-full object-cover mix-blend-screen filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)] group-hover:scale-105 transition-transform">
+                <!-- Logo with background blended out -->
+                <img src="logo.jpg" alt="ATFAM Virtual Solution Logo" class="w-12 h-12 rounded-full object-cover mix-blend-screen filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)] group-hover:scale-105 transition-transform">
                 <span class="text-sm sm:text-base font-extrabold tracking-wider uppercase text-white">
                     ATFAM <span class="text-accentRed">Virtual Solution</span>
                 </span>
@@ -118,6 +122,7 @@
                 <button onclick="switchView('contact')" class="hover:text-white transition-colors cursor-pointer">Contact</button>
             </nav>
             <div class="hidden sm:flex items-center space-x-4">
+                <!-- LinkedIn Icon in Header (Replace '#' with your actual LinkedIn link) -->
                 <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-cardBg border border-white/10 flex items-center justify-center text-textMuted hover:text-white hover:border-accentRed transition-colors" title="LinkedIn Profile">
                     <i class="fa-brands fa-linkedin-in text-lg"></i>
                 </a>
@@ -128,8 +133,10 @@
         </div>
     </header>
 
+    <!-- Main Container Views -->
     <main class="pt-28 pb-20">
 
+        <!-- HOME VIEW -->
         <section id="view-home" class="view-section active">
             <div class="relative pt-12 pb-20 overflow-hidden border-b border-white/10">
                 <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -146,4 +153,482 @@
                         </p>
                         <div class="flex flex-wrap items-center gap-4 pt-4">
                             <button onclick="switchView('contact')" class="bg-accentRed hover:bg-accentRedHover text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-xl shadow-accentRed/30 flex items-center cursor-pointer">
-                                Hire Me
+                                Hire Me <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+                            </button>
+                            <button onclick="switchView('experience')" class="bg-cardBg/80 hover:bg-cardBg border border-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm cursor-pointer">
+                                View Career History
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image with Slight Transparency / Opacity blend -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 backdrop-blur-md glow-red p-2">
+                            <img src="profile.jpg" alt="Leonard P. Atajar" class="w-full h-full object-cover object-center rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Navigation Tiles -->
+            <div class="max-w-7xl mx-auto px-6 py-20">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Explore Platform</h2>
+                    <p class="text-textMuted">Click any category below to open its dedicated view platform.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <button onclick="switchView('about')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-user text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold mb-2">About Me</h3>
+                        <p class="text-textMuted text-xs">Background, education, and professional identity.</p>
+                    </button>
+                    <button onclick="switchView('experience')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-briefcase text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold mb-2">Experience</h3>
+                        <p class="text-textMuted text-xs">5+ years across management and administration roles.</p>
+                    </button>
+                    <button onclick="switchView('services')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-layer-group text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold mb-2">Services</h3>
+                        <p class="text-textMuted text-xs">Virtual assistance offerings tailored for your growth.</p>
+                    </button>
+                    <button onclick="switchView('skills')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+                        <i class="fa-solid fa-tools text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-xl font-bold mb-2">Skills & Tools</h3>
+                        <p class="text-textMuted text-xs">Software and core competencies mastered.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME VIEW -->
+        <section id="view-about" class="view-section">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </button>
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: About Me</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="relative aspect-square rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 backdrop-blur-md p-2">
+                            <div class="w-full h-full rounded-2xl bg-darkBg flex flex-col items-center justify-center p-8 text-center space-y-4">
+                                <i class="fa-solid fa-graduation-cap text-5xl text-accentRed"></i>
+                                <h3 class="text-lg font-bold">STI College Balayan</h3>
+                                <p class="text-textMuted text-xs">Diploma in Information Technology</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 space-y-6">
+                        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">About Me</h2>
+                        <p class="text-textMuted text-base sm:text-lg leading-relaxed">
+                            Detail-oriented professional with 5+ years of cumulative experience in operations and administration, recently trained as a Virtual Assistant through The VA Bar. 
+                        </p>
+                        <p class="text-textMuted text-base sm:text-lg leading-relaxed">
+                            My background spans general management, admin supervision, quality assurance, workflow optimization, and leveraging cutting-edge AI technologies (like Gemini & ChatGPT) across reputable private companies. I bring enterprise-grade work ethic and modern tech capabilities straight to your remote business setup.
+                        </p>
+                        
+                        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                            <div>
+                                <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">5+</h4>
+                                <p class="text-textMuted text-xs sm:text-sm mt-1">Years Experience</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">IT</h4>
+                                <p class="text-textMuted text-xs sm:text-sm mt-1">College Graduate</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">100%</h4>
+                                <p class="text-textMuted text-xs sm:text-sm mt-1">Professional Dedication</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE VIEW -->
+        <section id="view-experience" class="view-section">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </button>
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Experience</span>
+                </div>
+
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Professional Experience</h2>
+                    <p class="text-textMuted">My solid background across various private company roles.</p>
+                </div>
+
+                <div class="space-y-8 max-w-4xl mx-auto">
+                    <!-- VA Training -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">08/2025 • Remote</span>
+                                <h3 class="text-xl font-bold mt-1">Internship Trainee – The VA Bar</h3>
+                            </div>
+                            <span class="mt-2 sm:mt-0 inline-block bg-darkBg border border-white/10 px-3 py-1 rounded-full text-xs text-textMuted">Virtual Assistant Training</span>
+                        </div>
+                        <p class="text-textMuted text-sm mb-4">Completed comprehensive training covering social media management, email & calendar organization, lead generation, email marketing, productivity tools, and AI workflow integration.</p>
+                    </div>
+
+                    <!-- General Manager -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">09/2023 – 09/2025 • Bansud, Oriental Mindoro</span>
+                                <h3 class="text-xl font-bold mt-1">General Manager – Snowdrip Hardware & Construction Supplies</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Overseeing day-to-day business operations</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Ensuring smooth supply chain and inventory management</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Monitoring productivity and efficiency of staff</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managing vendor/supplier relationships and stock availability</li>
+                        </ul>
+                    </div>
+
+                    <!-- Admin Supervisor -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2019 – 10/2021 • Balayan, Batangas</span>
+                                <h3 class="text-xl font-bold mt-1">Admin Supervisor – Chokdee Ecocare Farm Corp.</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managed administrative team, delegating tasks to optimize workflow and enhance efficiency.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managed payroll processing ensuring accurate and timely salary payments.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Conducted performance evaluations, mentoring staff and communicating job expectations.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Generated reports regarding production of goods, production costs, and compliance.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Quality Assurance -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2015 – 07/2016 • Makati City</span>
+                                <h3 class="text-xl font-bold mt-1">Quality Assurance – Total Information Management</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Interpreted and implemented quality assurance standards.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Evaluated adequacy of quality assurance frameworks.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Production Assistant -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2012 – 03/2015 • Valenzuela City</span>
+                                <h3 class="text-xl font-bold mt-1">Production Assistant – Gilvan Packaging Corp.</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Monitored all production reports, office supplies, and resolved operational issues.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Prepared monthly production reports for printing and rewinding departments.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Maintained a safe working environment adhering to health and safety regulations.</li>
+                        </ul>
+                    </div>
+
+                    <!-- RDU Clerk -->
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">03/2011 – 08/2011 • Makati City</span>
+                                <h3 class="text-xl font-bold mt-1">RDU Clerk – SM Makati Branch</h3>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Handled receiving items from suppliers and dispatching faulty returns.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Conducted high-accuracy data entry tasks, updating warehouse stock databases.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES VIEW -->
+        <section id="view-services" class="view-section">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </button>
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Services</span>
+                </div>
+
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">VA Services</h2>
+                    <p class="text-textMuted">Comprehensive virtual assistance built on a strong professional background.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">AI Integration & Prompt Engineering</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Streamlining business writing, market research, content planning, and workflow automation using Gemini, ChatGPT, and advanced AI models.</p>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Email & Calendar Management</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Inbox triage, email organization, scheduling meetings, and keeping your executive timeline orderly.</p>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Lead Generation & Research</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Boolean searching, web research, prospect database building, and outreach coordination via Apollo.io.</p>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Content creation assistance, scheduling posts, community engagement, and managing Meta Business Suite.</p>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Email Marketing</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Campaign setup, basic automation, writing effective emails using Mailchimp and Brevo.</p>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Tech & Troubleshooting</h3>
+                        <p class="text-textMuted text-sm leading-relaxed">Computer troubleshooting, workflow automation with Zapier, and website building via Wix Studio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS VIEW -->
+        <section id="view-skills" class="view-section">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </button>
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Skills & Tools</span>
+                </div>
+
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Skills & Tools</h2>
+                    <p class="text-textMuted">Equipped with professional software proficiency, AI tools, and core competencies.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 shadow-lg">
+                        <h3 class="text-xl font-bold text-accentRed mb-4">Core Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">AI Prompt Engineering</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Employee Management</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Report Generation</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Quality Assurance</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Boolean Searching</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Lead Generation</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Social Media Management</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Computer Troubleshooting</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 shadow-lg">
+                        <h3 class="text-xl font-bold text-accentRed mb-4">Tools & Software</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Google Gemini</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">ChatGPT (OpenAI)</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Google Workspace</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Microsoft Office Suite</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Canva</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Mailchimp & Brevo</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Zapier</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Apollo.io</span>
+                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Wix Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT VIEW -->
+        <section id="view-contact" class="view-section">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </button>
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Contact</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Let's Work Together</h2>
+                        <p class="text-textMuted text-base leading-relaxed">
+                            Ready to partner with an experienced operations professional turned Virtual Assistant? Get in touch via email, phone, or LinkedIn.
+                        </p>
+                        <div class="space-y-4 pt-4">
+                            <div class="flex items-center space-x-4 text-textMuted">
+                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span>leoatajar0221@gmail.com</span>
+                            </div>
+                            <div class="flex items-center space-x-4 text-textMuted">
+                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span>09915229504</span>
+                            </div>
+                            <div class="flex items-center space-x-4 text-textMuted">
+                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span>Pooc Balayan, Batangas</span>
+                            </div>
+                            <!-- LinkedIn contact link row (Replace '#' with your actual LinkedIn link) -->
+                            <div class="flex items-center space-x-4 text-textMuted">
+                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">linkedin.com/in/leo-atajar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-lg">
+                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Your Name</label>
+                                <input type="text" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Your Email</label>
+                                <input type="email" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Message</label>
+                                <textarea rows="4" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 bg-darkBg/80 backdrop-blur-md text-textMuted text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 ATFAM VIRTUAL SOLUTION. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+                <a href="mailto:leoatajar0221@gmail.com" class="hover:text-white transition-colors" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:09915229504" class="hover:text-white transition-colors" title="Phone"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for interactive views & active moving canvas background animation -->
+    <script>
+        function switchView(viewName) {
+            const sections = document.querySelectorAll('.view-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            const target = document.getElementById('view-' + viewName);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Animated Moving Red Particles & Grid Lines Canvas (Enhanced for high activity)
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const numParticles = 65;
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 1.4,
+                vy: (Math.random() - 0.5) * 1.4,
+                radius: Math.random() * 2.5 + 1
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = 'rgba(255, 30, 45, 0.14)';
+            ctx.fillStyle = 'rgba(255, 30, 45, 0.45)';
+
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 160) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+</body>
+</html>
