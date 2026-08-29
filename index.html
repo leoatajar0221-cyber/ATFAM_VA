@@ -22,75 +22,237 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body{
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            overflow-x: hidden;
+    ```html
+
+<script>
+    window.formspree =
+        window.formspree ||
+        function () {
+            (formspree.q = formspree.q || []).push(arguments);
+        };
+
+    formspree('initForm', {
+        formElement: '#contact-form',
+        formId: 'https://formspree.io/f/xwlkprpn'
+    });
+</script>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<!-- ============================= -->
+<!-- FUTURISTIC VIDEO BACKGROUND  -->
+<!-- ============================= -->
+
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #050505;
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    /* ============================= */
+    /* FULL-SCREEN BACKGROUND VIDEO  */
+    /* ============================= */
+
+    #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -4;
+        pointer-events: none;
+    }
+
+    /* Dark overlay over video */
+    #bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.70);
+        z-index: -3;
+        pointer-events: none;
+    }
+
+    /* ============================= */
+    /* INTERACTIVE CANVAS            */
+    /* ============================= */
+
+    #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+        pointer-events: none;
+        background: transparent;
+    }
+
+    /* ============================= */
+    /* AMBIENT RED GLOW CONTAINER    */
+    /* ============================= */
+
+    .bg-glow-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    /* Red glowing orbs */
+    .red-orb {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+            circle,
+            rgba(255, 30, 45, 0.28) 0%,
+            rgba(255, 30, 45, 0) 70%
+        );
+        border-radius: 50%;
+        filter: blur(80px);
+        animation: moveOrb 12s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+        top: -15%;
+        left: -10%;
+        animation-duration: 14s;
+    }
+
+    .orb-2 {
+        bottom: -15%;
+        right: -10%;
+        animation-duration: 18s;
+        animation-delay: -3s;
+    }
+
+    .orb-3 {
+        top: 40%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        animation: pulseOrb 7s infinite alternate ease-in-out;
+    }
+
+    /* ============================= */
+    /* ORB ANIMATIONS                */
+    /* ============================= */
+
+    @keyframes moveOrb {
+        0% {
+            transform: translate(0, 0) scale(1);
         }
 
-        /* Interactive Canvas Moving Background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            pointer-events: none;
-            background-color: #050505;
+        100% {
+            transform: translate(220px, 160px) scale(1.35);
+        }
+    }
+
+    @keyframes pulseOrb {
+        0% {
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0.6;
         }
 
-        /* Ambient Glowing Red Orbs */
-        .bg-glow-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+        100% {
+            transform: translate(-50%, -50%) scale(1.4);
+            opacity: 1;
+        }
+    }
+
+    /* ============================= */
+    /* YOUR EXISTING EFFECTS        */
+    /* ============================= */
+
+    .glow-red {
+        box-shadow: 0 0 50px rgba(255, 30, 45, 0.25);
+    }
+
+    .text-glow {
+        text-shadow: 0 0 25px rgba(255, 30, 45, 0.5);
+    }
+
+    .view-section {
+        display: none;
+    }
+
+    .view-section.active {
+        display: block;
+    }
+
+	/* Move the main introduction higher on the first screen */
+.hero-section {
+    min-height: calc(100vh - 70px);
+    padding-top: 20px !important;
+    padding-bottom: 30px !important;
+}
+    /* ============================= */
+    /* MOBILE OPTIMIZATION           */
+    /* ============================= */
+
+    @media (max-width: 768px) {
+        #bg-video {
+            object-position: center;
+        }
+
+        #bg-overlay {
+            background: rgba(0, 0, 0, 0.78);
         }
 
         .red-orb {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 30, 45, 0.28) 0%, rgba(255, 30, 45, 0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: moveOrb 12s infinite alternate ease-in-out;
+            width: 400px;
+            height: 400px;
+            filter: blur(60px);
         }
+    }
+</style>
 
-        .orb-1 { top: -15%; left: -10%; animation-duration: 14s; }
-        .orb-2 { bottom: -15%; right: -10%; animation-duration: 18s; animation-delay: -3s; }
-        .orb-3 { top: 40%; left: 45%; transform: translate(-50%, -50%); width: 800px; height: 800px; animation: pulseOrb 7s infinite alternate ease-in-out; }
 
-        @keyframes moveOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(220px, 160px) scale(1.35); }
-        }
+<!-- ============================= -->
+<!-- BACKGROUND VIDEO              -->
+<!-- ============================= -->
 
-        @keyframes pulseOrb {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
-            100% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
-        }
+<video id="bg-video" autoplay muted loop playsinline>
+    <source src="BG_Vid.mp4" type="video/mp4">
+</video>
 
-        .glow-red {
-            box-shadow: 0 0 50px rgba(255, 30, 45, 0.25);
-        }
-        .text-glow {
-            text-shadow: 0 0 25px rgba(255, 30, 45, 0.5);
-        }
-        .view-section {
-            display: none;
-        }
-        .view-section.active {
-            display: block;
-        }
-    </style>
+<!-- Dark overlay -->
+<div id="bg-overlay"></div>
+
+
+<!-- ============================= -->
+<!-- INTERACTIVE CANVAS            -->
+<!-- ============================= -->
+
+<canvas id="bg-canvas"></canvas>
+
+
+<!-- ============================= -->
+<!-- RED AMBIENT GLOW              -->
+<!-- ============================= -->
+
+<div class="bg-glow-container">
+
+    <div class="red-orb orb-1"></div>
+
+    <div class="red-orb orb-2"></div>
+
+    <div class="red-orb orb-3"></div>
+
+</div>
+```
+
     <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -120,16 +282,16 @@
         </div>
     </header>
 
-    <!-- Main Container Views -->
-    <main class="pt-28 pb-20">
+   <!-- Main Container Views -->
+<main class="pt-16 pb-20">
 
-        <!-- HOME VIEW -->
-        <section id="view-home" class="view-section active">
-            <div class="relative pt-12 pb-20 overflow-hidden border-b border-white/10">
-                <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-flex items-center space-x-2 bg-cardBg/90 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-textMuted uppercase backdrop-blur-sm">
-                            <span class="w-2 h-2 rounded-full bg-accentRed animate-pulse"></span>
+    <!-- HOME VIEW -->
+    <section id="view-home" class="view-section active">
+        <div class="relative pt-0 pb-20 overflow-hidden border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-cardBg/90 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-textMuted uppercase backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-accentRed animate-pulse"></span>
                             <span>Over 5 Years Operations & Admin Experience</span>
                         </div>
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
@@ -148,13 +310,21 @@
                         </div>
                     </div>
 
-                    <!-- Profile Image with Slight Transparency / Opacity blend -->
-                    <div class="lg:col-span-5 flex justify-center">
-                        <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 backdrop-blur-md glow-red p-2">
-                            <img src="profile.jpg" alt="Leonard P. Atajar" class="w-full h-full object-cover object-center rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                    </div>
-                </div>
+                 <!-- Profile Video - RIGHT SIDE -->
+<div class="lg:col-span-5 flex justify-center items-center">
+    <div class="relative w-full max-w-lg aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 backdrop-blur-md glow-red p-2">
+
+        <video
+            id="robotVideo"
+            src="canva.mp4"
+            playsinline
+            controls
+            class="w-full h-full object-contain object-center rounded-2xl opacity-90 hover:opacity-100 transition-opacity duration-300">
+        </video>
+
+    </div>
+</div>
+     </div>
             </div>
 
             <!-- Quick Navigation Tiles -->
@@ -188,9 +358,9 @@
             </div>
         </section>
 
-        <!-- ABOUT ME VIEW -->
-        <section id="view-about" class="view-section">
-    <div class="max-w-7xl mx-auto px-6 py-12">
+       <!-- ABOUT ME VIEW -->
+<section id="view-about" class="view-section">
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
         <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
             <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -237,12 +407,12 @@
 
         <!-- EXPERIENCE VIEW -->
         <section id="view-experience" class="view-section">
-            <div class="max-w-7xl mx-auto px-6 py-12">
-                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Back to Home</span>
-                    </button>
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </button>
                     <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Experience</span>
                 </div>
 
@@ -344,12 +514,12 @@
 
         <!-- SERVICES VIEW -->
         <section id="view-services" class="view-section">
-            <div class="max-w-7xl mx-auto px-6 py-12">
-                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Back to Home</span>
-                    </button>
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </button>
                     <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Services</span>
                 </div>
 
@@ -408,16 +578,26 @@
                     </div>
                 </div>
             </div>
+<!-- SAMPLE WORK LINK -->
+<div class="text-center mt-12">
+    <a href="https://example.com/my-sample-work"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="inline-flex items-center space-x-3 bg-accentRed hover:bg-accentRed/80 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg">
+        <span>View My Sample Work</span>
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</div>
         </section>
 
         <!-- SKILLS VIEW -->
         <section id="view-skills" class="view-section">
-            <div class="max-w-7xl mx-auto px-6 py-12">
-                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Back to Home</span>
-                    </button>
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </button>
                     <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Skills & Tools</span>
                 </div>
 
@@ -453,6 +633,7 @@
                             <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Zapier</span>
                             <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Apollo.io</span>
                             <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Wix Studio</span>
+			<span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Github</span>
                         </div>
                     </div>
                 </div>
@@ -460,13 +641,13 @@
         </section>
 
         <!-- CONTACT VIEW -->
-        <section id="view-contact" class="view-section">
-            <div class="max-w-7xl mx-auto px-6 py-12">
-                <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-                    <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Back to Home</span>
-                    </button>
+       <section id="view-contact" class="view-section">
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </button>
                     <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Contact</span>
                 </div>
 
@@ -500,30 +681,91 @@
                                 <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </div>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">linkedin.com/in/leo-atajar</a>
+                                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">linkedin.com/in/leo-atajar</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-lg">
-                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Your Name</label>
-                                <input type="text" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="John Doe">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Your Email</label>
-                                <input type="email" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="john@example.com">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">Message</label>
-                                <textarea rows="4" required class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors" placeholder="Tell me about your project..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
-                                Send Message <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
-                            </button>
-                        </form>
-                    </div>
+                   <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-lg">
+
+    <div data-fs-success class="hidden text-center py-10">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-accentRed/10 border border-accentRed/30 flex items-center justify-center">
+            <i class="fa-solid fa-check text-accentRed text-2xl"></i>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mb-3">
+            Message Sent Successfully!
+        </h3>
+
+        <p class="text-textMuted leading-relaxed max-w-md mx-auto">
+            Thank you for reaching out. I've received your message and will
+            get back to you as soon as possible.
+        </p>
+
+        <p class="text-sm text-textMuted mt-6">
+            — Leonard P. Atajar
+        </p>
+    </div>
+
+    <div data-fs-error class="hidden text-center text-red-400 mb-6"></div>
+
+    <form
+    id="contact-form"
+    action="https://formspree.io/f/xwlkprpn"
+    method="POST"
+    class="space-y-6">
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                required
+                data-fs-field
+                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+                placeholder="John Doe">
+        </div>
+
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
+                Your Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                required
+                data-fs-field
+                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+                placeholder="john@example.com">
+        </div>
+
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
+                Message
+            </label>
+
+            <textarea
+                name="message"
+                rows="4"
+                required
+                data-fs-field
+                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+                placeholder="Tell me about your project..."></textarea>
+        </div>
+
+        <button
+            type="submit"
+            data-fs-submit-btn
+            class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
+            Send Message
+            <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
+        </button>
+
+    </form>
+</div>
                 </div>
             </div>
         </section>
@@ -535,7 +777,7 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 ATFAM VIRTUAL SOLUTION. All rights reserved.</p>
             <div class="flex space-x-6">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
                 <a href="mailto:leoatajar0221@gmail.com" class="hover:text-white transition-colors" title="Email"><i class="fa-solid fa-envelope"></i></a>
                 <a href="tel:09915229504" class="hover:text-white transition-colors" title="Phone"><i class="fa-solid fa-phone"></i></a>
             </div>
