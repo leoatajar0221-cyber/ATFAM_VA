@@ -23,60 +23,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-    body
-       <!-- Background Video -->
-<video id="bg-video" autoplay muted loop playsinline>
-    <source src="BG_Vid.mp4" type="video/mp4">
-</video>
+        </head>
 
-<!-- Dark Overlay -->
-<div class="video-overlay"></div>
+<body>
 
-<!-- Existing Red Glow Effects -->
-<div class="bg-glow-container">
-    <div class="red-orb orb-1"></div>
-    <div class="red-orb orb-2"></div>
-    <div class="red-orb orb-3"></div>
-</div> 
-        {
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="BG.Vid.mp4" type="video/mp4">
+    </video>
+
+    <div id="video-overlay"></div>
+
+    <!-- YOUR EXISTING PORTFOLIO -->
+    <!-- Don't remove anything below this -->
+
+    ...
+    
+</body>
+    body {
         font-family: 'Plus Jakarta Sans', sans-serif;
         background-color: #050505;
         color: #ffffff;
         overflow-x: hidden;
     }
 
-    /* Video Background */
+    /* VIDEO BACKGROUND */
     #bg-video {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        z-index: -3;
+        z-index: -10;
         pointer-events: none;
+        background-color: #050505;
     }
 
-    /* Dark Overlay Above Video */
+    /* DARK OVERLAY */
     .video-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: -2;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -9;
         pointer-events: none;
     }
 
     /* Ambient Glowing Red Orbs */
     .bg-glow-container {
         position: fixed;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100vw;
         height: 100vh;
-        z-index: -1;
+        z-index: -8;
         overflow: hidden;
         pointer-events: none;
     }
