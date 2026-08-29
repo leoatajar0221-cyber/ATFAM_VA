@@ -94,12 +94,21 @@
 </head>
 <body class="bg-darkBg text-white selection:bg-accentRed selection:text-white">
 
-      <video autoplay muted loop playsinline class="fixed top-0 left-0 w-screen h-screen object-cover -z-20 pointer-events-none">
-        <source src="BG_Vid.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video>
-    
-    <canvas id="bg-canvas"></canvas>
+     <!-- Video Background -->
+<video 
+  autoplay 
+  muted 
+  loop 
+  playsinline 
+  id="bg-video" 
+  class="fixed top-0 left-0 w-full h-full object-cover -z-20 pointer-events-none"
+>
+  <source src="BG_Vid.mp4" type="video/mp4" />
+  Your browser does not support HTML5 video.
+</video>
+
+<!-- Optional Canvas Layer (Must sit above video if intended, or behind content) -->
+<canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"></canvas>
 
     <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
