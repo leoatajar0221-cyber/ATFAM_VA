@@ -94,15 +94,12 @@
 </head>
 <body class="bg-darkBg text-white selection:bg-accentRed selection:text-white">
 
-    <!-- Moving Canvas Dots & Grid Animation -->
+      <video autoplay muted loop playsinline class="fixed top-0 left-0 w-screen h-screen object-cover -z-20 pointer-events-none">
+        <source src="BG_Vid.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    
     <canvas id="bg-canvas"></canvas>
-
-    <!-- Glowing Background Orbs -->
-    <div class="bg-glow-container">
-        <div class="red-orb orb-1"></div>
-        <div class="red-orb orb-2"></div>
-        <div class="red-orb orb-3"></div>
-    </div>
 
     <!-- Header / Navbar -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
