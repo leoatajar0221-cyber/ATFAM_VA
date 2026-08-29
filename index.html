@@ -23,15 +23,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
+        /* Fallback dark background on html */
+html {
+    background-color: #050505;
+}
+
+body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    /* Changed to transparent so video behind body shows up */
     background-color: transparent; 
     color: #ffffff;
     overflow-x: hidden;
 }
 
-/* Video Styling (Add this to your CSS) */
+/* Background Video Styling */
 #bg-video {
     position: fixed;
     top: 0;
@@ -39,7 +43,7 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    z-index: -3; /* Sit behind canvas and glowing orbs */
+    z-index: -3;
     pointer-events: none;
 }
 
@@ -52,7 +56,6 @@
     height: 100vh;
     z-index: -2;
     pointer-events: none;
-    /* REMOVED background-color: #050505; so it doesn't block the video */
     background-color: transparent; 
 }
 
@@ -105,25 +108,27 @@
     display: block;
 }
 </head>
-<body class="bg-transparent text-white selection:bg-accentRed selection:text-white">
+<body class="text-white selection:bg-accentRed selection:text-white">
 
   <!-- Video Background -->
-  <video 
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    id="bg-video" 
-    class="fixed inset-0 w-full h-full object-cover -z-20 pointer-events-none"
-  >
+  <video autoplay muted loop playsinline id="bg-video">
     <source src="BG_Vid.mp4" type="video/mp4" />
-    Your browser does not support HTML5 video.
   </video>
 
-  <!-- Canvas Layer -->
-  <canvas id="bg-canvas" class="fixed inset-0 w-full h-full -z-10 pointer-events-none"></canvas>
+  <!-- Interactive Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
-  <!-- Rest of your website content -->
+  <!-- Glowing Orbs -->
+  <div class="bg-glow-container">
+    <div class="red-orb orb-1"></div>
+    <div class="red-orb orb-2"></div>
+    <div class="red-orb orb-3"></div>
+  </div>
+
+  <!-- Your Main Content -->
+  <main>
+    ...
+  </main>
 </body>
 
     <!-- Header / Navbar -->
