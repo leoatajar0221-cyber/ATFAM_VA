@@ -695,61 +695,53 @@
     <div data-fs-error class="hidden text-center text-red-400 mb-6"></div>
 
     <form
-    id="contact-form"
     action="https://formspree.io/f/xwlkprpn"
     method="POST"
     class="space-y-6">
-        <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
-                Your Name
-            </label>
 
-            <input
-                type="text"
-                name="name"
-                required
-                data-fs-field
-                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-                placeholder="John Doe">
-        </div>
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
+            Your Name
+        </label>
+        <input
+            type="text"
+            name="name"
+            required
+            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+            placeholder="John Doe">
+    </div>
 
-        <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
-                Your Email
-            </label>
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider textTextMuted mb-2">
+            Your Email
+        </label>
+        <input
+            type="email"
+            name="email"
+            required
+            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+            placeholder="john@example.com">
+    </div>
 
-            <input
-                type="email"
-                name="email"
-                required
-                data-fs-field
-                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-                placeholder="john@example.com">
-        </div>
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
+            Message
+        </label>
+        <textarea
+            name="message"
+            rows="4"
+            required
+            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
+            placeholder="Tell me about your project..."></textarea>
+    </div>
 
-        <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
-                Message
-            </label>
+    <button
+        type="submit"
+        class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
+        Send Message <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
+    </button>
 
-            <textarea
-                name="message"
-                rows="4"
-                required
-                data-fs-field
-                class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-                placeholder="Tell me about your project..."></textarea>
-        </div>
-
-        <button
-            type="submit"
-            data-fs-submit-btn
-            class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
-            Send Message
-            <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
-        </button>
-
-    </form>
+</form>
 </div>
                 </div>
             </div>
