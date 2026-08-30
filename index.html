@@ -239,33 +239,107 @@
 ```
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/70 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#home" onclick="switchView('home')" class="flex items-center space-x-3 cursor-pointer group">
-                <!-- Logo with background blended out -->
-                <img src="logo.jpg" alt="ATFAM Virtual Solution Logo" class="w-12 h-12 rounded-full object-cover mix-blend-screen filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)] group-hover:scale-105 transition-transform">
-                <span class="text-sm sm:text-base font-extrabold tracking-wider uppercase text-white">
-                    ATFAM <span class="text-accentRed">Virtual Solutions</span>
-                </span>
+<header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
+
+        <!-- Logo -->
+        <a href="#home"
+           onclick="switchView('home')"
+           class="flex items-center space-x-3 cursor-pointer group flex-shrink-0">
+
+            <img src="logo.jpg"
+                 alt="ATFAM Virtual Solutions Logo"
+                 class="w-11 h-11 rounded-full object-cover mix-blend-screen
+                        filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)]
+                        group-hover:scale-105 transition-transform">
+
+            <span class="text-sm font-extrabold tracking-wide uppercase text-white whitespace-nowrap">
+                ATFAM <span class="text-accentRed">VIRTUAL SOLUTIONS</span>
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-textMuted">
+
+            <button onclick="switchView('about')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                About Me
+            </button>
+
+            <button onclick="switchView('experience')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                Experience
+            </button>
+
+            <button onclick="switchView('services')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                Services
+            </button>
+
+            <button onclick="switchView('skills')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                Skills & Tools
+            </button>
+
+            <button onclick="switchView('my-work')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                My Work
+            </button>
+
+            <button onclick="switchView('certificates')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                Certificates
+            </button>
+
+            <button onclick="switchView('contact')"
+                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
+                Contact
+            </button>
+
+        </nav>
+
+
+        <!-- Right Side -->
+        <div class="hidden lg:flex items-center gap-3 flex-shrink-0">
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/leo-atajar-4b049b379"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full bg-cardBg
+                      border border-white/10 flex items-center justify-center
+                      text-textMuted hover:text-white hover:border-accentRed
+                      transition-colors"
+               title="LinkedIn Profile">
+
+                <i class="fa-brands fa-linkedin-in text-lg"></i>
+
             </a>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textMuted">
-                <button onclick="switchView('about')" class="hover:text-white transition-colors cursor-pointer">About Me</button>
-                <button onclick="switchView('experience')" class="hover:text-white transition-colors cursor-pointer">Experience</button>
-                <button onclick="switchView('services')" class="hover:text-white transition-colors cursor-pointer">Services</button>
-                <button onclick="switchView('skills')" class="hover:text-white transition-colors cursor-pointer">Skills & Tools</button>
-                <button onclick="switchView('contact')" class="hover:text-white transition-colors cursor-pointer">Contact</button>
-            </nav>
-            <div class="hidden sm:flex items-center space-x-4">
-                <!-- LinkedIn Icon in Header (Replace '#' with your actual LinkedIn link) -->
-                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-cardBg border border-white/10 flex items-center justify-center text-textMuted hover:text-white hover:border-accentRed transition-colors" title="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin-in text-lg"></i>
-                </a>
-                <button onclick="switchView('contact')" class="inline-flex items-center justify-center bg-accentRed hover:bg-accentRedHover text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-accentRed/30 cursor-pointer">
-                    Let's Talk <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </button>
-            </div>
+
+
+            <!-- Let's Talk -->
+            <button onclick="switchView('contact')"
+                    class="inline-flex items-center justify-center
+                           bg-accentRed hover:bg-accentRedHover
+                           text-white text-sm font-semibold
+                           px-5 py-3 rounded-full
+                           transition-all duration-300
+                           shadow-lg shadow-accentRed/30
+                           cursor-pointer whitespace-nowrap">
+
+                Let's Talk
+                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+            </button>
+
         </div>
-    </header>
+
+    </div>
+
+</header>
 
    <!-- Main Container Views -->
 <main class="pt-16 pb-20">
@@ -563,16 +637,7 @@
                     </div>
                 </div>
             </div>
-<!-- SAMPLE WORK LINK -->
-<div class="text-center mt-12">
-    <a href="https://www.youtube.com/@ATFAM_KS"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="inline-flex items-center space-x-3 bg-accentRed hover:bg-accentRed/80 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg">
-        <span>View My Sample Work</span>
-        <i class="fa-solid fa-arrow-right"></i>
-    </a>
-</div>
+
         </section>
 
         <!-- SKILLS VIEW -->
@@ -624,6 +689,665 @@
                 </div>
             </div>
         </section>
+
+<!-- =========================
+     MY WORK SECTION
+========================= -->
+<section id="view-my-work" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+
+        <!-- Header / Top Bar -->
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+
+            <!-- Back to Home -->
+            <button onclick="switchView('home')"
+                    class="inline-flex items-center space-x-2
+                           text-textMuted hover:text-white
+                           transition-colors cursor-pointer
+                           bg-cardBg/90 px-4 py-2 rounded-full
+                           border border-white/10 text-sm
+                           backdrop-blur-sm">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+
+            </button>
+
+            <!-- Platform Label -->
+            <span class="text-xs uppercase tracking-wider
+                         text-accentRed font-semibold">
+
+                Platform: My Work
+
+            </span>
+
+        </div>
+
+
+        <!-- MY WORK TITLE -->
+        <div class="text-center mb-14">
+
+            <h2 class="text-4xl md:text-5xl
+                       font-extrabold text-white mb-5">
+
+                My Work
+
+            </h2>
+
+            <p class="text-textMuted max-w-2xl mx-auto">
+
+                Explore my work, projects, designs, and
+                professional content across different platforms.
+
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PLATFORM CARDS
+        ========================= -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+
+            <!-- =========================
+                 LINKEDIN
+            ========================= -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-7 flex flex-col
+                        hover:border-accentRed/50
+                        transition-all duration-300">
+
+                <!-- Icon + Category -->
+                <div class="flex items-center justify-between mb-6">
+
+                    <div class="w-16 h-16 rounded-2xl
+                                bg-blue-500/10
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <i class="fa-brands fa-linkedin-in
+                                  text-3xl text-blue-500"></i>
+
+                    </div>
+
+                    <span class="text-xs uppercase
+                                 tracking-wider
+                                 text-textMuted font-semibold">
+
+                        Professional
+
+                    </span>
+
+                </div>
+
+
+                <!-- Title -->
+                <h3 class="text-2xl font-extrabold
+                           text-white mb-3">
+
+                    LinkedIn
+
+                </h3>
+
+
+                <!-- Description -->
+                <p class="text-textMuted leading-relaxed mb-8">
+
+                    Explore my professional profile,
+                    achievements, experiences, and
+                    career-related content.
+
+                </p>
+
+
+                <!-- Button -->
+                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="mt-auto w-full inline-flex
+                          items-center justify-center
+                          bg-accentRed
+                          hover:bg-accentRedHover
+                          text-white font-semibold
+                          px-6 py-3 rounded-full
+                          transition-all duration-300">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+
+                    View My Work
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CANVA
+            ========================= -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-7 flex flex-col
+                        hover:border-accentRed/50
+                        transition-all duration-300">
+
+                <!-- Icon + Category -->
+                <div class="flex items-center justify-between mb-6">
+
+                    <div class="w-16 h-16 rounded-2xl
+                                bg-white/5
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <span class="text-2xl font-extrabold
+                                     text-white">
+
+                            Ca
+
+                        </span>
+
+                    </div>
+
+                    <span class="text-xs uppercase
+                                 tracking-wider
+                                 text-textMuted font-semibold">
+
+                        Design
+
+                    </span>
+
+                </div>
+
+
+                <!-- Title -->
+                <h3 class="text-2xl font-extrabold
+                           text-white mb-3">
+
+                    Canva
+
+                </h3>
+
+
+                <!-- Description -->
+                <p class="text-textMuted leading-relaxed mb-8">
+
+                    Explore my graphic designs,
+                    presentations, social media graphics,
+                    short-form videos, and other creative work.
+
+                </p>
+
+
+                <!-- Button -->
+                <button onclick="switchView('canva')"
+                        class="mt-auto w-full inline-flex
+                               items-center justify-center
+                               bg-accentRed
+                               hover:bg-accentRedHover
+                               text-white font-semibold
+                               px-6 py-3 rounded-full
+                               transition-all duration-300">
+
+                    <i class="fa-solid fa-arrow-right mr-2"></i>
+
+                    View My Work
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 GITHUB
+            ========================= -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-7 flex flex-col
+                        hover:border-accentRed/50
+                        transition-all duration-300">
+
+                <!-- Icon + Category -->
+                <div class="flex items-center justify-between mb-6">
+
+                    <div class="w-16 h-16 rounded-2xl
+                                bg-white/5
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <i class="fa-brands fa-github
+                                  text-3xl text-white"></i>
+
+                    </div>
+
+                    <span class="text-xs uppercase
+                                 tracking-wider
+                                 text-textMuted font-semibold">
+
+                        Development
+
+                    </span>
+
+                </div>
+
+
+                <!-- Title -->
+                <h3 class="text-2xl font-extrabold
+                           text-white mb-3">
+
+                    GitHub
+
+                </h3>
+
+
+                <!-- Description -->
+                <p class="text-textMuted leading-relaxed mb-8">
+
+                    Explore my coding projects,
+                    repositories, and development work.
+
+                </p>
+
+
+                <!-- Button -->
+                <a href="https://github.com/leoatajar0221-cyber"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="mt-auto w-full inline-flex
+                          items-center justify-center
+                          bg-accentRed
+                          hover:bg-accentRedHover
+                          text-white font-semibold
+                          px-6 py-3 rounded-full
+                          transition-all duration-300">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+
+                    View My Work
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =========================
+                 YOUTUBE
+            ========================= -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-7 flex flex-col
+                        hover:border-accentRed/50
+                        transition-all duration-300">
+
+                <!-- Icon + Category -->
+                <div class="flex items-center justify-between mb-6">
+
+                    <div class="w-16 h-16 rounded-2xl
+                                bg-white/5
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <i class="fa-brands fa-youtube
+                                  text-3xl text-red-500"></i>
+
+                    </div>
+
+                    <span class="text-xs uppercase
+                                 tracking-wider
+                                 text-textMuted font-semibold">
+
+                        Video
+
+                    </span>
+
+                </div>
+
+
+                <!-- Title -->
+                <h3 class="text-2xl font-extrabold
+                           text-white mb-3">
+
+                    YouTube
+
+                </h3>
+
+
+                <!-- Description -->
+                <p class="text-textMuted leading-relaxed mb-8">
+
+                    Explore my videos, creative content,
+                    tutorials, and other media projects.
+
+                </p>
+
+
+                <!-- Button -->
+                <a href="https://www.youtube.com/@ATFAM_KS"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="mt-auto w-full inline-flex
+                          items-center justify-center
+                          bg-accentRed
+                          hover:bg-accentRedHover
+                          text-white font-semibold
+                          px-6 py-3 rounded-full
+                          transition-all duration-300">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+
+                    View My Work
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CANVA PORTFOLIO SECTION
+========================= -->
+<section id="view-canva" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+
+        <!-- Header / Top Bar -->
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+
+            <!-- Back to My Work -->
+            <button onclick="switchView('my-work')"
+                    class="inline-flex items-center space-x-2
+                           text-textMuted hover:text-white
+                           transition-colors cursor-pointer
+                           bg-cardBg/90 px-4 py-2 rounded-full
+                           border border-white/10 text-sm
+                           backdrop-blur-sm">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to My Work</span>
+
+            </button>
+
+            <!-- Platform Label -->
+            <span class="text-xs uppercase tracking-wider
+                         text-accentRed font-semibold">
+
+                Platform: Canva
+
+            </span>
+
+        </div>
+
+
+        <!-- Canva Title -->
+        <div class="text-center mb-12">
+
+            <h2 class="text-4xl md:text-5xl
+                       font-extrabold text-white mb-5">
+
+                Canva
+
+            </h2>
+
+            <p class="text-textMuted max-w-2xl mx-auto">
+
+                A selection of my graphic design and
+                short-form video work created using Canva.
+
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             GRAPHIC DESIGN
+        ========================= -->
+
+        <div class="max-w-5xl mx-auto mb-10">
+
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-6">
+
+                <img src="Graphic Sample.png"
+                     alt="Canva Graphic Design"
+                     class="w-full rounded-xl object-contain">
+
+                <h3 class="text-2xl font-bold
+                           text-white mt-6">
+
+                    Graphic Design
+
+                </h3>
+
+                <p class="text-textMuted mt-2">
+
+                    Creative graphic design project
+                    created using Canva.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SHORT VIDEOS
+        ========================= -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2
+                    gap-6 max-w-5xl mx-auto">
+
+
+            <!-- Video 1 -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-6">
+
+                <video controls
+                       class="w-full rounded-xl">
+
+                    <source src="Vid_Sample 1.mp4"
+                            type="video/mp4">
+
+                    Your browser does not support
+                    the video element.
+
+                </video>
+
+                <h3 class="text-xl font-bold
+                           text-white mt-5">
+
+                    Short Video Project 1
+
+                </h3>
+
+                <p class="text-textMuted mt-2">
+
+                    Short-form video created using Canva.
+
+                </p>
+
+            </div>
+
+
+            <!-- Video 2 -->
+            <div class="bg-cardBg border border-white/10
+                        rounded-2xl p-6">
+
+                <video controls
+                       class="w-full rounded-xl">
+
+                    <source src="Vid_Sample 2.mp4"
+                            type="video/mp4">
+
+                    Your browser does not support
+                    the video element.
+
+                </video>
+
+                <h3 class="text-xl font-bold
+                           text-white mt-5">
+
+                    Short Video Project 2
+
+                </h3>
+
+                <p class="text-textMuted mt-2">
+
+                    Short-form video created using Canva.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Certificates View -->
+<section id="view-certificates" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
+
+        <!-- Top Bar -->
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+
+            <button onclick="switchView('home')"
+                    class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </button>
+
+            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                Platform: Certificates
+            </span>
+
+        </div>
+
+
+        <!-- Page Header -->
+        <div class="text-center mb-14">
+
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+                Certificates
+            </h2>
+
+            <p class="text-textMuted max-w-2xl mx-auto">
+                Professional certifications and achievements that demonstrate my skills and expertise.
+            </p>
+
+        </div>
+
+
+        <!-- Certificate Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+            <!-- Certificate 1 -->
+            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
+
+                <div class="bg-black/30 p-5">
+                    <img src="Certificate-1.jpg"
+                         alt="Certificate-1"
+                         class="w-full h-64 object-contain">
+                </div>
+
+                <div class="p-6">
+
+                    <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
+    STI College Diploma
+</h3>
+
+                    <a href="Certificate-1.jpg"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
+
+                        <i class="fa-solid fa-eye mr-2"></i>
+                        View Certificate
+
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- Certificate 2 -->
+            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
+
+                <div class="bg-black/30 p-5">
+                    <img src="Certificate-2.png"
+                         alt="Certificate-2"
+                         class="w-full h-64 object-contain">
+                </div>
+
+                <div class="p-6">
+
+                   <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
+    Virtual Assistant Training Certificate
+</h3>
+
+                    
+                    <a href="Certificate-2.png"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
+
+                        <i class="fa-solid fa-eye mr-2"></i>
+                       
+			 View Certificate
+
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- Certificate 3 -->
+            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
+
+                <div class="bg-black/30 p-5">
+                    <img src="Certificate-3.png"
+                         alt="Certificate-3"
+                         class="w-full h-64 object-contain">
+                </div>
+
+                <div class="p-6">
+
+                    <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
+    Communication Training Certificate
+</h3>
+
+
+                    <a href="Certificate-3.png"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
+
+                        <i class="fa-solid fa-eye mr-2"></i>
+                        View Certificate
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</section>
 
         <!-- CONTACT VIEW -->
        <section id="view-contact" class="view-section">
