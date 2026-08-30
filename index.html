@@ -363,9 +363,10 @@
                             <button onclick="switchView('contact')" class="bg-accentRed hover:bg-accentRedHover text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-xl shadow-accentRed/30 flex items-center cursor-pointer">
                                 Hire Me <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
                             </button>
-                            <button onclick="switchView('experience')" class="bg-cardBg/80 hover:bg-cardBg border border-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm cursor-pointer">
-                                View Career History
-                            </button>
+                            <button onclick="switchView('blog')" 
+    class="bg-cardBg/80 hover:bg-cardBg border border-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm cursor-pointer">
+    View Blog
+</button>
                         </div>
                     </div>
 
@@ -413,7 +414,7 @@
                         <h3 class="text-xl font-bold mb-2">Skills & Tools</h3>
                         <p class="text-textMuted text-xs">Software and core competencies mastered.</p>
                     </button>
-					<!-- Certificates -->
+		    <!-- Certificates -->
 <button onclick="switchView('certificates')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
     <i class="fa-solid fa-certificate text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
     <h3 class="text-xl font-bold mb-2">Certificates</h3>
@@ -439,8 +440,6 @@
         Get in touch and let's work together.
     </p>
 </button>
-
-					
                 </div>
             </div>
         </section>
@@ -598,6 +597,165 @@
                 </div>
             </div>
         </section>
+
+		<!-- Blog View -->
+<section id="view-blog" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-16">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
+
+            <button onclick="switchView('home')"
+                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+
+            </button>
+
+            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                Platform: Blog
+            </span>
+
+        </div>
+
+
+        <!-- Blog Title -->
+        <div class="text-center mb-12">
+
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                My Blog
+            </h2>
+
+            <p class="text-textMuted max-w-2xl mx-auto">
+                Insights, tips, and practical ideas about virtual assistance,
+                productivity, AI tools, and digital work.
+            </p>
+
+        </div>
+
+
+        <!-- Blog Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+
+
+            <!-- Blog 1 -->
+            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
+                            hover:border-accentRed/50 transition-all duration-300
+                            flex flex-col h-full">
+
+                <div class="mb-5">
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                        AI & Productivity
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    How AI Can Improve Your Daily Workflow
+                </h3>
+
+                <p class="text-textMuted leading-relaxed">
+                    Discover practical ways AI tools can help virtual assistants
+                    save time, organize tasks, and improve productivity.
+                </p>
+
+                <!-- Read More -->
+                <div class="mt-auto pt-8">
+
+                    <button onclick="switchView('blog-1')"
+                        class="inline-flex items-center text-accentRed hover:text-white
+                               font-semibold transition-colors cursor-pointer">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Blog 2 -->
+            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
+                            hover:border-accentRed/50 transition-all duration-300
+                            flex flex-col h-full">
+
+                <div class="mb-5">
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                        Virtual Assistance
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    Why Virtual Assistants Are Important for Businesses
+                </h3>
+
+                <p class="text-textMuted leading-relaxed">
+                    Learn how virtual assistants can help businesses improve
+                    organization, efficiency, and day-to-day operations.
+                </p>
+
+                <!-- Read More -->
+                <div class="mt-auto pt-8">
+
+                    <button onclick="switchView('blog-2')"
+                        class="inline-flex items-center text-accentRed hover:text-white
+                               font-semibold transition-colors cursor-pointer">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Blog 3 -->
+            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
+                            hover:border-accentRed/50 transition-all duration-300
+                            flex flex-col h-full">
+
+                <div class="mb-5">
+                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                        Productivity
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    Simple Ways to Stay Organized While Working Remotely
+                </h3>
+
+                <p class="text-textMuted leading-relaxed">
+                    Practical strategies for managing tasks, communication,
+                    files, and deadlines while working remotely.
+                </p>
+
+                <!-- Read More -->
+                <div class="mt-auto pt-8">
+
+                    <button onclick="switchView('blog-3')"
+                        class="inline-flex items-center text-accentRed hover:text-white
+                               font-semibold transition-colors cursor-pointer">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
 
         <!-- SERVICES VIEW -->
         <section id="view-services" class="view-section">
@@ -1235,6 +1393,645 @@
 
 
         </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FULL BLOG ARTICLE 1
+========================================================= -->
+<!-- Blog 1 - AI & Productivity -->
+<section id="view-blog-1" class="view-section">
+
+    <div class="max-w-5xl mx-auto px-6 pt-2 pb-16">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-10 border-b border-white/10 pb-6">
+
+            <button onclick="switchView('blog')"
+                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Blog</span>
+
+            </button>
+
+            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                AI & Productivity
+            </span>
+
+        </div>
+
+
+        <!-- Article -->
+        <article class="bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
+
+            <!-- Category -->
+            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                AI & Productivity
+            </span>
+
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
+                How AI Can Improve Your Daily Workflow
+            </h1>
+
+
+            <!-- Introduction -->
+            <p class="text-xl text-textMuted leading-relaxed mb-10">
+                Artificial intelligence is becoming an increasingly useful tool for
+                virtual assistants, professionals, and business owners. When used
+                properly, AI can help reduce repetitive work, organize information,
+                and make everyday tasks more efficient.
+            </p>
+
+
+            <!-- Article Content -->
+
+            <div class="space-y-8 text-textMuted leading-relaxed">
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        AI as a Productivity Tool
+                    </h2>
+
+                    <p>
+                        AI does not have to replace the work of a professional.
+                        Instead, it can be used as a productivity assistant that
+                        helps with repetitive and time-consuming tasks.
+                    </p>
+
+                    <p class="mt-4">
+                        For Virtual Assistants, this can mean spending less time
+                        performing routine work and more time focusing on tasks
+                        that require communication, organization, creativity,
+                        and decision-making.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        1. Save Time on Repetitive Tasks
+                    </h2>
+
+                    <p>
+                        Many daily business activities involve repetitive work.
+                        AI tools can help create drafts, summarize information,
+                        organize notes, generate ideas, and assist with routine
+                        documentation.
+                    </p>
+
+                    <p class="mt-4">
+                        By reducing the amount of time spent on repetitive tasks,
+                        professionals can focus their attention on higher-value
+                        responsibilities.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        2. Improve Task Organization
+                    </h2>
+
+                    <p>
+                        Staying organized is an important part of working
+                        efficiently. AI can assist with turning information into
+                        structured task lists, priorities, summaries, and
+                        actionable steps.
+                    </p>
+
+                    <p class="mt-4">
+                        This can be especially useful when managing multiple
+                        projects, clients, deadlines, and administrative
+                        responsibilities at the same time.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        3. Improve Writing and Communication
+                    </h2>
+
+                    <p>
+                        Communication is an important part of virtual assistance
+                        and remote business operations. AI can help professionals
+                        create first drafts of emails, reports, announcements,
+                        social media content, and other business materials.
+                    </p>
+
+                    <p class="mt-4">
+                        However, AI-generated content should always be reviewed
+                        and edited by a person to make sure it is accurate,
+                        professional, and appropriate for the intended audience.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        4. Support Research and Information Gathering
+                    </h2>
+
+                    <p>
+                        Research can take a significant amount of time. AI tools
+                        can help organize information, summarize documents,
+                        generate research questions, and provide starting points
+                        for further investigation.
+                    </p>
+
+                    <p class="mt-4">
+                        AI should be treated as an assistant rather than the final
+                        source of truth. Important information should always be
+                        checked against reliable sources.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        5. Generate Ideas and Improve Creativity
+                    </h2>
+
+                    <p>
+                        AI can also be useful when you need ideas. Virtual
+                        Assistants may use AI to brainstorm social media topics,
+                        content ideas, presentation concepts, workflows, or
+                        solutions to everyday business challenges.
+                    </p>
+
+                    <p class="mt-4">
+                        The best results usually come from combining AI-generated
+                        ideas with human experience, creativity, and judgment.
+                    </p>
+                </div>
+
+
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        Using AI Responsibly
+                    </h2>
+
+                    <p>
+                        Using AI effectively also means understanding its
+                        limitations. AI-generated information can sometimes be
+                        inaccurate, incomplete, or unsuitable for a specific
+                        situation.
+                    </p>
+
+                    <p class="mt-4">
+                        Professionals should review AI-generated work before
+                        delivering it to clients or using it for important
+                        business decisions. Confidential and sensitive
+                        information should also be handled carefully.
+                    </p>
+                </div>
+
+
+                <!-- Conclusion -->
+                <div class="border-t border-white/10 pt-8">
+
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                        Final Thoughts
+                    </h2>
+
+                    <p>
+                        AI can be a powerful addition to a Virtual Assistant's
+                        workflow. From organizing tasks and improving communication
+                        to supporting research and generating ideas, it can help
+                        professionals work more efficiently.
+                    </p>
+
+                    <p class="mt-4">
+                        The goal is not simply to use more AI tools. The goal is
+                        to use the right tools in the right situations while
+                        maintaining human judgment, accuracy, and professionalism.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Back Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-white/10">
+
+                <button onclick="switchView('blog')"
+                    class="inline-flex items-center justify-center space-x-2 bg-accentRed hover:bg-accentRedHover text-white font-semibold px-6 py-3 rounded-full transition-all cursor-pointer">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Blog</span>
+
+                </button>
+
+                <button onclick="switchView('home')"
+                    class="inline-flex items-center justify-center space-x-2 bg-cardBg hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full border border-white/10 transition-all cursor-pointer">
+
+                    <i class="fa-solid fa-house"></i>
+                    <span>Back to Home</span>
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FULL BLOG ARTICLE 2
+========================================================= -->
+<!-- Blog 2 -->
+<section id="view-blog-2" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-16">
+
+        <!-- Article Container -->
+        <article class="max-w-5xl mx-auto bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
+
+            <!-- Category -->
+            <div class="mb-5">
+                <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                    Virtual Assistance
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+                Why Virtual Assistants Are Important for Businesses
+            </h1>
+
+            <!-- Introduction -->
+            <p class="text-textMuted text-lg leading-relaxed mb-10">
+                Discover how Virtual Assistants can help businesses save time,
+                improve organization, reduce workload, and focus more effectively
+                on growth and important business priorities.
+            </p>
+
+
+            <!-- Section 1 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                The Growing Need for Virtual Assistance
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Businesses today manage more tasks than ever before. From
+                responding to emails and organizing schedules to preparing
+                documents, managing information, communicating with clients,
+                and maintaining online operations, everyday responsibilities
+                can quickly become overwhelming.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                This is where Virtual Assistants can provide valuable support.
+                A Virtual Assistant, or VA, works remotely and helps businesses
+                handle specific administrative, operational, creative, or
+                digital tasks according to their needs.
+            </p>
+
+
+            <!-- Section 2 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                How Virtual Assistants Help Businesses
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                One of the biggest advantages of working with a Virtual Assistant
+                is the ability to delegate routine and time-consuming tasks.
+                Instead of handling every responsibility personally, business
+                owners and teams can assign appropriate tasks to a skilled
+                professional.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-4">
+                Depending on their skills, a Virtual Assistant may assist with:
+            </p>
+
+            <ul class="text-textMuted leading-relaxed mb-8 space-y-3 pl-6 list-disc">
+                <li>Email and calendar management</li>
+                <li>Data entry and document organization</li>
+                <li>Internet research and information gathering</li>
+                <li>Social media and content support</li>
+                <li>Customer and client communication</li>
+                <li>Administrative and operational tasks</li>
+                <li>File management and digital organization</li>
+            </ul>
+
+
+            <!-- Section 3 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Saving Time and Improving Productivity
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Time is one of the most valuable resources in any business.
+                When business owners spend too much time on repetitive
+                administrative work, they have less time available for strategy,
+                decision-making, customer relationships, and business development.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                Delegating appropriate tasks to a Virtual Assistant can create
+                more time for high-value responsibilities. The goal is not simply
+                to have someone complete tasks, but to create a more efficient
+                workflow where everyone can focus on the work that matters most.
+            </p>
+
+
+            <!-- Section 4 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Flexible Support for Different Business Needs
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Another advantage of Virtual Assistance is flexibility. Businesses
+                may not always need a full-time employee for every task. A
+                Virtual Assistant can provide support based on the workload,
+                project requirements, or specific business needs.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                This can be particularly useful for small businesses,
+                entrepreneurs, startups, and growing teams that need additional
+                support without creating unnecessary complexity in their
+                operations.
+            </p>
+
+
+            <!-- Section 5 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Better Organization and Business Operations
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Organization plays an important role in maintaining a productive
+                business. Disorganized files, missed emails, unclear schedules,
+                and delayed administrative tasks can affect the overall workflow.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                A reliable Virtual Assistant can help maintain organized systems,
+                keep information updated, monitor routine tasks, and support
+                consistent day-to-day operations.
+            </p>
+
+
+            <!-- Final Thoughts -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Final Thoughts
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Virtual Assistants can become a valuable part of a modern
+                business by helping manage responsibilities that would otherwise
+                consume significant time and attention.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-10">
+                The real value of Virtual Assistance is not simply completing
+                more tasks. It is about creating better workflows, improving
+                organization, saving time, and giving business owners and teams
+                more opportunity to focus on growth and important priorities.
+            </p>
+
+
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-8">
+
+                <div class="flex flex-wrap items-center gap-4">
+
+                    <button onclick="switchView('blog')"
+                        class="inline-flex items-center bg-accentRed hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        Back to Blog
+
+                    </button>
+
+                    <button onclick="switchView('home')"
+                        class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+                        <i class="fa-solid fa-house mr-2"></i>
+                        Back to Home
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FULL BLOG ARTICLE 3
+========================================================= -->
+<!-- Blog 3 -->
+<section id="view-blog-3" class="view-section">
+
+    <div class="max-w-7xl mx-auto px-6 pt-2 pb-16">
+
+        <!-- Article Container -->
+        <article class="max-w-5xl mx-auto bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
+
+            <!-- Category -->
+            <div class="mb-5">
+                <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                    Productivity
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
+                Simple Ways to Stay Organized While Working Remotely
+            </h1>
+
+            <!-- Introduction -->
+            <p class="text-textMuted text-lg leading-relaxed mb-10">
+                Working remotely offers flexibility, but staying organized is
+                essential for maintaining productivity. Here are practical ways
+                to manage tasks, communication, files, and deadlines while
+                working from anywhere.
+            </p>
+
+
+            <!-- Section 1 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Why Organization Matters When Working Remotely
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Remote work gives professionals greater flexibility, but it can
+                also create challenges when there is no traditional office
+                environment. Without a clear system, tasks can easily be
+                forgotten, deadlines can be missed, and important information
+                can become difficult to find.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                Having a simple and consistent organization system makes it
+                easier to know what needs to be done, when it needs to be done,
+                and where important information is located.
+            </p>
+
+
+            <!-- Section 2 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Start With a Clear Task List
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                One of the simplest ways to stay organized is to maintain a
+                clear task list. Instead of trying to remember every
+                responsibility, write tasks down and prioritize them.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-4">
+                A useful task list can include:
+            </p>
+
+            <ul class="text-textMuted leading-relaxed mb-8 space-y-3 pl-6 list-disc">
+                <li>Important tasks that need immediate attention</li>
+                <li>Tasks that can be completed later</li>
+                <li>Upcoming deadlines</li>
+                <li>Recurring responsibilities</li>
+                <li>Follow-up tasks and reminders</li>
+            </ul>
+
+
+            <!-- Section 3 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Organize Your Digital Files
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Digital files can quickly become difficult to manage when
+                working remotely. Documents, images, spreadsheets, presentations,
+                and other files should have a clear and consistent structure.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                Creating folders based on clients, projects, departments, or
+                categories can make information easier to locate. Using
+                consistent file names can also reduce confusion and save time
+                when searching for documents.
+            </p>
+
+
+            <!-- Section 4 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Keep Communication Organized
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Remote professionals often communicate through email,
+                messaging platforms, video meetings, and project management
+                tools. Without organization, important messages can easily get
+                lost.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                Make it a habit to review messages regularly, respond to
+                important requests, and keep track of follow-up items. Clear
+                communication helps prevent misunderstandings and keeps
+                projects moving forward.
+            </p>
+
+
+            <!-- Section 5 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Set Priorities and Manage Deadlines
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Not every task has the same level of importance. Organizing
+                work according to priority can help prevent important deadlines
+                from being overlooked.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                A simple approach is to identify urgent tasks, important tasks,
+                and tasks that can be scheduled for later. Combining this with
+                calendar reminders can provide a clear picture of upcoming
+                responsibilities.
+            </p>
+
+
+            <!-- Section 6 -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Create a Consistent Work Routine
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                A consistent routine can make remote work more manageable.
+                Setting specific working hours, planning the day ahead, and
+                taking regular breaks can help maintain focus and productivity.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-8">
+                The exact routine will depend on the person and the type of
+                work, but having a predictable structure can make it easier to
+                stay focused and avoid unnecessary distractions.
+            </p>
+
+
+            <!-- Final Thoughts -->
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Final Thoughts
+            </h2>
+
+            <p class="text-textMuted leading-relaxed mb-6">
+                Staying organized while working remotely does not require a
+                complicated system. Simple habits such as maintaining a task
+                list, organizing digital files, managing communication, and
+                tracking deadlines can make a significant difference.
+            </p>
+
+            <p class="text-textMuted leading-relaxed mb-10">
+                The goal is to create a workflow that is easy to maintain and
+                allows you to work efficiently. With the right organization
+                habits, remote professionals can stay productive while
+                maintaining flexibility in their work environment.
+            </p>
+
+
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-8">
+
+                <div class="flex flex-wrap items-center gap-4">
+
+                    <button onclick="switchView('blog')"
+                        class="inline-flex items-center bg-accentRed hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        Back to Blog
+
+                    </button>
+
+                    <button onclick="switchView('home')"
+                        class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+                        <i class="fa-solid fa-house mr-2"></i>
+                        Back to Home
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
 
     </div>
 
