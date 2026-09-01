@@ -36,6 +36,7 @@
         overflow-x: hidden;
     }
 
+
     /* ============================= */
     /* FULL-SCREEN BACKGROUND VIDEO  */
     /* ============================= */
@@ -284,11 +285,6 @@
                 Skills & Tools
             </button>
 
-            <button onclick="switchView('my-work')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                My Work
-            </button>
-
             <button onclick="switchView('certificates')"
                     class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
                 Certificates
@@ -342,7 +338,7 @@
 </header>
 
    <!-- Main Container Views -->
-<main class="pt-16 pb-20">
+<main class="flex-1 pt-16 pb-20">
 
     <!-- HOME VIEW -->
     <section id="view-home" class="view-section active">
@@ -415,22 +411,20 @@
                         <p class="text-textMuted text-xs">Software and core competencies mastered.</p>
                     </button>
 		    <!-- Certificates -->
-<button onclick="switchView('certificates')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-    <i class="fa-solid fa-certificate text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-    <h3 class="text-xl font-bold mb-2">Certificates</h3>
-    <p class="text-textMuted text-xs">
-        Professional certifications and achievements.
-    </p>
-</button>
+			<button onclick="switchView('certificates')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+   			 <i class="fa-solid fa-certificate text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+   			 <h3 class="text-xl font-bold mb-2">Certificates</h3>
+   			 <p class="text-textMuted text-xs">
+       			 Professional certifications and achievements.</p>
+		    </button>
 
-<!-- My Work -->
-<button onclick="switchView('my-work')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-    <i class="fa-solid fa-folder-open text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-    <h3 class="text-xl font-bold mb-2">My Work</h3>
-    <p class="text-textMuted text-xs">
-        Explore my projects, designs, and professional work.
-    </p>
-</button>
+		    <!-- My Work -->
+			<button onclick="switchView('my-work')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
+  			<i class="fa-solid fa-folder-open text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
+   			<h3 class="text-xl font-bold mb-2">My Work</h3>
+   			<p class="text-textMuted text-xs">
+        		Explore my projects, designs, and professional work.</p>
+		    </button>
 
 <!-- Contact -->
 <button onclick="switchView('contact')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
@@ -446,6 +440,7 @@
 
        <!-- ABOUT ME VIEW -->
 <section id="view-about" class="view-section">
+
     <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
         <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
             <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
@@ -455,39 +450,64 @@
             <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: About Me</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-5">
-                <div class="relative aspect-square rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 backdrop-blur-md p-2">
-                    <img src="profile.jpg" alt="Your Picture" class="w-full h-full object-cover rounded-2xl">
-                </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+    <!-- PROFILE IMAGE -->
+    <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 p-2">
+            <img 
+                src="profile.jpg" 
+                alt="Your Picture"
+                class="w-full h-full object-contain rounded-2xl"
+            >
+        </div>
+    </div>
+
+    <!-- ABOUT ME TEXT -->
+    <div class="lg:col-span-7">
+        
+        <h2 class="text-4xl font-bold mb-6">
+            About Me
+        </h2>
+
+        <p class="text-gray-300 leading-relaxed mb-6">
+            Detail-oriented professional with over 5 years of cumulative
+            experience in operations and administration, recently trained
+            as a Virtual Assistant through The VA Bar.
+        </p>
+
+        <p class="text-gray-300 leading-relaxed mb-8">
+            My background spans general management, admin supervision,
+            quality assurance, workflow optimization, and leveraging
+            cutting-edge AI technologies (like Gemini & ChatGPT) across
+            reputable private companies. I bring enterprise-grade work
+            ethic and modern tech capabilities straight to your remote
+            business setup.
+        </p>
+
+        <!-- STATS -->
+        <div class="grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
+
+            <div>
+                <div class="text-4xl font-bold text-red-500">5+</div>
+                <div class="text-sm text-gray-400">Years Experience</div>
             </div>
 
-            <div class="lg:col-span-7 space-y-6">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">About Me</h2>
-                <p class="text-textMuted text-base sm:text-lg leading-relaxed">
-                    Detail-oriented professional with over 5 years of cumulative experience in operations and administration, recently trained as a Virtual Assistant through The VA Bar. 
-                </p>
-                <p class="text-textMuted text-base sm:text-lg leading-relaxed">
-                    My background spans general management, admin supervision, quality assurance, workflow optimization, and leveraging cutting-edge AI technologies (like Gemini & ChatGPT) across reputable private companies. I bring enterprise-grade work ethic and modern tech capabilities straight to your remote business setup.
-                </p>
-                
-                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
-                    <div>
-                        <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">5+</h4>
-                        <p class="text-textMuted text-xs sm:text-sm mt-1">Years Experience</p>
-                    </div>
-                    <div>
-                        <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">IT</h4>
-                        <p class="text-textMuted text-xs sm:text-sm mt-1">College Graduate</p>
-                    </div>
-                    <div>
-                        <h4 class="text-3xl sm:text-4xl font-extrabold text-accentRed">100%</h4>
-                        <p class="text-textMuted text-xs sm:text-sm mt-1">Professional Dedication</p>
-                    </div>
-                </div>
+            <div>
+                <div class="text-4xl font-bold text-red-500">IT</div>
+                <div class="text-sm text-gray-400">College Graduate</div>
             </div>
 
+            <div>
+                <div class="text-4xl font-bold text-red-500">100%</div>
+                <div class="text-sm text-gray-400">Professional Dedication</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
         </div> </div>
 </section>
 
@@ -594,6 +614,24 @@
                             <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Conducted high-accuracy data entry tasks, updating warehouse stock databases.</li>
                         </ul>
                     </div>
+
+<!-- Divider -->
+<div class="border-t border-white/10 pt-8">
+
+    <div class="flex items-center justify-start">
+
+        <button onclick="switchView('home')"
+            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+            <i class="fa-solid fa-house mr-2"></i>
+            Back to Home
+
+        </button>
+
+    </div>
+
+</div>
+
                 </div>
             </div>
         </section>
@@ -821,13 +859,31 @@
                         <h3 class="text-xl font-bold mb-3">Tech & Troubleshooting</h3>
                         <p class="text-textMuted text-sm leading-relaxed">Computer troubleshooting, workflow automation with Zapier, and website building via Wix Studio.</p>
                     </div>
-                </div>
+     <!-- Divider -->
+<div class="border-t border-white/10 pt-8">
+
+    <div class="flex items-center justify-start">
+
+        <button onclick="switchView('home')"
+            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+            <i class="fa-solid fa-house mr-2"></i>
+            Back to Home
+
+        </button>
+
+    </div>
+
+</div>           
+
+</div>
             </div>
 
         </section>
 
         <!-- SKILLS VIEW -->
         <section id="view-skills" class="view-section">
+
     <div class="max-w-7xl mx-auto px-6 pt-2 pb-12">
         <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
             <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
@@ -872,8 +928,28 @@
 			<span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Github</span>
                         </div>
                     </div>
-                </div>
-            </div>
+               
+
+ </div>
+<!-- Divider --> 
+<div class="border-t border-white/10 pt-8"> 
+
+    <div class="flex items-center justify-center"> 
+
+        <button onclick="switchView('my-work')" 
+            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer"> 
+
+            <i class="fa-solid fa-folder-open mr-2"></i> 
+            View My Work 
+
+        </button> 
+
+    </div> 
+
+</div>
+
+
+  </div>
         </section>
 
 <!-- =========================
@@ -1227,6 +1303,22 @@
                 </a>
 
             </div>
+<!-- Divider -->
+<div class="border-t border-white/10 pt-8">
+
+    <div class="flex items-center justify-start">
+
+        <button onclick="switchView('home')"
+            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+            <i class="fa-solid fa-house mr-2"></i>
+            Back to Home
+
+        </button>
+
+    </div>
+
+</div>
 
 
         </div>
@@ -2165,7 +2257,7 @@
                 </div>
             </div>
 
-			<!-- Certificate 4 -->
+<!-- Certificate 4 -->
 <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
 
     <div class="bg-black/30 p-5">
@@ -2191,13 +2283,35 @@
         </a>
 
     </div>
+
+
+
 </div>
 
         </div>
 
+<!-- Divider -->
+<div class="border-t border-white/10 pt-8">
+
+    <div class="flex items-center justify-start">
+
+        <button onclick="switchView('home')"
+            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+
+            <i class="fa-solid fa-house mr-2"></i>
+            Back to Home
+
+        </button>
+
     </div>
 
+</div>
+
+    </div>
+
+
 </section>
+
 
 
 </section>
@@ -2320,7 +2434,27 @@
 
 </form>
 </div>
+
+
+
                 </div>
+<div class="w-full text-center mt-10 px-6">
+
+    <h3 class="text-xl font-bold text-white mb-2">
+        Your goals.
+        <span class="text-red-500">My support. Better results.</span>
+    </h3>
+
+    <p class="text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto">
+        From day-to-day administration to workflow optimization,
+        I’m here to help you stay organized, productive, and focused
+        on what matters most. Let’s connect and discuss how I can
+        contribute to your business.
+    </p>
+
+</div>
+
+
             </div>
         </section>
 
