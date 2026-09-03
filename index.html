@@ -22,8 +22,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    ```html
-
+    
 <!-- ============================= -->
 <!-- FUTURISTIC VIDEO BACKGROUND  -->
 <!-- ============================= -->
@@ -237,7 +236,6 @@
     <div class="red-orb orb-3"></div>
 
 </div>
-```
 
     <!-- Header / Navbar -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
@@ -367,7 +365,7 @@
                     </div>
 
 <!-- PROFILE VIDEO - CIRCULAR -->
-<div class="lg:col-span-5 flex flex-col justify-center items-center">
+<div class="lg:col-span-5 flex flex-col justify-center items-center lg:translate-y-8">
 
     <!-- CIRCLE VIDEO -->
     <div class="
@@ -2630,6 +2628,505 @@ audio.addEventListener("ended", () => {
         }
         animate();
     </script>
+
+<!-- ============================= -->
+<!-- LEO AI PORTFOLIO ASSISTANT -->
+<!-- ============================= -->
+
+<div id="ai-assistant">
+
+    <!-- Floating Robot Button -->
+    <button id="robot-button" aria-label="Open AI Assistant">
+        🤖
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chat-window">
+
+        <!-- Header -->
+        <div class="chat-header">
+            <div>
+                <strong>Leo's AI Assistant</strong>
+                <span>Online • Portfolio Guide</span>
+            </div>
+
+            <button id="close-chat" aria-label="Close">
+                ×
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div id="chat-messages">
+
+            <div class="bot-message">
+                Hi! 👋 I'm Leo's AI assistant.
+                <br><br>
+                Welcome to his portfolio. I can tell you about his
+                experience, services, skills, projects, and more.
+            </div>
+
+        </div>
+
+        <!-- Quick Questions -->
+        <div class="quick-buttons">
+
+            <button onclick="askAssistant('Who is Leo?')">
+                👤 Who is Leo?
+            </button>
+
+            <button onclick="askAssistant('What services does Leo offer?')">
+                💼 Services
+            </button>
+
+            <button onclick="askAssistant('What skills does Leo have?')">
+                ⚡ Skills
+            </button>
+
+            <button onclick="askAssistant('How can I contact Leo?')">
+                📩 Contact
+            </button>
+
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Ask me something..."
+                autocomplete="off"
+            >
+
+            <button id="send-button">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+/* ============================= */
+/* AI ASSISTANT CONTAINER */
+/* ============================= */
+
+#ai-assistant {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+
+/* ============================= */
+/* FLOATING ROBOT BUTTON */
+/* ============================= */
+
+#robot-button {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 0, 0.5);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 0, 0, 0.25),
+            rgba(10, 0, 0, 0.95)
+        );
+
+    color: white;
+    font-size: 30px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.4),
+        0 0 35px rgba(255, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+#robot-button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 0, 0.7),
+        0 0 45px rgba(255, 0, 0, 0.3);
+}
+
+
+/* ============================= */
+/* CHAT WINDOW */
+/* ============================= */
+
+#chat-window {
+    position: absolute;
+
+    right: 0;
+    bottom: 80px;
+
+    width: 360px;
+    max-width: calc(100vw - 30px);
+
+    height: 520px;
+
+    display: none;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 0, 0, 0.98),
+            rgba(5, 5, 10, 0.98)
+        );
+
+    border: 1px solid rgba(255, 0, 0, 0.25);
+
+    box-shadow:
+        0 0 40px rgba(255, 0, 0, 0.15),
+        0 20px 60px rgba(0, 0, 0, 0.5);
+
+    backdrop-filter: blur(20px);
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.chat-header strong {
+    display: block;
+
+    color: white;
+    font-size: 15px;
+}
+
+.chat-header span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #888;
+    font-size: 11px;
+}
+
+#close-chat {
+    border: none;
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+#close-chat:hover {
+    color: white;
+}
+
+
+/* ============================= */
+/* CHAT MESSAGES */
+/* ============================= */
+
+#chat-messages {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 18px;
+}
+
+
+/* Bot */
+
+.bot-message {
+    width: fit-content;
+    max-width: 85%;
+
+    margin-bottom: 12px;
+
+    padding: 12px 15px;
+
+    border-radius: 15px 15px 15px 4px;
+
+    background: rgba(255, 0, 0, 0.08);
+
+    border: 1px solid rgba(255, 0, 0, 0.12);
+
+    color: #eee;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* User */
+
+.user-message {
+    width: fit-content;
+    max-width: 85%;
+
+    margin-left: auto;
+    margin-bottom: 12px;
+
+    padding: 12px 15px;
+
+    border-radius: 15px 15px 4px 15px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ============================= */
+/* QUICK BUTTONS */
+/* ============================= */
+
+.quick-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    padding: 10px 15px;
+}
+
+.quick-buttons button {
+    padding: 8px 6px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.04);
+
+    color: #ccc;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.quick-buttons button:hover {
+    background: rgba(255,0,0,0.12);
+
+    border-color: rgba(255,0,0,0.25);
+
+    color: white;
+}
+
+
+/* ============================= */
+/* INPUT */
+/* ============================= */
+
+.chat-input {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px 15px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+#user-input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 13px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    outline: none;
+
+    background: rgba(255,255,255,0.05);
+
+    color: white;
+
+    font-size: 13px;
+}
+
+#user-input::placeholder {
+    color: #777;
+}
+
+#send-button {
+    width: 42px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #b00000;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#send-button:hover {
+    background: #e00000;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 500px) {
+
+    #ai-assistant {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    #chat-window {
+        right: 0;
+        bottom: 75px;
+
+        width: calc(100vw - 30px);
+
+        height: 70vh;
+    }
+
+}
+
+</style>
+
+
+
+
+<!-- ============================= -->
+<!-- AI ASSISTANT JAVASCRIPT       -->
+<!-- ============================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const robotButton = document.getElementById("robot-button");
+    const chatWindow = document.getElementById("chat-window");
+    const closeChat = document.getElementById("close-chat");
+    const sendButton = document.getElementById("send-button");
+    const userInput = document.getElementById("user-input");
+    const chatMessages = document.getElementById("chat-messages");
+
+    if (!robotButton || !chatWindow || !closeChat || !sendButton || !userInput || !chatMessages) {
+        console.error("AI Assistant: required element is missing.");
+        return;
+    }
+
+    robotButton.addEventListener("click", function () {
+        chatWindow.style.display = "flex";
+        robotButton.style.display = "none";
+        userInput.focus();
+    });
+
+    closeChat.addEventListener("click", function () {
+        chatWindow.style.display = "none";
+        robotButton.style.display = "block";
+    });
+
+    sendButton.addEventListener("click", sendMessage);
+
+    userInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    // Used by the quick-question buttons in the HTML.
+    window.askAssistant = async function (question) {
+        addMessage(question, "user");
+        await askAI(question);
+    };
+
+    async function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMessage(message, "user");
+        userInput.value = "";
+        await askAI(message);
+    }
+
+    async function askAI(message) {
+        const loadingMessage = document.createElement("div");
+        loadingMessage.className = "bot-message";
+        loadingMessage.textContent = "Thinking...";
+        chatMessages.appendChild(loadingMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // HTML-only local test mode. No /api/chat is needed yet.
+        await new Promise(resolve => setTimeout(resolve, 450));
+
+        const q = message.toLowerCase();
+        let reply;
+
+        if (q.includes("who") || q.includes("about") || q.includes("leonard")) {
+            reply = "Leonard P. Atajar is a General Virtual Assistant with over 5 years of operations and administrative experience, including corporate operations, administration, and team management.";
+        } else if (q.includes("service") || q.includes("offer")) {
+            reply = "Leonard offers Virtual Assistant support focused on operations, administration, organization, and digital support. Please explore the Services section for the full details.";
+        } else if (q.includes("skill") || q.includes("tool") || q.includes("software")) {
+            reply = "Leonard's portfolio presents skills and tools related to virtual assistance, operations, administration, organization, and digital support. Visit Skills & Tools for the detailed list.";
+        } else if (q.includes("contact") || q.includes("hire") || q.includes("email") || q.includes("linkedin")) {
+            reply = "You can contact Leonard through the Contact section of this portfolio. You can also use the Hire Me button to reach the contact page.";
+        } else if (q.includes("experience") || q.includes("work") || q.includes("career")) {
+            reply = "Leonard's portfolio highlights over 5 years of operations and administrative experience, including team management and corporate operations.";
+        } else if (q.includes("certificate") || q.includes("education")) {
+            reply = "The portfolio contains dedicated sections for Certificates and About Me. Please open those sections for the information presented there.";
+        } else {
+            reply = "I can only answer questions using the information presented in Leonard's portfolio. Try asking about Leonard, his experience, services, skills, projects, certificates, or contact information.";
+        }
+
+        loadingMessage.textContent = reply;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addMessage(message, type) {
+        const messageElement = document.createElement("div");
+        messageElement.className = type === "user" ? "user-message" : "bot-message";
+        messageElement.textContent = message;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+});
+</script>
 
 </body>
 </html>
