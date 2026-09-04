@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
+<!-- ============================= -->
+<!-- WELCOME MESSAGE FROM LEONARD -->
+<!-- ============================= -->
+<div id="portfolioWelcomeModal" class="portfolio-welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeMessage">
+    <div class="portfolio-welcome-card">
+        <button type="button" id="closeWelcomeModal" class="welcome-close" aria-label="Close welcome message">&times;</button>
+        <div class="welcome-orb" aria-hidden="true"><i class="fas fa-user"></i></div>
+        <div class="welcome-kicker">WELCOME TO MY PORTFOLIO</div>
+        <h2 id="welcomeTitle">Hi, I'm Leonard Atajar! 👋</h2>
+        <p id="welcomeMessage">
+            Thanks for stopping by! I’m glad you’re here. Take a look around, explore my work, and get to know a little more about what I do.</p>
+        <p class="welcome-signoff">I hope you enjoy exploring my work.</p>
+        <button type="button" id="enterPortfolioBtn" class="welcome-enter-btn">
+            Explore My Portfolio <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+</div>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3122,7 +3141,196 @@ document.addEventListener("DOMContentLoaded", function () {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 });
+
+
+// Welcome message shown before visitors explore the portfolio.
+document.addEventListener("DOMContentLoaded", function () {
+    const welcomeModal = document.getElementById("portfolioWelcomeModal");
+    const enterButton = document.getElementById("enterPortfolioBtn");
+    const closeButton = document.getElementById("closeWelcomeModal");
+
+    if (!welcomeModal) return;
+
+    document.body.classList.add("welcome-modal-open");
+
+    function closeWelcome() {
+        welcomeModal.style.opacity = "0";
+        welcomeModal.style.transition = "opacity 0.25s ease";
+        setTimeout(function () {
+            welcomeModal.style.display = "none";
+            document.body.classList.remove("welcome-modal-open");
+        }, 250);
+    }
+
+    enterButton.addEventListener("click", closeWelcome);
+    closeButton.addEventListener("click", closeWelcome);
+});
 </script>
 
 </body>
+
+
+<style id="portfolio-welcome-styles">
+    .portfolio-welcome-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        animation: welcomeFadeIn 0.45s ease-out;
+    }
+
+    .portfolio-welcome-card {
+        position: relative;
+        width: min(560px, 100%);
+        padding: 42px 38px 36px;
+        border: 1px solid rgba(255, 30, 45, 0.55);
+        border-radius: 24px;
+        background: linear-gradient(145deg, rgba(20, 8, 10, 0.98), rgba(5, 5, 5, 0.98));
+        box-shadow: 0 0 70px rgba(255, 30, 45, 0.18), 0 25px 80px rgba(0,0,0,0.65);
+        text-align: center;
+        overflow: hidden;
+        animation: welcomeCardIn 0.55s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .portfolio-welcome-card::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        width: 260px;
+        height: 260px;
+        transform: translateX(-50%);
+        background: rgba(255, 30, 45, 0.12);
+        filter: blur(55px);
+        pointer-events: none;
+    }
+
+    .welcome-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50%;
+        background: rgba(255,255,255,0.04);
+        color: #aaa;
+        font-size: 25px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .welcome-close:hover {
+        color: #fff;
+        border-color: rgba(255,30,45,0.55);
+        background: rgba(255,30,45,0.12);
+    }
+
+    .welcome-orb {
+        position: relative;
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255,30,45,0.7);
+        border-radius: 50%;
+        color: #ff1e2d;
+        font-size: 26px;
+        background: radial-gradient(circle, rgba(255,30,45,0.2), rgba(255,30,45,0.03) 65%, transparent 70%);
+        box-shadow: 0 0 28px rgba(255,30,45,0.28), inset 0 0 25px rgba(255,30,45,0.08);
+    }
+
+    .welcome-kicker {
+        position: relative;
+        margin-bottom: 10px;
+        color: #ff5965;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+    }
+
+    #welcomeTitle {
+        position: relative;
+        margin: 0 0 16px;
+        color: #fff;
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+    }
+
+    #welcomeMessage, .welcome-signoff {
+        position: relative;
+        margin: 0 auto;
+        max-width: 480px;
+        color: #b8b8b8;
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .welcome-signoff {
+        margin-top: 12px;
+        color: #e4e4e4;
+        font-weight: 500;
+    }
+
+    .welcome-enter-btn {
+        position: relative;
+        margin-top: 26px;
+        padding: 14px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: #ff1e2d;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 10px 28px rgba(255,30,45,0.28);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .welcome-enter-btn:hover {
+        transform: translateY(-2px);
+        background: #e01220;
+        box-shadow: 0 14px 34px rgba(255,30,45,0.4);
+    }
+
+    .welcome-enter-btn i {
+        margin-left: 8px;
+    }
+
+    body.welcome-modal-open {
+        overflow: hidden;
+    }
+
+    @keyframes welcomeFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes welcomeCardIn {
+        from { opacity: 0; transform: translateY(22px) scale(0.97); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 640px) {
+        .portfolio-welcome-card {
+            padding: 38px 22px 28px;
+            border-radius: 20px;
+        }
+        #welcomeMessage, .welcome-signoff {
+            font-size: 14px;
+            line-height: 1.65;
+        }
+    }
+</style>
+
 </html>
