@@ -348,7 +348,7 @@
                             <span>Over 5 Years Operations & Admin Experience</span>
                         </div>
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
-                            Virtual Assistant <span class="text-accentRed text-glow">Digital Support</span>
+                            General Virtual <span class="text-accentRed text-glow">Assistant</span>
                         </h1>
                         <p class="text-textMuted text-lg sm:text-xl font-normal max-w-xl leading-relaxed">
                             Hi! I'm Leonard P. Atajar. Bringing robust corporate operations, administration, and team management experience—now professionally trained as a Virtual Assistant.
@@ -3092,29 +3092,25 @@ document.addEventListener("DOMContentLoaded", function () {
         chatMessages.appendChild(loadingMessage);
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // HTML-only local test mode. No /api/chat is needed yet.
-        await new Promise(resolve => setTimeout(resolve, 450));
+        try {
+            const response = await fetch("https://leonard-ai-backend.vercel.app/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: message })
+            });
 
-        const q = message.toLowerCase();
-        let reply;
+            const data = await response.json();
 
-        if (q.includes("who") || q.includes("about") || q.includes("leonard")) {
-            reply = "Leonard P. Atajar is a Virtual Assistant/Digital Support with over 5 years of operations and administrative experience, including corporate operations, administration, and team management.";
-        } else if (q.includes("service") || q.includes("offer")) {
-            reply = "Leonard offers Virtual Assistant support focused on operations, administration, organization, and digital support. Please explore the Services section for the full details.";
-        } else if (q.includes("skill") || q.includes("tool") || q.includes("software")) {
-            reply = "Leonard's portfolio presents skills and tools related to virtual assistance, operations, administration, organization, and digital support. Visit Skills & Tools for the detailed list.";
-        } else if (q.includes("contact") || q.includes("hire") || q.includes("email") || q.includes("linkedin")) {
-            reply = "You can contact Leonard through the Contact section of this portfolio. You can also use the Hire Me button to reach the contact page.";
-        } else if (q.includes("experience") || q.includes("work") || q.includes("career")) {
-            reply = "Leonard's portfolio highlights over 5 years of operations and administrative experience, including team management and corporate operations.";
-        } else if (q.includes("certificate") || q.includes("education")) {
-            reply = "The portfolio contains dedicated sections for Certificates and About Me. Please open those sections for the information presented there.";
-        } else {
-            reply = "I can only answer questions using the information presented in Leonard's portfolio. Try asking about Leonard, his experience, services, skills, projects, certificates, or contact information.";
+            if (!response.ok) {
+                throw new Error(data.error || "AI request failed");
+            }
+
+            loadingMessage.textContent = data.reply || "I don't have a response right now.";
+        } catch (error) {
+            console.error("AI Assistant Error:", error);
+            loadingMessage.textContent = "The AI connection is not available yet. The chat interface is working, but the backend connection is currently unavailable.";
         }
 
-        loadingMessage.textContent = reply;
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
