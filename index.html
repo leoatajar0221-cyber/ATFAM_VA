@@ -4110,77 +4110,56 @@ document.addEventListener("DOMContentLoaded", function () {
         input.focus();
     }
 
-    function connectRealtime() {
-    if (!supabaseClient || !sessionId) return;
-
-    if (realtimeChannel) {
-        supabaseClient.removeChannel(realtimeChannel);
+    ```javascript
+function connectRealtime() {
+    if (!supabaseClient || !sessionId) {
+        console.log("Realtime not started: missing Supabase client or session ID.");
+        return;
     }
 
-    realtimeChannel =
-        supabaseClient
-            .channel("live-chat-" + sessionId)
-            .on(
-                "postgres_changes",
-                {
-                    event: "INSERT",
-                    schema: "public",
-                    table: "messages",
-                    filter: "Session_id=eq." + sessionId
-                },
-                function (payload) {
+    // Remove previous subscription if one exists
+    if (realtimeChannel) {
+        supabaseClient.removeChannel(realtimeChannel);
+        realtimeChannel = null;
+    }
 
-                    if (
-                        payload.new &&
-                        payload.new.sender === "admin"
-                    ) {
+    console.log("Starting visitor realtime for session:", sessionId);
 
-                        addMessage(
-                            payload.new.message,
-                            "admin"
-                        );
+    realtimeChannel = supabaseClient
+        .channel("live-chat-" + sessionId)
 
-                        status.textContent =
-                            "Leonard replied • Live";
+        .on(
+            "postgres_changes",
+            {
+                event: "INSERT",
+                schema: "public",
+                table: "messages",
+                filter: "Session_id=eq." + sessionId
+            },
+            function (payload) {
 
-                        status.className =
-                            "visitor-chat-status visitor-chat-configured";
-                    }
+                console.log("Realtime message received:", payload);
+
+                if (!payload.new) {
+                    return;
                 }
-            )
-            .subscribe(function (state) {
 
-                console.log(
-                    "Visitor chat realtime:",
-                    state
-                );
+                // Only display Leonard's replies
+                if (payload.new.sender === "admin") {
 
-                if (state === "SUBSCRIBED") {
+                    addMessage(
+                        payload.new.message,
+                        "admin"
+                    );
 
                     status.textContent =
-                        "Live connection ready";
+                        "Leonard replied • Live";
 
                     status.className =
                         "visitor-chat-status visitor-chat-configured";
-
-                } else if (state === "CHANNEL_ERROR") {
-
-                    status.textContent =
-                        "Live connection error";
-
-                    status.className =
-                        "visitor-chat-status visitor-chat-not-configured";
-
-                } else if (state === "TIMED_OUT") {
-
-                    status.textContent =
-                        "Live connection timed out";
-
-                    status.className =
-                        "visitor-chat-status visitor-chat-not-configured";
                 }
-            });
-}
+            }
+        )
 
         .subscribe(function (state) {
 
@@ -4221,6 +4200,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 status.className =
                     "visitor-chat-status visitor-chat-not-configured";
+
+                console.error(
+                    "Visitor realtime connection timed out"
+                );
 
             } else if (state === "CLOSED") {
 
