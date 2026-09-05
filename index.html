@@ -205,21 +205,28 @@
     /* MOBILE OPTIMIZATION           */
     /* ============================= */
 
-    @media (max-width: 768px) {
-        #bg-video {
-            object-position: center;
-        }
-
-        #bg-overlay {
-            background: rgba(0, 0, 0, 0.78);
-        }
-
-        .red-orb {
-            width: 400px;
-            height: 400px;
-            filter: blur(60px);
-        }
+   @media (max-width: 768px) {
+    #bg-video {
+        object-position: center;
     }
+
+    #bg-overlay {
+        background: rgba(0, 0, 0, 0.78);
+    }
+
+    .red-orb {
+        width: 400px;
+        height: 400px;
+        filter: blur(60px);
+    }
+
+    /* Mobile: keep the experience badge fully visible */
+    .inline-flex.items-center.space-x-2 {
+        white-space: normal;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+}
 </style>
 
 
