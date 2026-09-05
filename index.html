@@ -205,10 +205,14 @@
 /* MOBILE OPTIMIZATION           */
 /* ============================= */
 
+/* ============================= */
+/* MOBILE OPTIMIZATION           */
+/* ============================= */
+
 @media (max-width: 768px) {
 
-    /* Move hero content down so the badge is not hidden */
-    .hero-section {
+    /* Keep hero below the fixed 80px header */
+    main {
         padding-top: 80px !important;
     }
 
@@ -224,34 +228,6 @@
         width: 400px;
         height: 400px;
         filter: blur(60px);
-    }
-
-    /* FIX MOBILE HERO CONTENT */
-    .lg\:col-span-7 {
-        width: 100%;
-        min-width: 0;
-        overflow: visible;
-    }
-
-    /* FIX EXPERIENCE BADGE */
-    .lg\:col-span-7 > div:first-child {
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-        white-space: normal;
-        overflow: visible;
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .lg\:col-span-7 > div:first-child > span:last-child {
-        min-width: 0;
-        white-space: normal;
-        overflow-wrap: break-word;
-        line-height: 1.3;
     }
 
 }
