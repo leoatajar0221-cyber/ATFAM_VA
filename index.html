@@ -1418,7 +1418,7 @@ audio.addEventListener("ended", () => {
                 <h3 class="text-2xl font-extrabold
                            text-white mb-3">
 
-                    Visual Content & Design
+                    Canva
 
                 </h3>
 
@@ -1646,26 +1646,27 @@ audio.addEventListener("ended", () => {
             <span class="text-xs uppercase tracking-wider
                          text-accentRed font-semibold">
 
-                Platform: Visual Content & Design
+                Platform: Canva
 
             </span>
 
         </div>
 
 
-        <!-- Visual Content & Design Title -->
+        <!-- Canva Title -->
         <div class="text-center mb-12">
 
             <h2 class="text-4xl md:text-5xl
                        font-extrabold text-white mb-5">
 
-                Visual Content & Design
+                Canva
 
             </h2>
 
             <p class="text-textMuted max-w-2xl mx-auto">
 
-                A selection of my graphic design and short-form video work created for digital and social media use.
+                A selection of my graphic design and
+                short-form video work created using Canva.
 
             </p>
 
@@ -1736,7 +1737,7 @@ audio.addEventListener("ended", () => {
 
                 <p class="text-textMuted mt-2">
 
-                   AI-assisted short-form video featuring a realistic robotic character with synchronized lip-sync animation, designed for digital presentations and portfolio introductions.
+                    Short-form video created using Canva.
 
                 </p>
 
@@ -4110,111 +4111,70 @@ document.addEventListener("DOMContentLoaded", function () {
         input.focus();
     }
 
-    ```javascript
-function connectRealtime() {
-    if (!supabaseClient || !sessionId) {
-        console.log("Realtime not started: missing Supabase client or session ID.");
-        return;
+    function connectRealtime() {
+        if (!supabaseClient || !sessionId) return;
+
+        if (realtimeChannel) {
+            supabaseClient.removeChannel(realtimeChannel);
+        }
+
+        realtimeChannel =
+            supabaseClient
+                .channel("live-chat-" + sessionId)
+                .on(
+                    "postgres_changes",
+                    {
+                        event: "INSERT",
+                        schema: "public",
+                        table: "messages",
+                        filter: "Session_id=eq." + sessionId
+                    },
+                    function (payload) {
+                        if (
+                            payload.new &&
+                            payload.new.sender === "admin"
+                        ) {
+                            addMessage(
+                                payload.new.message,
+                                "admin"
+                            );
+
+                            status.textContent =
+                                "Leonard replied • Live";
+
+                            status.className =
+                                "visitor-chat-status visitor-chat-configured";
+                        }
+                    }
+                )
+                .subscribe(function (state) {
+                    console.log("Visitor chat realtime:", state);
+
+                    if (state === "SUBSCRIBED") {
+                        status.textContent =
+                            "Live connection ready";
+
+                        status.className =
+                            "visitor-chat-status visitor-chat-configured";
+
+                    } else if (state === "CHANNEL_ERROR") {
+                        status.textContent =
+                            "Live connection error";
+
+                        status.className =
+                            "visitor-chat-status visitor-chat-not-configured";
+
+                    } else if (state === "TIMED_OUT") {
+                        status.textContent =
+                            "Live connection timed out";
+
+                        status.className =
+                            "visitor-chat-status visitor-chat-not-configured";
+                    }
+                });
     }
 
-    // Remove previous subscription if one exists
-    if (realtimeChannel) {
-        supabaseClient.removeChannel(realtimeChannel);
-        realtimeChannel = null;
-    }
-
-    console.log("Starting visitor realtime for session:", sessionId);
-
-    realtimeChannel = supabaseClient
-        .channel("live-chat-" + sessionId)
-
-        .on(
-            "postgres_changes",
-            {
-                event: "INSERT",
-                schema: "public",
-                table: "messages",
-                filter: "Session_id=eq." + sessionId
-            },
-            function (payload) {
-
-                console.log("Realtime message received:", payload);
-
-                if (!payload.new) {
-                    return;
-                }
-
-                // Only display Leonard's replies
-                if (payload.new.sender === "admin") {
-
-                    addMessage(
-                        payload.new.message,
-                        "admin"
-                    );
-
-                    status.textContent =
-                        "Leonard replied • Live";
-
-                    status.className =
-                        "visitor-chat-status visitor-chat-configured";
-                }
-            }
-        )
-
-        .subscribe(function (state) {
-
-            console.log(
-                "Visitor chat realtime:",
-                state
-            );
-
-            if (state === "SUBSCRIBED") {
-
-                status.textContent =
-                    "Live connection ready";
-
-                status.className =
-                    "visitor-chat-status visitor-chat-configured";
-
-                console.log(
-                    "Visitor realtime subscription active for:",
-                    sessionId
-                );
-
-            } else if (state === "CHANNEL_ERROR") {
-
-                status.textContent =
-                    "Live connection error";
-
-                status.className =
-                    "visitor-chat-status visitor-chat-not-configured";
-
-                console.error(
-                    "Visitor realtime channel error"
-                );
-
-            } else if (state === "TIMED_OUT") {
-
-                status.textContent =
-                    "Live connection timed out";
-
-                status.className =
-                    "visitor-chat-status visitor-chat-not-configured";
-
-                console.error(
-                    "Visitor realtime connection timed out"
-                );
-
-            } else if (state === "CLOSED") {
-
-                status.textContent =
-                    "Live connection closed";
-
-                status.className =
-                    "visitor-chat-status visitor-chat-not-configured";
-            }
-        });
-}
+    sendButton.addEventListener("click", sendMessage);
 
     input.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
