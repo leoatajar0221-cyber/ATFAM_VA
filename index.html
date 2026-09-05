@@ -1,3336 +1,440 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
-<!-- ============================= -->
-<!-- WELCOME MESSAGE FROM LEONARD -->
-<!-- ============================= -->
-<div id="portfolioWelcomeModal" class="portfolio-welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeMessage">
-    <div class="portfolio-welcome-card">
-        <button type="button" id="closeWelcomeModal" class="welcome-close" aria-label="Close welcome message">&times;</button>
-        <div class="welcome-orb" aria-hidden="true"><i class="fas fa-user"></i></div>
-        <div class="welcome-kicker">WELCOME TO MY PORTFOLIO</div>
-        <h2 id="welcomeTitle">Hi, I'm Leonard Atajar! 👋</h2>
-        <p id="welcomeMessage">
-            Thanks for stopping by! I’m glad you’re here. Take a look around, explore my work, and get to know a little more about what I do.</p>
-        <p class="welcome-signoff">I hope you enjoy exploring my work.</p>
-        <button type="button" id="enterPortfolioBtn" class="welcome-enter-btn">
-            Explore My Portfolio <i class="fas fa-arrow-right"></i>
-        </button>
-    </div>
-</div>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonard P. Atajar | General Virtual Assistant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#050505',
-                        cardBg: '#101010',
-                        accentRed: '#ff1e2d',
-                        accentRedHover: '#e01220',
-                        textMuted: '#a3a3a3'
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-<!-- ============================= -->
-<!-- FUTURISTIC VIDEO BACKGROUND  -->
-<!-- ============================= -->
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonard Atajar — Live Chat Test</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-    body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: #050505;
-        color: #ffffff;
-        overflow-x: hidden;
-    }
-
-
-    /* ============================= */
-    /* FULL-SCREEN BACKGROUND VIDEO  */
-    /* ============================= */
-
-    #bg-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: -4;
-        pointer-events: none;
-    }
-
-    /* Dark overlay over video */
-    #bg-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.70);
-        z-index: -3;
-        pointer-events: none;
-    }
-
-    /* ============================= */
-    /* INTERACTIVE CANVAS            */
-    /* ============================= */
-
-    #bg-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -2;
-        pointer-events: none;
-        background: transparent;
-    }
-
-    /* ============================= */
-    /* AMBIENT RED GLOW CONTAINER    */
-    /* ============================= */
-
-    .bg-glow-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -1;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    /* Red glowing orbs */
-    .red-orb {
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-            circle,
-            rgba(255, 30, 45, 0.28) 0%,
-            rgba(255, 30, 45, 0) 70%
-        );
-        border-radius: 50%;
-        filter: blur(80px);
-        animation: moveOrb 12s infinite alternate ease-in-out;
-    }
-
-    .orb-1 {
-        top: -15%;
-        left: -10%;
-        animation-duration: 14s;
-    }
-
-    .orb-2 {
-        bottom: -15%;
-        right: -10%;
-        animation-duration: 18s;
-        animation-delay: -3s;
-    }
-
-    .orb-3 {
-        top: 40%;
-        left: 45%;
-        transform: translate(-50%, -50%);
-        width: 800px;
-        height: 800px;
-        animation: pulseOrb 7s infinite alternate ease-in-out;
-    }
-
-    /* ============================= */
-    /* ORB ANIMATIONS                */
-    /* ============================= */
-
-    @keyframes moveOrb {
-        0% {
-            transform: translate(0, 0) scale(1);
-        }
-
-        100% {
-            transform: translate(220px, 160px) scale(1.35);
-        }
-    }
-
-    @keyframes pulseOrb {
-        0% {
-            transform: translate(-50%, -50%) scale(0.8);
-            opacity: 0.6;
-        }
-
-        100% {
-            transform: translate(-50%, -50%) scale(1.4);
-            opacity: 1;
-        }
-    }
-
-    /* ============================= */
-    /* YOUR EXISTING EFFECTS        */
-    /* ============================= */
-
-    .glow-red {
-        box-shadow: 0 0 50px rgba(255, 30, 45, 0.25);
-    }
-
-    .text-glow {
-        text-shadow: 0 0 25px rgba(255, 30, 45, 0.5);
-    }
-
-    .view-section {
-        display: none;
-    }
-
-    .view-section.active {
-        display: block;
-    }
-
-	/* Move the main introduction higher on the first screen */
-.hero-section {
-    min-height: calc(100vh - 70px);
-    padding-top: 20px !important;
-    padding-bottom: 30px !important;
-}
-    /* ============================= */
-    /* MOBILE OPTIMIZATION           */
-    /* ============================= */
-
-    @media (max-width: 768px) {
-        #bg-video {
-            object-position: center;
-        }
-
-        #bg-overlay {
-            background: rgba(0, 0, 0, 0.78);
-        }
-
-        .red-orb {
-            width: 400px;
-            height: 400px;
-            filter: blur(60px);
-        }
-    }
+body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.demo{width:min(900px,94vw);padding:40px}.card{background:rgba(16,16,16,.94);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:34px;text-align:center}.accent{color:#ff1e2d}
+#robot-button{position:fixed;right:28px;bottom:28px;width:64px;height:64px;border-radius:50%;border:2px solid #ff1e2d;background:#090909;color:#fff;font-size:27px;cursor:pointer;box-shadow:0 0 30px rgba(255,30,45,.45);z-index:1001}
+#chat-window{position:fixed;right:28px;bottom:105px;width:min(390px,calc(100vw - 32px));height:590px;background:#0b0b0b;border:1px solid rgba(255,30,45,.55);border-radius:24px;box-shadow:0 0 45px rgba(255,30,45,.25);display:none;flex-direction:column;overflow:hidden;z-index:1000}
+#chat-window.open{display:flex}.chat-header{padding:18px 18px 15px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between}.chat-title{font-weight:800}.online{font-size:11px;color:#9ca3af;margin-top:3px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;margin-right:5px}.close{background:none;border:0;color:#aaa;font-size:20px;cursor:pointer}.messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}.msg{max-width:82%;padding:11px 13px;border-radius:16px;font-size:13px;line-height:1.45;word-wrap:break-word}.visitor{align-self:flex-end;background:#ff1e2d;color:#fff;border-bottom-right-radius:5px}.admin{align-self:flex-start;background:#181818;border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:5px}.system{align-self:center;max-width:92%;font-size:11px;color:#8f8f8f;text-align:center}.composer{border-top:1px solid rgba(255,255,255,.1);padding:12px;display:flex;gap:8px}.composer input{flex:1;background:#151515;border:1px solid rgba(255,255,255,.12);border-radius:14px;color:#fff;padding:12px;outline:none}.composer input:focus{border-color:#ff1e2d}.composer button{width:46px;border:0;border-radius:14px;background:#ff1e2d;color:#fff;cursor:pointer}.status{padding:0 14px 8px;font-size:10px;color:#777}.configured{color:#22c55e}.not-configured{color:#f59e0b}
 </style>
+</head>
+<body>
+<div class="demo"><div class="card"><div class="text-sm uppercase tracking-widest text-gray-500 mb-3">Portfolio Live Chat Test</div><h1 class="text-4xl font-extrabold mb-4">Chat with <span class="accent">Leonard</span></h1><p class="text-gray-400 max-w-xl mx-auto">This is the local-test version of the live chat interface. Click the red robot button to open it. Your portfolio itself is not changed by this test file.</p></div></div>
 
-
-<!-- ============================= -->
-<!-- BACKGROUND VIDEO              -->
-<!-- ============================= -->
-
-<video id="bg-video" autoplay muted loop playsinline>
-    <source src="BG_Vid.mp4" type="video/mp4">
-</video>
-
-<!-- Dark overlay -->
-<div id="bg-overlay"></div>
-
-
-<!-- ============================= -->
-<!-- INTERACTIVE CANVAS            -->
-<!-- ============================= -->
-
-<canvas id="bg-canvas"></canvas>
-
-
-<!-- ============================= -->
-<!-- RED AMBIENT GLOW              -->
-<!-- ============================= -->
-
-<div class="bg-glow-container">
-
-    <div class="red-orb orb-1"></div>
-
-    <div class="red-orb orb-2"></div>
-
-    <div class="red-orb orb-3"></div>
-
+<button id="robot-button" aria-label="Open live chat">🤖</button>
+<div id="chat-window">
+  <div class="chat-header"><div><div class="chat-title">Leonard's Live Chat</div><div class="online"><span class="dot"></span>Online • Portfolio Support</div></div><button class="close" id="close-chat" aria-label="Close">&times;</button></div>
+  <div id="chat-messages" class="messages"></div>
+  <div id="connection-status" class="status not-configured">Supabase not configured — local preview mode</div>
+  <div class="composer"><input id="user-input" type="text" maxlength="1000" placeholder="Type your message..." autocomplete="off"><button id="send-button" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button></div>
 </div>
 
-    <!-- Header / Navbar -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
-
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
-
-        <!-- Logo -->
-        <a href="#home"
-           onclick="switchView('home')"
-           class="flex items-center space-x-3 cursor-pointer group flex-shrink-0">
-
-            <img src="logo.jpg"
-                 alt="ATFAM Virtual Solutions Logo"
-                 class="w-11 h-11 rounded-full object-cover mix-blend-screen
-                        filter drop-shadow-[0_0_8px_rgba(255,30,45,0.4)]
-                        group-hover:scale-105 transition-transform">
-
-            <span class="text-sm font-extrabold tracking-wide uppercase text-white whitespace-nowrap">
-                ATFAM <span class="text-accentRed">VIRTUAL SOLUTIONS</span>
-            </span>
-
-        </a>
-
-
-        <!-- Navigation -->
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-textMuted">
-
-            <button onclick="switchView('about')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                About Me
-            </button>
-
-            <button onclick="switchView('experience')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                Experience
-            </button>
-
-            <button onclick="switchView('services')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                Services
-            </button>
-
-            <button onclick="switchView('skills')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                Skills & Tools
-            </button>
-
-            <button onclick="switchView('certificates')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                Certificates
-            </button>
-
-            <button onclick="switchView('contact')"
-                    class="hover:text-white transition-colors cursor-pointer whitespace-nowrap">
-                Contact
-            </button>
-
-        </nav>
-
-
-        <!-- Right Side -->
-        <div class="hidden lg:flex items-center gap-3 flex-shrink-0">
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/leo-atajar-4b049b379"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="w-10 h-10 rounded-full bg-cardBg
-                      border border-white/10 flex items-center justify-center
-                      text-textMuted hover:text-white hover:border-accentRed
-                      transition-colors"
-               title="LinkedIn Profile">
-
-                <i class="fa-brands fa-linkedin-in text-lg"></i>
-
-            </a>
-
-
-            <!-- Let's Talk -->
-            <button onclick="switchView('contact')"
-                    class="inline-flex items-center justify-center
-                           bg-accentRed hover:bg-accentRedHover
-                           text-white text-sm font-semibold
-                           px-5 py-3 rounded-full
-                           transition-all duration-300
-                           shadow-lg shadow-accentRed/30
-                           cursor-pointer whitespace-nowrap">
-
-                Let's Talk
-                <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-   <!-- Main Container Views -->
-<main class="flex-1 pt-16 pb-20">
-
-    <!-- HOME VIEW -->
-    <section id="view-home" class="view-section active">
-        <div class="relative pt-0 pb-20 overflow-hidden border-b border-white/10">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 bg-cardBg/90 border border-white/10 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-textMuted uppercase backdrop-blur-sm">
-                        <span class="w-2 h-2 rounded-full bg-accentRed animate-pulse"></span>
-                            <span>Over 5 Years Operations & Admin Experience</span>
-                        </div>
-                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
-                            Virtual Assistant <span class="text-accentRed text-glow">Digital Support</span>
-                        </h1>
-                        <p class="text-textMuted text-lg sm:text-xl font-normal max-w-xl leading-relaxed">
-                            Hi! I'm Leonard P. Atajar. Bringing robust corporate operations, administration, and team management experience—now professionally trained as a Virtual Assistant.
-                        </p>
-                        <div class="flex flex-wrap items-center gap-4 pt-4">
-                            <button onclick="switchView('contact')" class="bg-accentRed hover:bg-accentRedHover text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-xl shadow-accentRed/30 flex items-center cursor-pointer">
-                                Hire Me <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
-                            </button>
-                            <button onclick="switchView('blog')" 
-    class="bg-cardBg/80 hover:bg-cardBg border border-white/10 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm cursor-pointer">
-    View Blog
-</button>
-                        </div>
-                    </div>
-
-<!-- PROFILE VIDEO - CIRCULAR -->
-<div class="lg:col-span-5 flex flex-col justify-center items-center lg:translate-y-8">
-
-    <!-- CIRCLE VIDEO -->
-    <div class="
-        relative
-        w-[420px] h-[420px]
-        rounded-full
-        overflow-hidden
-        border-2 border-red-500
-        shadow-[0_0_35px_rgba(239,68,68,0.55)]
-        bg-black
-    ">
-
-        <video
-            id="robotVideo"
-            src="canva.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="auto"
-            class="w-full h-full object-cover">
-        </video>
-
-    </div>
-
-    <!-- PLAY BUTTON BELOW THE CIRCLE -->
-    <button
-        id="introButton"
-        type="button"
-        class="
-            mt-6
-            px-7 py-3
-            rounded-full
-            bg-black
-            border-2 border-red-500
-            text-white
-            font-semibold
-            shadow-[0_0_20px_rgba(239,68,68,0.45)]
-            hover:bg-red-600
-            transition-all duration-300
-        ">
-        ▶ Play Introduction
-    </button>
-
-</div>
-
-<!-- VOICEOVER -->
-<audio id="introAudio" preload="auto">
-    <source src="voiceover.mp3" type="audio/mpeg">
-</audio>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const video = document.getElementById("robotVideo");
-const audio = document.getElementById("introAudio");
-const button = document.getElementById("introButton");
+/* ==========================================================
+   LEONARD LIVE CHAT — VISITOR
+   Anonymous Supabase authentication + Realtime
+   ========================================================== */
 
-// Keep video paused initially
-video.pause();
+const SUPABASE_URL = 'https://huscenzhjsvarylqqzxe.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_2G5AO_ZbXAw-C8rJKKdEMQ_r4XrmKJZ';
 
-// Play voice + orb together
-button.addEventListener("click", async () => {
-    audio.currentTime = 0;
-    video.currentTime = 0;
+const configured =
+    SUPABASE_URL.startsWith('http') &&
+    SUPABASE_PUBLISHABLE_KEY.startsWith('sb_publishable_');
 
-    await audio.play();
-    await video.play();
+const supabaseClient = configured
+    ? window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      )
+    : null;
 
-    button.textContent = "🔊 Playing Introduction...";
-    button.disabled = true;
-});
 
-// When voice finishes, stop the orb
-audio.addEventListener("ended", () => {
-    video.pause();
-    video.currentTime = 0;
+/* ==========================================================
+   ELEMENTS
+   ========================================================== */
 
-    button.textContent = "↻ Replay Introduction";
-    button.disabled = false;
-});
-</script>
-     </div>
-            </div>
+const chatWindow = document.getElementById('chat-window');
+const robotButton = document.getElementById('robot-button');
+const closeChat = document.getElementById('close-chat');
+const messages = document.getElementById('chat-messages');
+const input = document.getElementById('user-input');
+const sendButton = document.getElementById('send-button');
+const status = document.getElementById('connection-status');
 
-            <!-- Quick Navigation Tiles -->
-            <div class="max-w-7xl mx-auto px-6 py-20">
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Explore Platform</h2>
-                    <p class="text-textMuted">Click any category below to open its dedicated view platform.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <button onclick="switchView('about')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-                        <i class="fa-solid fa-user text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-xl font-bold mb-2">About Me</h3>
-                        <p class="text-textMuted text-xs">Background, education, and professional identity.</p>
-                    </button>
-                    <button onclick="switchView('experience')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-                        <i class="fa-solid fa-briefcase text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-xl font-bold mb-2">Experience</h3>
-                        <p class="text-textMuted text-xs">5+ years across management and administration roles.</p>
-                    </button>
-                    <button onclick="switchView('services')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-                        <i class="fa-solid fa-layer-group text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-xl font-bold mb-2">Services</h3>
-                        <p class="text-textMuted text-xs">Virtual assistance offerings tailored for your growth.</p>
-                    </button>
-                    <button onclick="switchView('skills')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-                        <i class="fa-solid fa-tools text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-                        <h3 class="text-xl font-bold mb-2">Skills & Tools</h3>
-                        <p class="text-textMuted text-xs">Software and core competencies mastered.</p>
-                    </button>
-		    <!-- Certificates -->
-			<button onclick="switchView('certificates')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-   			 <i class="fa-solid fa-certificate text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-   			 <h3 class="text-xl font-bold mb-2">Certificates</h3>
-   			 <p class="text-textMuted text-xs">
-       			 Professional certifications and achievements.</p>
-		    </button>
 
-		    <!-- My Work -->
-			<button onclick="switchView('my-work')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-  			<i class="fa-solid fa-folder-open text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-   			<h3 class="text-xl font-bold mb-2">My Work</h3>
-   			<p class="text-textMuted text-xs">
-        		Explore my projects, designs, and professional work.</p>
-		    </button>
+/* ==========================================================
+   SESSION
+   ========================================================== */
 
-<!-- Contact -->
-<button onclick="switchView('contact')" class="bg-cardBg/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl text-left hover:border-accentRed/55 transition-all group cursor-pointer shadow-lg">
-    <i class="fa-solid fa-envelope text-3xl text-accentRed mb-4 group-hover:scale-110 transition-transform"></i>
-    <h3 class="text-xl font-bold mb-2">Contact</h3>
-    <p class="text-textMuted text-xs">
-        Get in touch and let's work together.
-    </p>
-</button>
-                </div>
-            </div>
-        </section>
+let sessionId = null;
+let realtimeChannel = null;
 
-       <!-- ABOUT ME VIEW -->
-<section id="view-about" class="view-section">
 
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: About Me</span>
-        </div>
+/* ==========================================================
+   DISPLAY MESSAGE
+   ========================================================== */
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+function addMessage(text, type) {
+    const div = document.createElement('div');
 
-    <!-- PROFILE IMAGE -->
-    <div class="lg:col-span-5 flex justify-center">
-        <div class="relative w-full max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-cardBg/80 p-2">
-            <img 
-                src="profile.jpg" 
-                alt="Your Picture"
-                class="w-full h-full object-contain rounded-2xl"
-            >
-        </div>
-    </div>
+    div.className = 'msg ' + type;
+    div.textContent = text;
 
-    <!-- ABOUT ME TEXT -->
-    <div class="lg:col-span-7">
-        
-        <h2 class="text-4xl font-bold mb-6">
-            About Me
-        </h2>
-
-        <p class="text-gray-300 leading-relaxed mb-6">
-            Detail-oriented professional with over 5 years of cumulative
-            experience in operations and administration, recently trained
-            as a Virtual Assistant through The VA Bar.
-        </p>
-
-        <p class="text-gray-300 leading-relaxed mb-8">
-            My background spans general management, admin supervision,
-            quality assurance, workflow optimization, and leveraging
-            cutting-edge AI technologies (like Gemini & ChatGPT) across
-            reputable private companies. I bring enterprise-grade work
-            ethic and modern tech capabilities straight to your remote
-            business setup.
-        </p>
-
-        <!-- STATS -->
-        <div class="grid grid-cols-3 gap-6 border-t border-white/10 pt-6">
-
-            <div>
-                <div class="text-4xl font-bold text-red-500">5+</div>
-                <div class="text-sm text-gray-400">Years Experience</div>
-            </div>
-
-            <div>
-                <div class="text-4xl font-bold text-red-500">IT</div>
-                <div class="text-sm text-gray-400">College Graduate</div>
-            </div>
-
-            <div>
-                <div class="text-4xl font-bold text-red-500">100%</div>
-                <div class="text-sm text-gray-400">Professional Dedication</div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-        </div> </div>
-</section>
-
-        <!-- EXPERIENCE VIEW -->
-        <section id="view-experience" class="view-section">
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Experience</span>
-                </div>
-
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Professional Experience</h2>
-                    <p class="text-textMuted">My solid background across various private company roles.</p>
-                </div>
-
-                <div class="space-y-8 max-w-4xl mx-auto">
-                    <!-- VA Training -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">08/2025 • Remote</span>
-                                <h3 class="text-xl font-bold mt-1">Internship Trainee – The VA Bar</h3>
-                            </div>
-                            <span class="mt-2 sm:mt-0 inline-block bg-darkBg border border-white/10 px-3 py-1 rounded-full text-xs text-textMuted">Virtual Assistant Training</span>
-                        </div>
-                        <p class="text-textMuted text-sm mb-4">Completed comprehensive training covering social media management, email & calendar organization, lead generation, email marketing, productivity tools, and AI workflow integration.</p>
-                    </div>
-
-                    <!-- General Manager -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">09/2023 – 09/2025 • Bansud, Oriental Mindoro</span>
-                                <h3 class="text-xl font-bold mt-1">General Manager – Snowdrip Hardware & Construction Supplies</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Overseeing day-to-day business operations</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Ensuring smooth supply chain and inventory management</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Monitoring productivity and efficiency of staff</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managing vendor/supplier relationships and stock availability</li>
-                        </ul>
-                    </div>
-
-                    <!-- Admin Supervisor -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2019 – 10/2021 • Balayan, Batangas</span>
-                                <h3 class="text-xl font-bold mt-1">Admin Supervisor – Chokdee Ecocare Farm Corp.</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managed administrative team, delegating tasks to optimize workflow and enhance efficiency.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Managed payroll processing ensuring accurate and timely salary payments.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Conducted performance evaluations, mentoring staff and communicating job expectations.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Generated reports regarding production of goods, production costs, and compliance.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Quality Assurance -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2015 – 07/2016 • Makati City</span>
-                                <h3 class="text-xl font-bold mt-1">Quality Assurance – Total Information Management</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Interpreted and implemented quality assurance standards.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Evaluated adequacy of quality assurance frameworks.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Production Assistant -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">11/2012 – 03/2015 • Valenzuela City</span>
-                                <h3 class="text-xl font-bold mt-1">Production Assistant – Gilvan Packaging Corp.</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Monitored all production reports, office supplies, and resolved operational issues.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Prepared monthly production reports for printing and rewinding departments.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Maintained a safe working environment adhering to health and safety regulations.</li>
-                        </ul>
-                    </div>
-
-                    <!-- RDU Clerk -->
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl relative shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <span class="text-xs font-semibold text-accentRed uppercase tracking-wider">03/2011 – 08/2011 • Makati City</span>
-                                <h3 class="text-xl font-bold mt-1">RDU Clerk – SM Makati Branch</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Handled receiving items from suppliers and dispatching faulty returns.</li>
-                            <li class="flex items-start"><i class="fa-solid fa-check text-accentRed mr-2 mt-1"></i> Conducted high-accuracy data entry tasks, updating warehouse stock databases.</li>
-                        </ul>
-                    </div>
-
-<!-- Divider -->
-<div class="border-t border-white/10 pt-8">
-
-    <div class="flex items-center justify-start">
-
-        <button onclick="switchView('home')"
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-            <i class="fa-solid fa-house mr-2"></i>
-            Back to Home
-
-        </button>
-
-    </div>
-
-</div>
-
-                </div>
-            </div>
-        </section>
-
-		<!-- Blog View -->
-<section id="view-blog" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-16">
-
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-
-            <button onclick="switchView('home')"
-                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-
-            </button>
-
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                Platform: Blog
-            </span>
-
-        </div>
-
-
-        <!-- Blog Title -->
-        <div class="text-center mb-12">
-
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                My Blog
-            </h2>
-
-            <p class="text-textMuted max-w-2xl mx-auto">
-                Insights, tips, and practical ideas about virtual assistance,
-                productivity, AI tools, and digital work.
-            </p>
-
-        </div>
-
-
-        <!-- Blog Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-
-
-            <!-- Blog 1 -->
-            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
-                            hover:border-accentRed/50 transition-all duration-300
-                            flex flex-col h-full">
-
-                <div class="mb-5">
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                        AI & Productivity
-                    </span>
-                </div>
-
-                <h3 class="text-2xl font-bold text-white mb-4">
-                    How AI Can Improve Your Daily Workflow
-                </h3>
-
-                <p class="text-textMuted leading-relaxed">
-                    Discover practical ways AI tools can help virtual assistants
-                    save time, organize tasks, and improve productivity.
-                </p>
-
-                <!-- Read More -->
-                <div class="mt-auto pt-8">
-
-                    <button onclick="switchView('blog-1')"
-                        class="inline-flex items-center text-accentRed hover:text-white
-                               font-semibold transition-colors cursor-pointer">
-
-                        Read More
-                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- Blog 2 -->
-            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
-                            hover:border-accentRed/50 transition-all duration-300
-                            flex flex-col h-full">
-
-                <div class="mb-5">
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                        Virtual Assistance
-                    </span>
-                </div>
-
-                <h3 class="text-2xl font-bold text-white mb-4">
-                    Why Virtual Assistants Are Important for Businesses
-                </h3>
-
-                <p class="text-textMuted leading-relaxed">
-                    Learn how virtual assistants can help businesses improve
-                    organization, efficiency, and day-to-day operations.
-                </p>
-
-                <!-- Read More -->
-                <div class="mt-auto pt-8">
-
-                    <button onclick="switchView('blog-2')"
-                        class="inline-flex items-center text-accentRed hover:text-white
-                               font-semibold transition-colors cursor-pointer">
-
-                        Read More
-                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-            <!-- Blog 3 -->
-            <article class="bg-cardBg border border-white/10 rounded-2xl p-6
-                            hover:border-accentRed/50 transition-all duration-300
-                            flex flex-col h-full">
-
-                <div class="mb-5">
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                        Productivity
-                    </span>
-                </div>
-
-                <h3 class="text-2xl font-bold text-white mb-4">
-                    Simple Ways to Stay Organized While Working Remotely
-                </h3>
-
-                <p class="text-textMuted leading-relaxed">
-                    Practical strategies for managing tasks, communication,
-                    files, and deadlines while working remotely.
-                </p>
-
-                <!-- Read More -->
-                <div class="mt-auto pt-8">
-
-                    <button onclick="switchView('blog-3')"
-                        class="inline-flex items-center text-accentRed hover:text-white
-                               font-semibold transition-colors cursor-pointer">
-
-                        Read More
-                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- SERVICES VIEW -->
-        <section id="view-services" class="view-section">
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Services</span>
-                </div>
-
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">VA Services</h2>
-                    <p class="text-textMuted">Comprehensive virtual assistance built on a strong professional background.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">AI Integration & Prompt Engineering</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Streamlining business writing, market research, content planning, and workflow automation using Gemini, ChatGPT, and advanced AI models.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-calendar-check"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Email & Calendar Management</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Inbox triage, email organization, scheduling meetings, and keeping your executive timeline orderly.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Lead Generation & Research</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Boolean searching, web research, prospect database building, and outreach coordination via Apollo.io.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-share-nodes"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Content creation assistance, scheduling posts, community engagement, and managing Meta Business Suite.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Email Marketing</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Campaign setup, basic automation, writing effective emails using Mailchimp and Brevo.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Tech & Troubleshooting</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Computer troubleshooting, workflow automation with Zapier, and website building via Wix Studio.</p>
-                    </div>
-     <!-- Divider -->
-<div class="border-t border-white/10 pt-8">
-
-    <div class="flex items-center justify-start">
-
-        <button onclick="switchView('home')"
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-            <i class="fa-solid fa-house mr-2"></i>
-            Back to Home
-
-        </button>
-
-    </div>
-
-</div>           
-
-</div>
-            </div>
-
-        </section>
-
-        <!-- SKILLS VIEW -->
-        <section id="view-skills" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Skills & Tools</span>
-                </div>
-
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Skills & Tools</h2>
-                    <p class="text-textMuted">Equipped with professional software proficiency, AI tools, and core competencies.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 shadow-lg">
-                        <h3 class="text-xl font-bold text-accentRed mb-4">Core Skills</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">AI Prompt Engineering</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Employee Management</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Report Generation</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Quality Assurance</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Boolean Searching</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Lead Generation</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Social Media Management</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Computer Troubleshooting</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl space-y-4 shadow-lg">
-                        <h3 class="text-xl font-bold text-accentRed mb-4">Tools & Software</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Google Gemini</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">ChatGPT (OpenAI)</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Google Workspace</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Microsoft Office Suite</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Canva</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Mailchimp & Brevo</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Zapier</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Apollo.io</span>
-                            <span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Wix Studio</span>
-			<span class="bg-darkBg border border-white/10 px-3 py-1.5 rounded-xl text-xs text-textMuted">Github</span>
-                        </div>
-                    </div>
-               
-
- </div>
-<!-- Divider --> 
-<div class="border-t border-white/10 pt-8"> 
-
-    <div class="flex items-center justify-center"> 
-
-        <button onclick="switchView('my-work')" 
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer"> 
-
-            <i class="fa-solid fa-folder-open mr-2"></i> 
-            View My Work 
-
-        </button> 
-
-    </div> 
-
-</div>
-
-
-  </div>
-        </section>
-
-<!-- =========================
-     MY WORK SECTION
-========================= -->
-<section id="view-my-work" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-
-        <!-- Header / Top Bar -->
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-
-            <!-- Back to Home -->
-            <button onclick="switchView('home')"
-                    class="inline-flex items-center space-x-2
-                           text-textMuted hover:text-white
-                           transition-colors cursor-pointer
-                           bg-cardBg/90 px-4 py-2 rounded-full
-                           border border-white/10 text-sm
-                           backdrop-blur-sm">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-
-            </button>
-
-            <!-- Platform Label -->
-            <span class="text-xs uppercase tracking-wider
-                         text-accentRed font-semibold">
-
-                Platform: My Work
-
-            </span>
-
-        </div>
-
-
-        <!-- MY WORK TITLE -->
-        <div class="text-center mb-14">
-
-            <h2 class="text-4xl md:text-5xl
-                       font-extrabold text-white mb-5">
-
-                My Work
-
-            </h2>
-
-            <p class="text-textMuted max-w-2xl mx-auto">
-
-                Explore my work, projects, designs, and
-                professional content across different platforms.
-
-            </p>
-
-        </div>
-
-
-        <!-- =========================
-             PLATFORM CARDS
-        ========================= -->
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-
-
-            <!-- =========================
-                 LINKEDIN
-            ========================= -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-7 flex flex-col
-                        hover:border-accentRed/50
-                        transition-all duration-300">
-
-                <!-- Icon + Category -->
-                <div class="flex items-center justify-between mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl
-                                bg-blue-500/10
-                                border border-white/10
-                                flex items-center justify-center">
-
-                        <i class="fa-brands fa-linkedin-in
-                                  text-3xl text-blue-500"></i>
-
-                    </div>
-
-                    <span class="text-xs uppercase
-                                 tracking-wider
-                                 text-textMuted font-semibold">
-
-                        Professional
-
-                    </span>
-
-                </div>
-
-
-                <!-- Title -->
-                <h3 class="text-2xl font-extrabold
-                           text-white mb-3">
-
-                    LinkedIn
-
-                </h3>
-
-
-                <!-- Description -->
-                <p class="text-textMuted leading-relaxed mb-8">
-
-                    Explore my professional profile,
-                    achievements, experiences, and
-                    career-related content.
-
-                </p>
-
-
-                <!-- Button -->
-                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="mt-auto w-full inline-flex
-                          items-center justify-center
-                          bg-accentRed
-                          hover:bg-accentRedHover
-                          text-white font-semibold
-                          px-6 py-3 rounded-full
-                          transition-all duration-300">
-
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
-
-                    View My Work
-
-                </a>
-
-            </div>
-
-
-
-            <!-- =========================
-                 CANVA
-            ========================= -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-7 flex flex-col
-                        hover:border-accentRed/50
-                        transition-all duration-300">
-
-                <!-- Icon + Category -->
-                <div class="flex items-center justify-between mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl
-                                bg-white/5
-                                border border-white/10
-                                flex items-center justify-center">
-
-                        <span class="text-2xl font-extrabold
-                                     text-white">
-
-                            Ca
-
-                        </span>
-
-                    </div>
-
-                    <span class="text-xs uppercase
-                                 tracking-wider
-                                 text-textMuted font-semibold">
-
-                        Design
-
-                    </span>
-
-                </div>
-
-
-                <!-- Title -->
-                <h3 class="text-2xl font-extrabold
-                           text-white mb-3">
-
-                    Canva
-
-                </h3>
-
-
-                <!-- Description -->
-                <p class="text-textMuted leading-relaxed mb-8">
-
-                    Explore my graphic designs,
-                    presentations, social media graphics,
-                    short-form videos, and other creative work.
-
-                </p>
-
-
-                <!-- Button -->
-                <button onclick="switchView('canva')"
-                        class="mt-auto w-full inline-flex
-                               items-center justify-center
-                               bg-accentRed
-                               hover:bg-accentRedHover
-                               text-white font-semibold
-                               px-6 py-3 rounded-full
-                               transition-all duration-300">
-
-                    <i class="fa-solid fa-arrow-right mr-2"></i>
-
-                    View My Work
-
-                </button>
-
-            </div>
-
-
-
-            <!-- =========================
-                 GITHUB
-            ========================= -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-7 flex flex-col
-                        hover:border-accentRed/50
-                        transition-all duration-300">
-
-                <!-- Icon + Category -->
-                <div class="flex items-center justify-between mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl
-                                bg-white/5
-                                border border-white/10
-                                flex items-center justify-center">
-
-                        <i class="fa-brands fa-github
-                                  text-3xl text-white"></i>
-
-                    </div>
-
-                    <span class="text-xs uppercase
-                                 tracking-wider
-                                 text-textMuted font-semibold">
-
-                        Development
-
-                    </span>
-
-                </div>
-
-
-                <!-- Title -->
-                <h3 class="text-2xl font-extrabold
-                           text-white mb-3">
-
-                    GitHub
-
-                </h3>
-
-
-                <!-- Description -->
-                <p class="text-textMuted leading-relaxed mb-8">
-
-                    Explore my coding projects,
-                    repositories, and development work.
-
-                </p>
-
-
-                <!-- Button -->
-                <a href="https://github.com/leoatajar0221-cyber"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="mt-auto w-full inline-flex
-                          items-center justify-center
-                          bg-accentRed
-                          hover:bg-accentRedHover
-                          text-white font-semibold
-                          px-6 py-3 rounded-full
-                          transition-all duration-300">
-
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
-
-                    View My Work
-
-                </a>
-
-            </div>
-
-
-
-            <!-- =========================
-                 YOUTUBE
-            ========================= -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-7 flex flex-col
-                        hover:border-accentRed/50
-                        transition-all duration-300">
-
-                <!-- Icon + Category -->
-                <div class="flex items-center justify-between mb-6">
-
-                    <div class="w-16 h-16 rounded-2xl
-                                bg-white/5
-                                border border-white/10
-                                flex items-center justify-center">
-
-                        <i class="fa-brands fa-youtube
-                                  text-3xl text-red-500"></i>
-
-                    </div>
-
-                    <span class="text-xs uppercase
-                                 tracking-wider
-                                 text-textMuted font-semibold">
-
-                        Video
-
-                    </span>
-
-                </div>
-
-
-                <!-- Title -->
-                <h3 class="text-2xl font-extrabold
-                           text-white mb-3">
-
-                    YouTube
-
-                </h3>
-
-
-                <!-- Description -->
-                <p class="text-textMuted leading-relaxed mb-8">
-
-                    Explore my videos, creative content,
-                    tutorials, and other media projects.
-
-                </p>
-
-
-                <!-- Button -->
-                <a href="https://www.youtube.com/@ATFAM_KS"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="mt-auto w-full inline-flex
-                          items-center justify-center
-                          bg-accentRed
-                          hover:bg-accentRedHover
-                          text-white font-semibold
-                          px-6 py-3 rounded-full
-                          transition-all duration-300">
-
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
-
-                    View My Work
-
-                </a>
-
-            </div>
-<!-- Divider -->
-<div class="border-t border-white/10 pt-8">
-
-    <div class="flex items-center justify-start">
-
-        <button onclick="switchView('home')"
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-            <i class="fa-solid fa-house mr-2"></i>
-            Back to Home
-
-        </button>
-
-    </div>
-
-</div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     CANVA PORTFOLIO SECTION
-========================= -->
-<section id="view-canva" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-
-        <!-- Header / Top Bar -->
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-
-            <!-- Back to My Work -->
-            <button onclick="switchView('my-work')"
-                    class="inline-flex items-center space-x-2
-                           text-textMuted hover:text-white
-                           transition-colors cursor-pointer
-                           bg-cardBg/90 px-4 py-2 rounded-full
-                           border border-white/10 text-sm
-                           backdrop-blur-sm">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to My Work</span>
-
-            </button>
-
-            <!-- Platform Label -->
-            <span class="text-xs uppercase tracking-wider
-                         text-accentRed font-semibold">
-
-                Platform: Canva
-
-            </span>
-
-        </div>
-
-
-        <!-- Canva Title -->
-        <div class="text-center mb-12">
-
-            <h2 class="text-4xl md:text-5xl
-                       font-extrabold text-white mb-5">
-
-                Canva
-
-            </h2>
-
-            <p class="text-textMuted max-w-2xl mx-auto">
-
-                A selection of my graphic design and
-                short-form video work created using Canva.
-
-            </p>
-
-        </div>
-
-
-        <!-- =========================
-             GRAPHIC DESIGN
-        ========================= -->
-
-        <div class="max-w-5xl mx-auto mb-10">
-
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-6">
-
-                <img src="Graphic Sample.png"
-                     alt="Canva Graphic Design"
-                     class="w-full rounded-xl object-contain">
-
-                <h3 class="text-2xl font-bold
-                           text-white mt-6">
-
-                    Graphic Design
-
-                </h3>
-
-                <p class="text-textMuted mt-2">
-
-                    Creative graphic design project
-                    created using Canva.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================
-             SHORT VIDEOS
-        ========================= -->
-
-        <div class="grid grid-cols-1 md:grid-cols-2
-                    gap-6 max-w-5xl mx-auto">
-
-
-            <!-- Video 1 -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-6">
-
-                <video controls
-                       class="w-full rounded-xl">
-
-                    <source src="Vid_Sample 1.mp4"
-                            type="video/mp4">
-
-                    Your browser does not support
-                    the video element.
-
-                </video>
-
-                <h3 class="text-xl font-bold
-                           text-white mt-5">
-
-                    Short Video Project 1
-
-                </h3>
-
-                <p class="text-textMuted mt-2">
-
-                    Short-form video created using Canva.
-
-                </p>
-
-            </div>
-
-
-            <!-- Video 2 -->
-            <div class="bg-cardBg border border-white/10
-                        rounded-2xl p-6">
-
-                <video controls
-                       class="w-full rounded-xl">
-
-                    <source src="Vid_Sample 2.mp4"
-                            type="video/mp4">
-
-                    Your browser does not support
-                    the video element.
-
-                </video>
-
-                <h3 class="text-xl font-bold
-                           text-white mt-5">
-
-                    Short Video Project 2
-
-                </h3>
-
-                <p class="text-textMuted mt-2">
-
-                    Short-form video created using Canva.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================================================
-     FULL BLOG ARTICLE 1
-========================================================= -->
-<!-- Blog 1 - AI & Productivity -->
-<section id="view-blog-1" class="view-section">
-
-    <div class="max-w-5xl mx-auto px-6 pt-8 pb-16">
-
-        <!-- Header -->
-        <div class="flex items-center justify-between mb-10 border-b border-white/10 pb-6">
-
-            <button onclick="switchView('blog')"
-                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Blog</span>
-
-            </button>
-
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                AI & Productivity
-            </span>
-
-        </div>
-
-
-        <!-- Article -->
-        <article class="bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
-
-            <!-- Category -->
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                AI & Productivity
-            </span>
-
-
-            <!-- Title -->
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-4 mb-6 leading-tight">
-                How AI Can Improve Your Daily Workflow
-            </h1>
-
-
-            <!-- Introduction -->
-            <p class="text-xl text-textMuted leading-relaxed mb-10">
-                Artificial intelligence is becoming an increasingly useful tool for
-                virtual assistants, professionals, and business owners. When used
-                properly, AI can help reduce repetitive work, organize information,
-                and make everyday tasks more efficient.
-            </p>
-
-
-            <!-- Article Content -->
-
-            <div class="space-y-8 text-textMuted leading-relaxed">
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        AI as a Productivity Tool
-                    </h2>
-
-                    <p>
-                        AI does not have to replace the work of a professional.
-                        Instead, it can be used as a productivity assistant that
-                        helps with repetitive and time-consuming tasks.
-                    </p>
-
-                    <p class="mt-4">
-                        For Virtual Assistants, this can mean spending less time
-                        performing routine work and more time focusing on tasks
-                        that require communication, organization, creativity,
-                        and decision-making.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        1. Save Time on Repetitive Tasks
-                    </h2>
-
-                    <p>
-                        Many daily business activities involve repetitive work.
-                        AI tools can help create drafts, summarize information,
-                        organize notes, generate ideas, and assist with routine
-                        documentation.
-                    </p>
-
-                    <p class="mt-4">
-                        By reducing the amount of time spent on repetitive tasks,
-                        professionals can focus their attention on higher-value
-                        responsibilities.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        2. Improve Task Organization
-                    </h2>
-
-                    <p>
-                        Staying organized is an important part of working
-                        efficiently. AI can assist with turning information into
-                        structured task lists, priorities, summaries, and
-                        actionable steps.
-                    </p>
-
-                    <p class="mt-4">
-                        This can be especially useful when managing multiple
-                        projects, clients, deadlines, and administrative
-                        responsibilities at the same time.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        3. Improve Writing and Communication
-                    </h2>
-
-                    <p>
-                        Communication is an important part of virtual assistance
-                        and remote business operations. AI can help professionals
-                        create first drafts of emails, reports, announcements,
-                        social media content, and other business materials.
-                    </p>
-
-                    <p class="mt-4">
-                        However, AI-generated content should always be reviewed
-                        and edited by a person to make sure it is accurate,
-                        professional, and appropriate for the intended audience.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        4. Support Research and Information Gathering
-                    </h2>
-
-                    <p>
-                        Research can take a significant amount of time. AI tools
-                        can help organize information, summarize documents,
-                        generate research questions, and provide starting points
-                        for further investigation.
-                    </p>
-
-                    <p class="mt-4">
-                        AI should be treated as an assistant rather than the final
-                        source of truth. Important information should always be
-                        checked against reliable sources.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        5. Generate Ideas and Improve Creativity
-                    </h2>
-
-                    <p>
-                        AI can also be useful when you need ideas. Virtual
-                        Assistants may use AI to brainstorm social media topics,
-                        content ideas, presentation concepts, workflows, or
-                        solutions to everyday business challenges.
-                    </p>
-
-                    <p class="mt-4">
-                        The best results usually come from combining AI-generated
-                        ideas with human experience, creativity, and judgment.
-                    </p>
-                </div>
-
-
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        Using AI Responsibly
-                    </h2>
-
-                    <p>
-                        Using AI effectively also means understanding its
-                        limitations. AI-generated information can sometimes be
-                        inaccurate, incomplete, or unsuitable for a specific
-                        situation.
-                    </p>
-
-                    <p class="mt-4">
-                        Professionals should review AI-generated work before
-                        delivering it to clients or using it for important
-                        business decisions. Confidential and sensitive
-                        information should also be handled carefully.
-                    </p>
-                </div>
-
-
-                <!-- Conclusion -->
-                <div class="border-t border-white/10 pt-8">
-
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-                        Final Thoughts
-                    </h2>
-
-                    <p>
-                        AI can be a powerful addition to a Virtual Assistant's
-                        workflow. From organizing tasks and improving communication
-                        to supporting research and generating ideas, it can help
-                        professionals work more efficiently.
-                    </p>
-
-                    <p class="mt-4">
-                        The goal is not simply to use more AI tools. The goal is
-                        to use the right tools in the right situations while
-                        maintaining human judgment, accuracy, and professionalism.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- Back Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-white/10">
-
-                <button onclick="switchView('blog')"
-                    class="inline-flex items-center justify-center space-x-2 bg-accentRed hover:bg-accentRedHover text-white font-semibold px-6 py-3 rounded-full transition-all cursor-pointer">
-
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Back to Blog</span>
-
-                </button>
-
-                <button onclick="switchView('home')"
-                    class="inline-flex items-center justify-center space-x-2 bg-cardBg hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-full border border-white/10 transition-all cursor-pointer">
-
-                    <i class="fa-solid fa-house"></i>
-                    <span>Back to Home</span>
-
-                </button>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FULL BLOG ARTICLE 2
-========================================================= -->
-<!-- Blog 2 -->
-<section id="view-blog-2" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-16">
-
-        <!-- Article Container -->
-        <article class="max-w-5xl mx-auto bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
-
-            <!-- Category -->
-            <div class="mb-5">
-                <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                    Virtual Assistance
-                </span>
-            </div>
-
-            <!-- Title -->
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
-                Why Virtual Assistants Are Important for Businesses
-            </h1>
-
-            <!-- Introduction -->
-            <p class="text-textMuted text-lg leading-relaxed mb-10">
-                Discover how Virtual Assistants can help businesses save time,
-                improve organization, reduce workload, and focus more effectively
-                on growth and important business priorities.
-            </p>
-
-
-            <!-- Section 1 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                The Growing Need for Virtual Assistance
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Businesses today manage more tasks than ever before. From
-                responding to emails and organizing schedules to preparing
-                documents, managing information, communicating with clients,
-                and maintaining online operations, everyday responsibilities
-                can quickly become overwhelming.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                This is where Virtual Assistants can provide valuable support.
-                A Virtual Assistant, or VA, works remotely and helps businesses
-                handle specific administrative, operational, creative, or
-                digital tasks according to their needs.
-            </p>
-
-
-            <!-- Section 2 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                How Virtual Assistants Help Businesses
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                One of the biggest advantages of working with a Virtual Assistant
-                is the ability to delegate routine and time-consuming tasks.
-                Instead of handling every responsibility personally, business
-                owners and teams can assign appropriate tasks to a skilled
-                professional.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-4">
-                Depending on their skills, a Virtual Assistant may assist with:
-            </p>
-
-            <ul class="text-textMuted leading-relaxed mb-8 space-y-3 pl-6 list-disc">
-                <li>Email and calendar management</li>
-                <li>Data entry and document organization</li>
-                <li>Internet research and information gathering</li>
-                <li>Social media and content support</li>
-                <li>Customer and client communication</li>
-                <li>Administrative and operational tasks</li>
-                <li>File management and digital organization</li>
-            </ul>
-
-
-            <!-- Section 3 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Saving Time and Improving Productivity
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Time is one of the most valuable resources in any business.
-                When business owners spend too much time on repetitive
-                administrative work, they have less time available for strategy,
-                decision-making, customer relationships, and business development.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                Delegating appropriate tasks to a Virtual Assistant can create
-                more time for high-value responsibilities. The goal is not simply
-                to have someone complete tasks, but to create a more efficient
-                workflow where everyone can focus on the work that matters most.
-            </p>
-
-
-            <!-- Section 4 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Flexible Support for Different Business Needs
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Another advantage of Virtual Assistance is flexibility. Businesses
-                may not always need a full-time employee for every task. A
-                Virtual Assistant can provide support based on the workload,
-                project requirements, or specific business needs.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                This can be particularly useful for small businesses,
-                entrepreneurs, startups, and growing teams that need additional
-                support without creating unnecessary complexity in their
-                operations.
-            </p>
-
-
-            <!-- Section 5 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Better Organization and Business Operations
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Organization plays an important role in maintaining a productive
-                business. Disorganized files, missed emails, unclear schedules,
-                and delayed administrative tasks can affect the overall workflow.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                A reliable Virtual Assistant can help maintain organized systems,
-                keep information updated, monitor routine tasks, and support
-                consistent day-to-day operations.
-            </p>
-
-
-            <!-- Final Thoughts -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Final Thoughts
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Virtual Assistants can become a valuable part of a modern
-                business by helping manage responsibilities that would otherwise
-                consume significant time and attention.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-10">
-                The real value of Virtual Assistance is not simply completing
-                more tasks. It is about creating better workflows, improving
-                organization, saving time, and giving business owners and teams
-                more opportunity to focus on growth and important priorities.
-            </p>
-
-
-            <!-- Divider -->
-            <div class="border-t border-white/10 pt-8">
-
-                <div class="flex flex-wrap items-center gap-4">
-
-                    <button onclick="switchView('blog')"
-                        class="inline-flex items-center bg-accentRed hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-                        <i class="fa-solid fa-arrow-left mr-2"></i>
-                        Back to Blog
-
-                    </button>
-
-                    <button onclick="switchView('home')"
-                        class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-                        <i class="fa-solid fa-house mr-2"></i>
-                        Back to Home
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FULL BLOG ARTICLE 3
-========================================================= -->
-<!-- Blog 3 -->
-<section id="view-blog-3" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-16">
-
-        <!-- Article Container -->
-        <article class="max-w-5xl mx-auto bg-cardBg/90 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-md">
-
-            <!-- Category -->
-            <div class="mb-5">
-                <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                    Productivity
-                </span>
-            </div>
-
-            <!-- Title -->
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
-                Simple Ways to Stay Organized While Working Remotely
-            </h1>
-
-            <!-- Introduction -->
-            <p class="text-textMuted text-lg leading-relaxed mb-10">
-                Working remotely offers flexibility, but staying organized is
-                essential for maintaining productivity. Here are practical ways
-                to manage tasks, communication, files, and deadlines while
-                working from anywhere.
-            </p>
-
-
-            <!-- Section 1 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Why Organization Matters When Working Remotely
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Remote work gives professionals greater flexibility, but it can
-                also create challenges when there is no traditional office
-                environment. Without a clear system, tasks can easily be
-                forgotten, deadlines can be missed, and important information
-                can become difficult to find.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                Having a simple and consistent organization system makes it
-                easier to know what needs to be done, when it needs to be done,
-                and where important information is located.
-            </p>
-
-
-            <!-- Section 2 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Start With a Clear Task List
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                One of the simplest ways to stay organized is to maintain a
-                clear task list. Instead of trying to remember every
-                responsibility, write tasks down and prioritize them.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-4">
-                A useful task list can include:
-            </p>
-
-            <ul class="text-textMuted leading-relaxed mb-8 space-y-3 pl-6 list-disc">
-                <li>Important tasks that need immediate attention</li>
-                <li>Tasks that can be completed later</li>
-                <li>Upcoming deadlines</li>
-                <li>Recurring responsibilities</li>
-                <li>Follow-up tasks and reminders</li>
-            </ul>
-
-
-            <!-- Section 3 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Organize Your Digital Files
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Digital files can quickly become difficult to manage when
-                working remotely. Documents, images, spreadsheets, presentations,
-                and other files should have a clear and consistent structure.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                Creating folders based on clients, projects, departments, or
-                categories can make information easier to locate. Using
-                consistent file names can also reduce confusion and save time
-                when searching for documents.
-            </p>
-
-
-            <!-- Section 4 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Keep Communication Organized
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Remote professionals often communicate through email,
-                messaging platforms, video meetings, and project management
-                tools. Without organization, important messages can easily get
-                lost.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                Make it a habit to review messages regularly, respond to
-                important requests, and keep track of follow-up items. Clear
-                communication helps prevent misunderstandings and keeps
-                projects moving forward.
-            </p>
-
-
-            <!-- Section 5 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Set Priorities and Manage Deadlines
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Not every task has the same level of importance. Organizing
-                work according to priority can help prevent important deadlines
-                from being overlooked.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                A simple approach is to identify urgent tasks, important tasks,
-                and tasks that can be scheduled for later. Combining this with
-                calendar reminders can provide a clear picture of upcoming
-                responsibilities.
-            </p>
-
-
-            <!-- Section 6 -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Create a Consistent Work Routine
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                A consistent routine can make remote work more manageable.
-                Setting specific working hours, planning the day ahead, and
-                taking regular breaks can help maintain focus and productivity.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-8">
-                The exact routine will depend on the person and the type of
-                work, but having a predictable structure can make it easier to
-                stay focused and avoid unnecessary distractions.
-            </p>
-
-
-            <!-- Final Thoughts -->
-            <h2 class="text-3xl font-bold text-white mb-4">
-                Final Thoughts
-            </h2>
-
-            <p class="text-textMuted leading-relaxed mb-6">
-                Staying organized while working remotely does not require a
-                complicated system. Simple habits such as maintaining a task
-                list, organizing digital files, managing communication, and
-                tracking deadlines can make a significant difference.
-            </p>
-
-            <p class="text-textMuted leading-relaxed mb-10">
-                The goal is to create a workflow that is easy to maintain and
-                allows you to work efficiently. With the right organization
-                habits, remote professionals can stay productive while
-                maintaining flexibility in their work environment.
-            </p>
-
-
-            <!-- Divider -->
-            <div class="border-t border-white/10 pt-8">
-
-                <div class="flex flex-wrap items-center gap-4">
-
-                    <button onclick="switchView('blog')"
-                        class="inline-flex items-center bg-accentRed hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-                        <i class="fa-solid fa-arrow-left mr-2"></i>
-                        Back to Blog
-
-                    </button>
-
-                    <button onclick="switchView('home')"
-                        class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-                        <i class="fa-solid fa-house mr-2"></i>
-                        Back to Home
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- Certificates View -->
-<section id="view-certificates" class="view-section">
-
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-
-        <!-- Top Bar -->
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-
-            <button onclick="switchView('home')"
-                    class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                Platform: Certificates
-            </span>
-
-        </div>
-
-
-        <!-- Page Header -->
-        <div class="text-center mb-14">
-
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-5">
-                Certificates
-            </h2>
-
-            <p class="text-textMuted max-w-2xl mx-auto">
-                Professional certifications and achievements that demonstrate my skills and expertise.
-            </p>
-
-        </div>
-
-
-        <!-- Certificate Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-
-            <!-- Certificate 1 -->
-            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
-
-                <div class="bg-black/30 p-5">
-                    <img src="Certificate-1.jpg"
-                         alt="Certificate-1"
-                         class="w-full h-64 object-contain">
-                </div>
-
-                <div class="p-6">
-
-                    <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
-    STI College Diploma
-</h3>
-
-                    <a href="Certificate-1.jpg"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
-
-                        <i class="fa-solid fa-eye mr-2"></i>
-                        View Certificate
-
-                    </a>
-
-                </div>
-            </div>
-
-
-            <!-- Certificate 2 -->
-            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
-
-                <div class="bg-black/30 p-5">
-                    <img src="Certificate-2.png"
-                         alt="Certificate-2"
-                         class="w-full h-64 object-contain">
-                </div>
-
-                <div class="p-6">
-
-                   <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
-    Virtual Assistant Training Certificate
-</h3>
-
-                    
-                    <a href="Certificate-2.png"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
-
-                        <i class="fa-solid fa-eye mr-2"></i>
-                       
-			 View Certificate
-
-                    </a>
-
-                </div>
-            </div>
-
-
-            <!-- Certificate 3 -->
-            <div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
-
-                <div class="bg-black/30 p-5">
-                    <img src="Certificate-3.png"
-                         alt="Certificate-3"
-                         class="w-full h-64 object-contain">
-                </div>
-
-                <div class="p-6">
-
-                    <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
-    Communication Training Certificate
-</h3>
-
-
-                    <a href="Certificate-3.png"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
-
-                        <i class="fa-solid fa-eye mr-2"></i>
-                        View Certificate
-
-                    </a>
-
-                </div>
-            </div>
-
-<!-- Certificate 4 -->
-<div class="bg-cardBg border border-white/10 rounded-2xl overflow-hidden hover:border-accentRed/50 transition-all duration-300">
-
-    <div class="bg-black/30 p-5">
-        <img src="Certificate-4.png"
-             alt="Certificate-4"
-             class="w-full h-64 object-contain">
-    </div>
-
-    <div class="p-6">
-
-        <h3 class="text-xl font-bold text-white mb-2 min-h-[56px] flex items-start">
-            BAMVS Internship Certificate
-        </h3>
-
-        <a href="Certificate-4.png"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="inline-flex items-center bg-accentRed hover:bg-accentRedHover text-white font-semibold px-5 py-3 rounded-full transition-all duration-300">
-
-            <i class="fa-solid fa-eye mr-2"></i>
-            View Certificate
-
-        </a>
-
-    </div>
-
-
-
-</div>
-
-        </div>
-
-<!-- Divider -->
-<div class="border-t border-white/10 pt-8">
-
-    <div class="flex items-center justify-start">
-
-        <button onclick="switchView('home')"
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-            <i class="fa-solid fa-house mr-2"></i>
-            Back to Home
-
-        </button>
-
-    </div>
-
-</div>
-
-    </div>
-
-
-</section>
-
-
-
-</section>
-
-        <!-- CONTACT VIEW -->
-       <section id="view-contact" class="view-section">
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Contact</span>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Let's Work Together</h2>
-                        <p class="text-textMuted text-base leading-relaxed">
-                            Ready to partner with an experienced operations professional turned Virtual Assistant? Get in touch via email, phone, or LinkedIn.
-                        </p>
-                        <div class="space-y-4 pt-4">
-                            <div class="flex items-center space-x-4 text-textMuted">
-                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <span>leoatajar0221@gmail.com</span>
-                            </div>
-                            <div class="flex items-center space-x-4 text-textMuted">
-                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <span>09915229504</span>
-                            </div>
-                            <div class="flex items-center space-x-4 text-textMuted">
-                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <span>Pooc Balayan, Batangas / Philippines</span>
-                            </div>
-                            <!-- LinkedIn contact link row (Replace '#' with your actual LinkedIn link) -->
-                            <div class="flex items-center space-x-4 text-textMuted">
-                                <div class="w-10 h-10 rounded-xl bg-cardBg border border-white/10 flex items-center justify-center text-accentRed">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </div>
-                                <a href="https://www.linkedin.com/in/leo-atajar-4b049b379" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">linkedin.com/in/leo-atajar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                   <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-lg">
-
-    <div data-fs-success class="hidden text-center py-10">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-accentRed/10 border border-accentRed/30 flex items-center justify-center">
-            <i class="fa-solid fa-check text-accentRed text-2xl"></i>
-        </div>
-
-        <h3 class="text-2xl font-bold text-white mb-3">
-            Message Sent Successfully!
-        </h3>
-
-        <p class="text-textMuted leading-relaxed max-w-md mx-auto">
-            Thank you for reaching out. I've received your message and will
-            get back to you as soon as possible.
-        </p>
-
-        <p class="text-sm text-textMuted mt-6">
-            — Leonard P. Atajar
-        </p>
-    </div>
-
-    <div data-fs-error class="hidden text-center text-red-400 mb-6"></div>
-
-    <form
-    action="https://formspree.io/f/xwlkprpn"
-    method="POST"
-    class="space-y-6">
-
-    <div>
-        <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
-            Your Name
-        </label>
-        <input
-            type="text"
-            name="name"
-            required
-            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-            placeholder="John Doe">
-    </div>
-
-    <div>
-        <label class="block text-xs font-semibold uppercase tracking-wider textTextMuted mb-2">
-            Your Email
-        </label>
-        <input
-            type="email"
-            name="email"
-            required
-            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-            placeholder="john@example.com">
-    </div>
-
-    <div>
-        <label class="block text-xs font-semibold uppercase tracking-wider text-textMuted mb-2">
-            Message
-        </label>
-        <textarea
-            name="message"
-            rows="4"
-            required
-            class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accentRed transition-colors"
-            placeholder="Tell me about your project..."></textarea>
-    </div>
-
-    <button
-        type="submit"
-        class="w-full bg-accentRed hover:bg-accentRedHover text-white font-semibold py-4 rounded-xl transition-all shadow-lg shadow-accentRed/30 cursor-pointer">
-        Send Message <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
-    </button>
-
-</form>
-</div>
-
-
-
-                </div>
-<div class="w-full text-center mt-10 px-6">
-
-    <h3 class="text-xl font-bold text-white mb-2">
-        Your goals.
-        <span class="text-red-500">My support. Better results.</span>
-    </h3>
-
-    <p class="text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto">
-        From day-to-day administration to workflow optimization,
-        I’m here to help you stay organized, productive, and focused
-        on what matters most. Let’s connect and discuss how I can
-        contribute to your business.
-    </p>
-
-</div>
-
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/10 py-8 bg-darkBg/80 backdrop-blur-md text-textMuted text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 ATFAM VIRTUAL SOLUTIONS. All rights reserved.</p>
-            <div class="flex items-center space-x-6">
-    <a href="https://www.linkedin.com/in/leo-atajar-4b049b379"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="hover:text-white transition-colors"
-       title="LinkedIn">
-        <i class="fa-brands fa-linkedin-in text-lg"></i>
-    </a>
-
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leoatajar0221@gmail.com"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="hover:text-white transition-colors"
-       title="Email">
-        <i class="fa-solid fa-envelope text-lg"></i>
-    </a>
-
-    <a href="tel:+639915229504"
-       class="hover:text-white transition-colors"
-       title="Phone">
-        <i class="fa-solid fa-phone text-lg"></i>
-    </a>
-</div>
-        </div>
-    </footer>
-
-    <!-- Script for interactive views & active moving canvas background animation -->
-    <script>
-        function switchView(viewName) {
-            const sections = document.querySelectorAll('.view-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            const target = document.getElementById('view-' + viewName);
-            if (target) {
-                target.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        // Animated Moving Red Particles & Grid Lines Canvas (Enhanced for high activity)
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const particles = [];
-        const numParticles = 65;
-
-        for (let i = 0; i < numParticles; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 1.4,
-                vy: (Math.random() - 0.5) * 1.4,
-                radius: Math.random() * 2.5 + 1
-            });
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.strokeStyle = 'rgba(255, 30, 45, 0.14)';
-            ctx.fillStyle = 'rgba(255, 30, 45, 0.45)';
-
-            for (let i = 0; i < particles.length; i++) {
-                let p = particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    let p2 = particles[j];
-                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 160) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-        animate();
-    </script>
-
-<!-- ============================= -->
-<!-- LEO AI PORTFOLIO ASSISTANT -->
-<!-- ============================= -->
-
-<div id="ai-assistant">
-
-    <!-- Floating Robot Button -->
-    <button id="robot-button" aria-label="Open AI Assistant">
-        🤖
-    </button>
-
-    <!-- Chat Window -->
-    <div id="chat-window">
-
-        <!-- Header -->
-        <div class="chat-header">
-            <div>
-                <strong>Leo's AI Assistant</strong>
-                <span>Online • Portfolio Guide</span>
-            </div>
-
-            <button id="close-chat" aria-label="Close">
-                ×
-            </button>
-        </div>
-
-        <!-- Messages -->
-        <div id="chat-messages">
-
-            <div class="bot-message">
-                Hi! 👋 I'm Leo's AI assistant.
-                <br><br>
-                Welcome to his portfolio. I can tell you about his
-                experience, services, skills, projects, and more.
-            </div>
-
-        </div>
-
-        <!-- Quick Questions -->
-        <div class="quick-buttons">
-
-            <button onclick="askAssistant('Who is Leo?')">
-                👤 Who is Leo?
-            </button>
-
-            <button onclick="askAssistant('What services does Leo offer?')">
-                💼 Services
-            </button>
-
-            <button onclick="askAssistant('What skills does Leo have?')">
-                ⚡ Skills
-            </button>
-
-            <button onclick="askAssistant('How can I contact Leo?')">
-                📩 Contact
-            </button>
-
-        </div>
-
-        <!-- Input -->
-        <div class="chat-input">
-
-            <input
-                type="text"
-                id="user-input"
-                placeholder="Ask me something..."
-                autocomplete="off"
-            >
-
-            <button id="send-button">
-                ➤
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<style>
-
-/* ============================= */
-/* AI ASSISTANT CONTAINER */
-/* ============================= */
-
-#ai-assistant {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    z-index: 9999;
-    font-family: inherit;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
 }
 
 
-/* ============================= */
-/* FLOATING ROBOT BUTTON */
-/* ============================= */
+/* ==========================================================
+   WELCOME MESSAGE
+   ========================================================== */
 
-#robot-button {
-    width: 65px;
-    height: 65px;
-
-    border-radius: 50%;
-    border: 1px solid rgba(255, 0, 0, 0.5);
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 0, 0, 0.25),
-            rgba(10, 0, 0, 0.95)
+function showWelcome() {
+    if (!messages.children.length) {
+        addMessage(
+            "Hi! 👋 Thanks for visiting my portfolio. You’re now in Leonard’s live chat. Send me a message and I’ll get back to you.",
+            'admin'
         );
-
-    color: white;
-    font-size: 30px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px rgba(255, 0, 0, 0.4),
-        0 0 35px rgba(255, 0, 0, 0.15);
-
-    transition: all 0.3s ease;
-}
-
-#robot-button:hover {
-    transform: scale(1.08);
-
-    box-shadow:
-        0 0 20px rgba(255, 0, 0, 0.7),
-        0 0 45px rgba(255, 0, 0, 0.3);
-}
-
-
-/* ============================= */
-/* CHAT WINDOW */
-/* ============================= */
-
-#chat-window {
-    position: absolute;
-
-    right: 0;
-    bottom: 80px;
-
-    width: 360px;
-    max-width: calc(100vw - 30px);
-
-    height: 520px;
-
-    display: none;
-    flex-direction: column;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20, 0, 0, 0.98),
-            rgba(5, 5, 10, 0.98)
-        );
-
-    border: 1px solid rgba(255, 0, 0, 0.25);
-
-    box-shadow:
-        0 0 40px rgba(255, 0, 0, 0.15),
-        0 20px 60px rgba(0, 0, 0, 0.5);
-
-    backdrop-filter: blur(20px);
-}
-
-
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
-.chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 18px;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.chat-header strong {
-    display: block;
-
-    color: white;
-    font-size: 15px;
-}
-
-.chat-header span {
-    display: block;
-
-    margin-top: 4px;
-
-    color: #888;
-    font-size: 11px;
-}
-
-#close-chat {
-    border: none;
-    background: transparent;
-
-    color: #aaa;
-
-    font-size: 25px;
-
-    cursor: pointer;
-}
-
-#close-chat:hover {
-    color: white;
-}
-
-
-/* ============================= */
-/* CHAT MESSAGES */
-/* ============================= */
-
-#chat-messages {
-    flex: 1;
-
-    overflow-y: auto;
-
-    padding: 18px;
-}
-
-
-/* Bot */
-
-.bot-message {
-    width: fit-content;
-    max-width: 85%;
-
-    margin-bottom: 12px;
-
-    padding: 12px 15px;
-
-    border-radius: 15px 15px 15px 4px;
-
-    background: rgba(255, 0, 0, 0.08);
-
-    border: 1px solid rgba(255, 0, 0, 0.12);
-
-    color: #eee;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-/* User */
-
-.user-message {
-    width: fit-content;
-    max-width: 85%;
-
-    margin-left: auto;
-    margin-bottom: 12px;
-
-    padding: 12px 15px;
-
-    border-radius: 15px 15px 4px 15px;
-
-    background: rgba(255,255,255,0.08);
-
-    color: white;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-/* ============================= */
-/* QUICK BUTTONS */
-/* ============================= */
-
-.quick-buttons {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 7px;
-
-    padding: 10px 15px;
-}
-
-.quick-buttons button {
-    padding: 8px 6px;
-
-    border-radius: 8px;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    background: rgba(255,255,255,0.04);
-
-    color: #ccc;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.quick-buttons button:hover {
-    background: rgba(255,0,0,0.12);
-
-    border-color: rgba(255,0,0,0.25);
-
-    color: white;
-}
-
-
-/* ============================= */
-/* INPUT */
-/* ============================= */
-
-.chat-input {
-    display: flex;
-
-    gap: 8px;
-
-    padding: 12px 15px;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-#user-input {
-    flex: 1;
-
-    min-width: 0;
-
-    padding: 11px 13px;
-
-    border-radius: 10px;
-
-    border: 1px solid rgba(255,255,255,0.1);
-
-    outline: none;
-
-    background: rgba(255,255,255,0.05);
-
-    color: white;
-
-    font-size: 13px;
-}
-
-#user-input::placeholder {
-    color: #777;
-}
-
-#send-button {
-    width: 42px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #b00000;
-
-    color: white;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-#send-button:hover {
-    background: #e00000;
-}
-
-
-/* ============================= */
-/* MOBILE */
-/* ============================= */
-
-@media (max-width: 500px) {
-
-    #ai-assistant {
-        right: 15px;
-        bottom: 15px;
     }
-
-    #chat-window {
-        right: 0;
-        bottom: 75px;
-
-        width: calc(100vw - 30px);
-
-        height: 70vh;
-    }
-
 }
 
-</style>
+
+/* ==========================================================
+   CHAT OPEN / CLOSE
+   ========================================================== */
+
+robotButton.onclick = () => {
+    chatWindow.classList.add('open');
+    showWelcome();
+    input.focus();
+};
+
+closeChat.onclick = () => {
+    chatWindow.classList.remove('open');
+};
 
 
+/* ==========================================================
+   ANONYMOUS SUPABASE LOGIN
+   ========================================================== */
 
+async function initializeVisitor() {
 
-<!-- ============================= -->
-<!-- AI ASSISTANT JAVASCRIPT       -->
-<!-- ============================= -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const robotButton = document.getElementById("robot-button");
-    const chatWindow = document.getElementById("chat-window");
-    const closeChat = document.getElementById("close-chat");
-    const sendButton = document.getElementById("send-button");
-    const userInput = document.getElementById("user-input");
-    const chatMessages = document.getElementById("chat-messages");
+    if (!supabaseClient) {
+        status.textContent =
+            'Preview mode — Supabase is not configured.';
+        status.className =
+            'status not-configured';
 
-    if (!robotButton || !chatWindow || !closeChat || !sendButton || !userInput || !chatMessages) {
-        console.error("AI Assistant: required element is missing.");
+        showWelcome();
         return;
     }
 
-    robotButton.addEventListener("click", function () {
-        chatWindow.style.display = "flex";
-        robotButton.style.display = "none";
-        userInput.focus();
-    });
+    status.textContent = 'Connecting…';
+    status.className = 'status';
 
-    closeChat.addEventListener("click", function () {
-        chatWindow.style.display = "none";
-        robotButton.style.display = "block";
-    });
 
-    sendButton.addEventListener("click", sendMessage);
+    try {
 
-    userInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            sendMessage();
+        /*
+         * Check whether this browser already has
+         * an authenticated anonymous session.
+         */
+
+        let { data: sessionData, error: sessionError } =
+            await supabaseClient.auth.getSession();
+
+        if (sessionError) {
+            throw sessionError;
         }
-    });
 
-    // Used by the quick-question buttons in the HTML.
-    window.askAssistant = async function (question) {
-        addMessage(question, "user");
-        await askAI(question);
-    };
 
-    async function sendMessage() {
-        const message = userInput.value.trim();
-        if (!message) return;
+        /*
+         * If there is no session, create an
+         * anonymous Supabase user.
+         */
 
-        addMessage(message, "user");
-        userInput.value = "";
-        await askAI(message);
-    }
+        if (!sessionData.session) {
 
-    async function askAI(message) {
-        const loadingMessage = document.createElement("div");
-        loadingMessage.className = "bot-message";
-        loadingMessage.textContent = "Thinking...";
-        chatMessages.appendChild(loadingMessage);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+            const { data, error } =
+                await supabaseClient.auth.signInAnonymously();
 
-        try {
-            const response = await fetch("https://leonard-ai-backend.vercel.app/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: message })
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || "AI request failed");
+            if (error) {
+                throw error;
             }
 
-            loadingMessage.textContent = data.reply || "I don't have a response right now.";
-        } catch (error) {
-            console.error("AI Assistant Error:", error);
-            loadingMessage.textContent = "The AI connection is not available yet. The chat interface is working, but the backend connection is currently unavailable.";
+            sessionData.session = data.session;
         }
 
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        /*
+         * Use the Supabase anonymous user's UUID
+         * as the Session_id.
+         */
+
+        sessionId =
+            sessionData.session.user.id;
+
+
+        /*
+         * Save the ID locally so we can see it
+         * during testing/debugging.
+         */
+
+        localStorage.setItem(
+            'leo_live_chat_session_id',
+            sessionId
+        );
+
+
+        status.textContent =
+            'Connected • starting live chat…';
+
+        status.className =
+            'status configured';
+
+
+        /*
+         * Start Realtime after authentication.
+         */
+
+        connectRealtime();
+
+
+    } catch (error) {
+
+        console.error(
+            'Anonymous authentication error:',
+            error
+        );
+
+        status.textContent =
+            'Connection error: ' + error.message;
+
+        status.className =
+            'status not-configured';
+    }
+}
+
+
+/* ==========================================================
+   SEND MESSAGE
+   ========================================================== */
+
+async function sendMessage() {
+
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    if (!supabaseClient || !sessionId) {
+
+        status.textContent =
+            'Chat is not connected yet.';
+
+        status.className =
+            'status not-configured';
+
+        return;
     }
 
-    function addMessage(message, type) {
-        const messageElement = document.createElement("div");
-        messageElement.className = type === "user" ? "user-message" : "bot-message";
-        messageElement.textContent = message;
-        chatMessages.appendChild(messageElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    /*
+     * Show visitor message immediately.
+     */
+
+    addMessage(text, 'visitor');
+
+    input.value = '';
+
+    sendButton.disabled = true;
+
+
+    try {
+
+        const { error } =
+            await supabaseClient
+                .from('messages')
+                .insert({
+                    Session_id: sessionId,
+                    sender: 'visitor',
+                    message: text
+                });
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        status.textContent =
+            'Message sent • waiting for Leonard';
+
+        status.className =
+            'status configured';
+
+
+    } catch (error) {
+
+        console.error(
+            'Message insert error:',
+            error
+        );
+
+        status.textContent =
+            'Could not save message: ' +
+            error.message;
+
+        status.className =
+            'status not-configured';
     }
-});
 
 
-// Welcome message shown before visitors explore the portfolio.
-document.addEventListener("DOMContentLoaded", function () {
-    const welcomeModal = document.getElementById("portfolioWelcomeModal");
-    const enterButton = document.getElementById("enterPortfolioBtn");
-    const closeButton = document.getElementById("closeWelcomeModal");
+    sendButton.disabled = false;
+}
 
-    if (!welcomeModal) return;
 
-    document.body.classList.add("welcome-modal-open");
+/* ==========================================================
+   REALTIME
+   ========================================================== */
 
-    function closeWelcome() {
-        welcomeModal.style.opacity = "0";
-        welcomeModal.style.transition = "opacity 0.25s ease";
-        setTimeout(function () {
-            welcomeModal.style.display = "none";
-            document.body.classList.remove("welcome-modal-open");
-        }, 250);
+function connectRealtime() {
+
+    if (!supabaseClient || !sessionId) {
+        return;
     }
 
-    enterButton.addEventListener("click", closeWelcome);
-    closeButton.addEventListener("click", closeWelcome);
-});
+
+    /*
+     * Remove an old channel if one exists.
+     */
+
+    if (realtimeChannel) {
+        supabaseClient.removeChannel(
+            realtimeChannel
+        );
+    }
+
+
+    /*
+     * IMPORTANT:
+     * Your database column is Session_id.
+     * The Realtime filter must use Session_id,
+     * not session_id.
+     */
+
+    realtimeChannel =
+        supabaseClient
+            .channel(
+                'live-chat-' + sessionId
+            )
+            .on(
+                'postgres_changes',
+                {
+                    event: 'INSERT',
+                    schema: 'public',
+                    table: 'messages',
+                    filter:
+                        'Session_id=eq.' +
+                        sessionId
+                },
+                (payload) => {
+
+                    console.log(
+                        'Realtime message received:',
+                        payload
+                    );
+
+
+                    /*
+                     * Only display messages sent
+                     * by Leonard/admin.
+                     */
+
+                    if (
+                        payload.new &&
+                        payload.new.sender === 'admin'
+                    ) {
+
+                        addMessage(
+                            payload.new.message,
+                            'admin'
+                        );
+
+                        status.textContent =
+                            'Leonard replied • Live';
+
+                        status.className =
+                            'status configured';
+                    }
+                }
+            )
+            .subscribe((state) => {
+
+                console.log(
+                    'Realtime status:',
+                    state
+                );
+
+
+                if (state === 'SUBSCRIBED') {
+
+                    status.textContent =
+                        'Live connection ready';
+
+                    status.className =
+                        'status configured';
+
+                } else if (
+                    state === 'CHANNEL_ERROR'
+                ) {
+
+                    status.textContent =
+                        'Live connection error';
+
+                    status.className =
+                        'status not-configured';
+
+                } else if (
+                    state === 'TIMED_OUT'
+                ) {
+
+                    status.textContent =
+                        'Live connection timed out';
+
+                    status.className =
+                        'status not-configured';
+                }
+            });
+}
+
+
+/* ==========================================================
+   BUTTONS / ENTER KEY
+   ========================================================== */
+
+sendButton.onclick = sendMessage;
+
+input.addEventListener(
+    'keydown',
+    (e) => {
+
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   START
+   ========================================================== */
+
+showWelcome();
+initializeVisitor();
+
 </script>
 
 </body>
-
-
-<style id="portfolio-welcome-styles">
-    .portfolio-welcome-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 99999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background: rgba(0, 0, 0, 0.82);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        animation: welcomeFadeIn 0.45s ease-out;
-    }
-
-    .portfolio-welcome-card {
-        position: relative;
-        width: min(560px, 100%);
-        padding: 42px 38px 36px;
-        border: 1px solid rgba(255, 30, 45, 0.55);
-        border-radius: 24px;
-        background: linear-gradient(145deg, rgba(20, 8, 10, 0.98), rgba(5, 5, 5, 0.98));
-        box-shadow: 0 0 70px rgba(255, 30, 45, 0.18), 0 25px 80px rgba(0,0,0,0.65);
-        text-align: center;
-        overflow: hidden;
-        animation: welcomeCardIn 0.55s cubic-bezier(.2,.8,.2,1);
-    }
-
-    .portfolio-welcome-card::before {
-        content: "";
-        position: absolute;
-        top: -100px;
-        left: 50%;
-        width: 260px;
-        height: 260px;
-        transform: translateX(-50%);
-        background: rgba(255, 30, 45, 0.12);
-        filter: blur(55px);
-        pointer-events: none;
-    }
-
-    .welcome-close {
-        position: absolute;
-        top: 14px;
-        right: 16px;
-        width: 36px;
-        height: 36px;
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 50%;
-        background: rgba(255,255,255,0.04);
-        color: #aaa;
-        font-size: 25px;
-        line-height: 1;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .welcome-close:hover {
-        color: #fff;
-        border-color: rgba(255,30,45,0.55);
-        background: rgba(255,30,45,0.12);
-    }
-
-    .welcome-orb {
-        position: relative;
-        width: 74px;
-        height: 74px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255,30,45,0.7);
-        border-radius: 50%;
-        color: #ff1e2d;
-        font-size: 26px;
-        background: radial-gradient(circle, rgba(255,30,45,0.2), rgba(255,30,45,0.03) 65%, transparent 70%);
-        box-shadow: 0 0 28px rgba(255,30,45,0.28), inset 0 0 25px rgba(255,30,45,0.08);
-    }
-
-    .welcome-kicker {
-        position: relative;
-        margin-bottom: 10px;
-        color: #ff5965;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-    }
-
-    #welcomeTitle {
-        position: relative;
-        margin: 0 0 16px;
-        color: #fff;
-        font-size: clamp(28px, 5vw, 42px);
-        font-weight: 800;
-        letter-spacing: -0.03em;
-    }
-
-    #welcomeMessage, .welcome-signoff {
-        position: relative;
-        margin: 0 auto;
-        max-width: 480px;
-        color: #b8b8b8;
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-    .welcome-signoff {
-        margin-top: 12px;
-        color: #e4e4e4;
-        font-weight: 500;
-    }
-
-    .welcome-enter-btn {
-        position: relative;
-        margin-top: 26px;
-        padding: 14px 24px;
-        border: 0;
-        border-radius: 999px;
-        background: #ff1e2d;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        box-shadow: 0 10px 28px rgba(255,30,45,0.28);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .welcome-enter-btn:hover {
-        transform: translateY(-2px);
-        background: #e01220;
-        box-shadow: 0 14px 34px rgba(255,30,45,0.4);
-    }
-
-    .welcome-enter-btn i {
-        margin-left: 8px;
-    }
-
-    body.welcome-modal-open {
-        overflow: hidden;
-    }
-
-    @keyframes welcomeFadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes welcomeCardIn {
-        from { opacity: 0; transform: translateY(22px) scale(0.97); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @media (max-width: 640px) {
-        .portfolio-welcome-card {
-            padding: 38px 22px 28px;
-            border-radius: 20px;
-        }
-        #welcomeMessage, .welcome-signoff {
-            font-size: 14px;
-            line-height: 1.65;
-        }
-    }
-</style>
-
 </html>
