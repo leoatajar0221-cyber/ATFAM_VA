@@ -5164,10 +5164,6 @@ document.addEventListener("DOMContentLoaded", function () {
      PROOF IMAGE POPUP
 ========================= -->
 
-<!-- =========================
-     PROOF IMAGE POPUP
-========================= -->
-
 <div id="proof-image-popup"
      style="
         display:none;
@@ -5228,47 +5224,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 function showProofImage(imageSrc) {
-
     const popup = document.getElementById("proof-image-popup");
     const image = document.getElementById("proof-image-popup-img");
 
     if (!popup || !image) return;
 
     image.src = imageSrc;
-
     popup.style.display = "flex";
-
     document.body.style.overflow = "hidden";
 }
 
-
 function hideProofImage() {
-
     const popup = document.getElementById("proof-image-popup");
 
     if (!popup) return;
 
     popup.style.display = "none";
-
     document.body.style.overflow = "";
 }
 </script>
-function showProofImage(imageSrc) {
-    const popup = document.getElementById("proof-image-popup");
-    const image = document.getElementById("proof-image-popup-img");
-
-    image.src = imageSrc;
-    popup.style.display = "flex";
-}
-
-function hideProofImage() {
-    const popup = document.getElementById("proof-image-popup");
-    popup.style.display = "none";
-}
-</script>
-	
-</body>
-</html>
 
 <style id="final-chat-layout-fix">
 /* FINAL CHAT LAYOUT FIX
@@ -6097,3 +6071,5 @@ function hideProofImage() {
 })();
 </script>
 
+</body>
+</html>
