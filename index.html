@@ -3728,9 +3728,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     robotButton.addEventListener("click", function () {
+
+    // Move robot to the center
+    robotButton.classList.add("ai-flying");
+
+    // Wait for the bounce animation, then open chat
+    setTimeout(function () {
+
         chatWindow.style.display = "flex";
         robotButton.style.display = "flex";
         userInput.focus();
+
+    }, 800);
+
+});
     });
 
     closeChat.addEventListener("click", function () {
