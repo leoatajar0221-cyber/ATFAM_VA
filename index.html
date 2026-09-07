@@ -2163,7 +2163,7 @@ audio.addEventListener("ended", () => {
                     <!-- Future Button -->
                     <div class="mt-6">
 
-                        <button onclick="document.getElementById('robot-button').click()"
+                       <button onclick="openCenteredAIChat()"
         class="inline-flex
                items-center
                justify-center
@@ -4680,6 +4680,104 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
+<!-- ================================================= -->
+<!-- CENTERED AI ASSISTANT — PROFESSIONAL SECTION -->
+<!-- ================================================= -->
+
+<div id="professional-ai-overlay">
+
+    <div id="professional-ai-chatbox">
+
+        <!-- Header -->
+        <div class="professional-ai-header">
+
+            <div class="professional-ai-title">
+
+                <div class="professional-ai-icon">
+                    🤖
+                </div>
+
+                <div>
+                    <strong>Leo's AI Assistant</strong>
+                    <span>Online • Portfolio Guide</span>
+                </div>
+
+            </div>
+
+            <button
+                id="professional-ai-close"
+                aria-label="Close AI Assistant">
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Messages -->
+        <div id="professional-ai-messages">
+
+            <div class="professional-ai-bot-message">
+
+                Hi! 👋 I'm Leo's AI assistant.
+
+                <br><br>
+
+                Welcome to his portfolio. I can tell you about his
+                experience, services, skills, projects, and more.
+
+                <br><br>
+
+                What would you like to know?
+
+            </div>
+
+        </div>
+
+
+        <!-- Quick Questions -->
+        <div class="professional-ai-quick-buttons">
+
+            <button onclick="askCenteredAI('Who is Leo?')">
+                👤 Who is Leo?
+            </button>
+
+            <button onclick="askCenteredAI('What services does Leo offer?')">
+                💼 Services
+            </button>
+
+            <button onclick="askCenteredAI('What skills does Leo have?')">
+                ⚡ Skills
+            </button>
+
+            <button onclick="askCenteredAI('How can I contact Leo?')">
+                📩 Contact
+            </button>
+
+        </div>
+
+
+        <!-- Input -->
+        <div class="professional-ai-input">
+
+            <input
+                type="text"
+                id="professional-ai-input"
+                placeholder="Ask me something..."
+                autocomplete="off"
+            >
+
+            <button
+                id="professional-ai-send"
+                aria-label="Send message">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+	
 </body>
 </html>
 
@@ -4776,38 +4874,548 @@ document.addEventListener("DOMContentLoaded", function () {
 }
     /* your last existing CSS */
 
+	<!-- ================================================= -->
+<!-- CENTERED AI ASSISTANT CSS -->
+<!-- ================================================= -->
 
-    /* AI ROBOT FLOAT TO CENTER */
-    #robot-button.ai-flying {
-        position: fixed !important;
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        z-index: 99999 !important;
-        animation: robotBounce 0.8s ease-in-out;
+#professional-ai-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2147483640;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.68);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+#professional-ai-overlay.open {
+    display: flex;
+}
+
+
+/* ============================= */
+/* CHATBOX */
+/* ============================= */
+
+#professional-ai-chatbox {
+
+    width: 450px;
+
+    max-width: calc(100vw - 30px);
+
+    height: 600px;
+
+    max-height: calc(100vh - 40px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 0, 0, 0.99),
+            rgba(5, 5, 10, 0.99)
+        );
+
+    border: 1px solid rgba(255, 0, 0, 0.30);
+
+    box-shadow:
+        0 0 40px rgba(255, 0, 0, 0.20),
+        0 0 100px rgba(255, 0, 0, 0.08),
+        0 30px 80px rgba(0, 0, 0, 0.70);
+
+    animation: professionalAIEnter 0.28s ease-out;
+}
+
+
+/* ============================= */
+/* OPEN ANIMATION */
+/* ============================= */
+
+@keyframes professionalAIEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.92)
+            translateY(15px);
     }
 
-    @keyframes robotBounce {
-        0% {
-            transform: translate(-50%, -50%) scale(1);
-        }
+    to {
+        opacity: 1;
 
-        40% {
-            transform: translate(-50%, -50%) scale(1.12);
-        }
-
-        65% {
-            transform: translate(-50%, -50%) scale(0.94);
-        }
-
-        82% {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        100% {
-            transform: translate(-50%, -50%) scale(1);
-        }
+        transform:
+            scale(1)
+            translateY(0);
     }
+
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.professional-ai-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.professional-ai-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.professional-ai-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 0, 0, 0.30),
+            rgba(10, 0, 0, 0.95)
+        );
+
+    border:
+        1px solid
+        rgba(255, 0, 0, 0.45);
+
+    font-size: 21px;
+
+    box-shadow:
+        0 0 18px
+        rgba(255, 0, 0, 0.25);
+}
+
+
+.professional-ai-title strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.2;
+}
+
+
+.professional-ai-title span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* ============================= */
+/* CLOSE BUTTON */
+/* ============================= */
+
+#professional-ai-close {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #aaa;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#professional-ai-close:hover {
+
+    background:
+        rgba(255, 0, 0, 0.15);
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+
+/* ============================= */
+/* MESSAGES */
+/* ============================= */
+
+#professional-ai-messages {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+
+/* Scrollbar */
+
+#professional-ai-messages::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+#professional-ai-messages::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+#professional-ai-messages::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255, 0, 0, 0.25);
+
+    border-radius: 10px;
+}
+
+
+/* ============================= */
+/* BOT MESSAGE */
+/* ============================= */
+
+.professional-ai-bot-message {
+
+    width: fit-content;
+
+    max-width: 88%;
+
+    margin-bottom: 14px;
+
+    padding: 14px 16px;
+
+    border-radius:
+        16px 16px 16px 5px;
+
+    background:
+        rgba(255, 0, 0, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 0, 0, 0.13);
+
+    color: #eee;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/* USER MESSAGE */
+/* ============================= */
+
+.professional-ai-user-message {
+
+    width: fit-content;
+
+    max-width: 88%;
+
+    margin-left: auto;
+
+    margin-bottom: 14px;
+
+    padding: 14px 16px;
+
+    border-radius:
+        16px 16px 5px 16px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/* QUICK QUESTIONS */
+/* ============================= */
+
+.professional-ai-quick-buttons {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    padding:
+        10px 18px 14px;
+}
+
+
+.professional-ai-quick-buttons button {
+
+    min-height: 36px;
+
+    padding: 8px 7px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: #ccc;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.professional-ai-quick-buttons button:hover {
+
+    background:
+        rgba(255, 0, 0, 0.12);
+
+    border-color:
+        rgba(255, 0, 0, 0.30);
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* ============================= */
+/* INPUT AREA */
+/* ============================= */
+
+.professional-ai-input {
+
+    display: flex;
+
+    gap: 9px;
+
+    padding: 14px 18px 18px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+#professional-ai-input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 14px;
+
+    border-radius: 11px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+#professional-ai-input:focus {
+
+    border-color:
+        rgba(255, 0, 0, 0.35);
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 0, 0, 0.08);
+}
+
+
+#professional-ai-input::placeholder {
+
+    color: #777;
+}
+
+
+/* ============================= */
+/* SEND BUTTON */
+/* ============================= */
+
+#professional-ai-send {
+
+    width: 46px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #b00000;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#professional-ai-send:hover {
+
+    background: #e00000;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 0, 0, 0.25);
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 640px) {
+
+    #professional-ai-overlay {
+
+        padding: 12px;
+    }
+
+
+    #professional-ai-chatbox {
+
+        width:
+            calc(100vw - 24px);
+
+        height:
+            calc(100vh - 40px);
+
+        max-height:
+            700px;
+
+        border-radius: 18px;
+    }
+
+
+    .professional-ai-header {
+
+        padding: 16px;
+    }
+
+
+    #professional-ai-messages {
+
+        padding: 16px;
+    }
+
+
+    .professional-ai-quick-buttons {
+
+        padding:
+            8px 12px 12px;
+    }
+
+
+    .professional-ai-input {
+
+        padding:
+            12px;
+    }
+
+}
 
 </style>
 
