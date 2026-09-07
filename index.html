@@ -5164,6 +5164,64 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 </script>
+
+<!-- =========================
+     PROOF IMAGE POPUP
+========================= -->
+
+<div id="proof-image-popup"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        z-index:999999;
+        background:rgba(0,0,0,0.90);
+        align-items:center;
+        justify-content:center;
+        padding:30px;
+        cursor:pointer;
+     "
+     onclick="hideProofImage()">
+
+    <img id="proof-image-popup-img"
+         src=""
+         alt="Proof image"
+         style="
+            max-width:95vw;
+            max-height:90vh;
+            width:auto;
+            height:auto;
+            object-fit:contain;
+            border-radius:12px;
+            cursor:default;
+            box-shadow:0 0 50px rgba(0,0,0,0.8);
+         "
+         onclick="event.stopPropagation()">
+
+</div>
+
+<script>
+function showProofImage(imageSrc) {
+
+    const popup = document.getElementById("proof-image-popup");
+    const image = document.getElementById("proof-image-popup-img");
+
+    image.src = imageSrc;
+
+    popup.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+function hideProofImage() {
+
+    const popup = document.getElementById("proof-image-popup");
+
+    popup.style.display = "none";
+
+    document.body.style.overflow = "";
+}
+</script>
 	
 </body>
 </html>
