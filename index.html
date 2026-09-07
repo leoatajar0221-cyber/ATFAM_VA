@@ -3745,9 +3745,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     closeChat.addEventListener("click", function () {
-        chatWindow.style.display = "none";
-        robotButton.style.display = "block";
-    });
+
+    chatWindow.style.display = "none";
+    robotButton.style.display = "block";
+
+    // Return robot to its original position
+    robotButton.classList.remove("ai-flying");
+
+});
 
     sendButton.addEventListener("click", sendMessage);
 
