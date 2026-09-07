@@ -3727,31 +3727,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    robotButton.addEventListener("click", function () {
-
-    // Move robot to the center
-    robotButton.classList.add("ai-flying");
-
-    // Wait for the bounce animation, then open chat
-    setTimeout(function () {
-
-        chatWindow.style.display = "flex";
-        robotButton.style.display = "flex";
-        userInput.focus();
-
-    }, 800);
-
+   robotButton.addEventListener("click", function () {
+    chatWindow.style.display = "flex";
+    robotButton.style.display = "flex";
+    userInput.focus();
 });
-    });
 
     closeChat.addEventListener("click", function () {
-
     chatWindow.style.display = "none";
     robotButton.style.display = "block";
-
-    // Return robot to its original position
-    robotButton.classList.remove("ai-flying");
-
 });
 
     sendButton.addEventListener("click", sendMessage);
