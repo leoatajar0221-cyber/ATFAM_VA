@@ -3244,22 +3244,23 @@ audio.addEventListener("ended", () => {
 /* MOBILE */
 /* ============================= */
 
-@media (max-width: 500px) {
-
-    #ai-assistant {
-        right: 15px;
-        bottom: 15px;
-    }
-
+/* AI Assistant Chat - Mobile Fix */
+@media (max-width: 640px) {
     #chat-window {
-        right: 0;
-        bottom: 75px;
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: 75px !important;
 
-        width: calc(100vw - 30px);
+        transform: translateX(-50%) !important;
 
-        height: 70vh;
+        width: calc(100vw - 30px) !important;
+        max-width: 380px !important;
+        height: 70vh !important;
+
+        box-sizing: border-box !important;
+        margin: 0 !important;
     }
-
 }
 
 </style>
