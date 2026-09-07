@@ -5164,38 +5164,95 @@ document.addEventListener("DOMContentLoaded", function () {
      PROOF IMAGE POPUP
 ========================= -->
 
+<!-- =========================
+     PROOF IMAGE POPUP
+========================= -->
+
 <div id="proof-image-popup"
-     onclick="hideProofImage()"
      style="
         display:none;
         position:fixed;
         inset:0;
-        z-index:999999;
+        z-index:999999 !important;
         background:rgba(0,0,0,0.92);
         align-items:center;
         justify-content:center;
         padding:10px;
-        cursor:zoom-out;
      ">
 
-    <img id="proof-image-popup-img"
-         src=""
-         alt="Proof image"
-         style="
+    <!-- X CLOSE BUTTON -->
+    <button
+        type="button"
+        id="proof-image-close"
+        onclick="hideProofImage()"
+        style="
+            display:flex !important;
+            position:fixed !important;
+            top:20px !important;
+            right:25px !important;
+            width:50px !important;
+            height:50px !important;
+            z-index:2147483647 !important;
+            align-items:center !important;
+            justify-content:center !important;
+            padding:0 !important;
+            margin:0 !important;
+            border:2px solid white !important;
+            border-radius:50% !important;
+            background:#111 !important;
+            color:white !important;
+            font-size:32px !important;
+            line-height:1 !important;
+            cursor:pointer !important;
+        ">
+        ×
+    </button>
+
+    <!-- LARGE IMAGE -->
+    <img
+        id="proof-image-popup-img"
+        src=""
+        alt="Proof image"
+        style="
             width:98vw;
             height:98vh;
             max-width:none;
             max-height:none;
             object-fit:contain;
             border-radius:8px;
-         "
-         onclick="event.stopPropagation()">
-
-</div>
+        "
+        onclick="event.stopPropagation();"
+    >
 
 </div>
 
 <script>
+function showProofImage(imageSrc) {
+
+    const popup = document.getElementById("proof-image-popup");
+    const image = document.getElementById("proof-image-popup-img");
+
+    if (!popup || !image) return;
+
+    image.src = imageSrc;
+
+    popup.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function hideProofImage() {
+
+    const popup = document.getElementById("proof-image-popup");
+
+    if (!popup) return;
+
+    popup.style.display = "none";
+
+    document.body.style.overflow = "";
+}
+</script>
 function showProofImage(imageSrc) {
     const popup = document.getElementById("proof-image-popup");
     const image = document.getElementById("proof-image-popup-img");
