@@ -2176,8 +2176,7 @@ audio.addEventListener("ended", () => {
                transition-all
                duration-300">
 
-    <i class="fa-solid fa-comments
-              mr-2"></i>
+    <i class="fa-solid fa-comments mr-2"></i>
 
     Open AI Assistant
 
@@ -4775,6 +4774,41 @@ document.addEventListener("DOMContentLoaded", function () {
         max-height: 590px !important;
     }
 }
+    /* your last existing CSS */
+
+
+    /* AI ROBOT FLOAT TO CENTER */
+    #robot-button.ai-flying {
+        position: fixed !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 99999 !important;
+        animation: robotBounce 0.8s ease-in-out;
+    }
+
+    @keyframes robotBounce {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        40% {
+            transform: translate(-50%, -50%) scale(1.12);
+        }
+
+        65% {
+            transform: translate(-50%, -50%) scale(0.94);
+        }
+
+        82% {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
 </style>
 
 <script id="final-chat-behavior-fix">
