@@ -1191,244 +1191,507 @@ audio.addEventListener("ended", () => {
 
 </section>
 
-        <!-- SERVICES VIEW -->
-<section id="view-services" class="view-section">
-    <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
+<!-- ================= SERVICES ================= -->
+<section id="view-services" class="view-section hidden min-h-screen py-20 px-6">
+
+    <div class="max-w-7xl mx-auto">
 
         <!-- HEADER -->
-        <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')"
-                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Back to Home</span>
-            </button>
-
-            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
-                Platform: Services
+        <div class="text-center mb-16">
+            <span class="inline-block px-4 py-2 mb-4 text-xs font-bold tracking-widest uppercase
+                         text-accentRed border border-accentRed/30 rounded-full bg-accentRed/5">
+                Services & Offers
             </span>
-        </div>
 
-        <!-- INTRO -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-                Professional Services
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-5">
+                Digital Support That <span class="text-accentRed">Moves Your Business Forward</span>
             </h2>
 
-            <p class="text-textMuted leading-relaxed">
-                Reliable administrative, digital, and AI-assisted support designed
-                to help businesses stay organized, productive, and focused on growth.
+            <p class="max-w-3xl mx-auto text-textMuted text-lg leading-relaxed">
+                From everyday virtual assistance to websites, lead-generation funnels,
+                AI-powered workflows, and digital support systems — I provide practical
+                solutions designed to help businesses stay organized, productive, and ready to grow.
             </p>
         </div>
 
-        <!-- SERVICES GRID -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- 01 AI & WORKFLOW -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+        <!-- ================= HOURLY VIRTUAL ASSISTANCE ================= -->
+        <div class="mb-20">
 
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-robot"></i>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+                <div>
+                    <p class="text-accentRed font-semibold uppercase tracking-widest text-sm mb-2">
+                        Hourly Support
+                    </p>
+
+                    <h3 class="text-3xl md:text-4xl font-bold">
+                        Virtual Assistance
+                    </h3>
+
+                    <p class="text-textMuted mt-3 max-w-2xl">
+                        Flexible support when you need it — without committing to a fixed monthly package.
+                    </p>
                 </div>
 
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    01
+                <div class="text-left md:text-right">
+                    <div class="text-3xl font-extrabold text-accentRed">
+                        Starting at $10/hour
+                    </div>
+
+                    <p class="text-sm text-textMuted mt-1">
+                        Flexible hours • Customized support
+                    </p>
                 </div>
-
-                <h3 class="text-xl font-bold mb-3">
-                    AI & Workflow Solutions
-                </h3>
-
-                <p class="text-textMuted text-sm leading-relaxed">
-                    AI-assisted research, business writing, content planning,
-                    prompt engineering, workflow improvement, and digital problem-solving
-                    using modern AI tools and technologies.
-                </p>
             </div>
 
 
-            <!-- 02 ADMINISTRATIVE -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+            <!-- VA SERVICE GRID -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-briefcase"></i>
+                <!-- 01 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-robot"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            01
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        AI & Workflow Solutions
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        AI-assisted research, content planning, business writing,
+                        workflow organization, prompt engineering, and practical
+                        digital solutions using modern AI tools.
+                    </p>
                 </div>
 
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    02
+
+                <!-- 02 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            02
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        Administrative & Operations Support
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        Administrative tasks, data organization, reports,
+                        task coordination, document management, and day-to-day
+                        operational support.
+                    </p>
                 </div>
 
-                <h3 class="text-xl font-bold mb-3">
-                    Administrative & Operations Support
-                </h3>
 
-                <p class="text-textMuted text-sm leading-relaxed">
-                    Administrative assistance, document organization, data entry,
-                    report preparation, task coordination, quality assurance,
-                    and day-to-day operational support.
-                </p>
+                <!-- 03 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            03
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        Lead Generation & Research
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        Prospect research, online research, database building,
+                        lead organization, Boolean searching, and outreach
+                        preparation to help businesses identify opportunities.
+                    </p>
+                </div>
+
+
+                <!-- 04 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-share-nodes"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            04
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        Social Media Management
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        Content assistance, post scheduling, basic community
+                        engagement, content organization, and social media
+                        support for growing businesses.
+                    </p>
+                </div>
+
+
+                <!-- 05 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            05
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        Email Marketing & Communication
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        Email campaign assistance, communication organization,
+                        basic automation, email content support, and customer
+                        communication workflows.
+                    </p>
+                </div>
+
+
+                <!-- 06 -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            06
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-3">
+                        Creative & Digital Production
+                    </h4>
+
+                    <p class="text-textMuted leading-relaxed">
+                        Digital content assistance, visual assets, short-form
+                        video editing, presentation support, and AI-assisted
+                        creative production.
+                    </p>
+                </div>
+
             </div>
-
-
-            <!-- 03 LEAD GENERATION -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                </div>
-
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    03
-                </div>
-
-                <h3 class="text-xl font-bold mb-3">
-                    Lead Generation & Research
-                </h3>
-
-                <p class="text-textMuted text-sm leading-relaxed">
-                    Prospect research, lead list building, online research,
-                    data gathering, database organization, and targeted
-                    prospecting to support business development.
-                </p>
-            </div>
-
-
-            <!-- 04 SOCIAL MEDIA -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-share-nodes"></i>
-                </div>
-
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    04
-                </div>
-
-                <h3 class="text-xl font-bold mb-3">
-                    Social Media Management
-                </h3>
-
-                <p class="text-textMuted text-sm leading-relaxed">
-                    Social media support including content preparation,
-                    scheduling, audience engagement, page organization,
-                    and day-to-day digital presence management.
-                </p>
-            </div>
-
-
-            <!-- 05 EMAIL MARKETING -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-envelope-open-text"></i>
-                </div>
-
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    05
-                </div>
-
-                <h3 class="text-xl font-bold mb-3">
-                    Email Marketing & Communication
-                </h3>
-
-                <p class="text-textMuted text-sm leading-relaxed">
-                    Email campaign support, customer communication,
-                    inbox organization, email content preparation,
-                    and basic campaign management using modern email platforms.
-                </p>
-            </div>
-
-
-            <!-- 06 CREATIVE DIGITAL -->
-            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
-                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-
-                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
-                            flex items-center justify-center text-accentRed text-2xl mb-6
-                            group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </div>
-
-                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
-                    06
-                </div>
-
-                <h3 class="text-xl font-bold mb-3">
-                    Creative & Digital Production
-                </h3>
-
-                <p class="text-textMuted text-sm leading-relaxed">
-                    Digital content and visual production using tools such as
-                    CapCut, AI-assisted creative technologies, and other
-                    digital platforms to support modern business communication.
-                </p>
-            </div>
-
         </div>
 
 
-        <!-- SERVICE APPROACH -->
-        <div class="mt-16 border-t border-white/10 pt-12">
+        <!-- ================= DIGITAL PROJECTS ================= -->
+        <div class="mb-20">
 
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="text-center mb-10">
+                <p class="text-accentRed font-semibold uppercase tracking-widest text-sm mb-2">
+                    Fixed-Price Projects
+                </p>
 
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                            bg-accentRed/10 border border-accentRed/20
-                            text-accentRed text-xs font-semibold uppercase tracking-wider mb-5">
-                    <i class="fa-solid fa-bolt"></i>
-                    Digital Support
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">
+                    Website & Funnel Development
+                </h3>
+
+                <p class="max-w-2xl mx-auto text-textMuted leading-relaxed">
+                    Need more than ongoing assistance? I can also create practical
+                    digital solutions for your business, quoted according to your
+                    project's requirements and scope.
+                </p>
+            </div>
+
+
+            <!-- PROJECT CARDS -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- WEBSITE -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            07
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-2">
+                        Business Website
+                    </h4>
+
+                    <p class="text-accentRed font-bold text-lg mb-4">
+                        Starting at $300/project
+                    </p>
+
+                    <p class="text-textMuted leading-relaxed mb-6">
+                        Professional, responsive websites designed to give your
+                        business a strong online presence.
+                    </p>
+
+                    <ul class="space-y-3 text-sm text-textMuted">
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Responsive website design
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Up to 5–7 pages
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Mobile optimization
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Contact forms
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Deployment assistance
+                        </li>
+
+                    </ul>
                 </div>
 
-                <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                    More Than Virtual Assistance
+
+                <!-- FUNNEL -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                            hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed/10 text-accentRed text-xl">
+                            <i class="fas fa-filter-circle-dollar"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            08
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-2">
+                        Lead Generation Funnel
+                    </h4>
+
+                    <p class="text-accentRed font-bold text-lg mb-4">
+                        Starting at $350/project
+                    </p>
+
+                    <p class="text-textMuted leading-relaxed mb-6">
+                        Conversion-focused landing pages and funnels designed
+                        to turn visitors into inquiries and potential leads.
+                    </p>
+
+                    <ul class="space-y-3 text-sm text-textMuted">
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Landing page
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Lead capture form
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Conversion-focused layout
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Thank-you page
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Mobile optimization
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- AI DIGITAL SYSTEM -->
+                <div class="bg-cardBg/85 backdrop-blur-md border border-accentRed/30 p-8 rounded-3xl
+                            hover:border-accentRed transition-all duration-300 group shadow-lg">
+
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl
+                                    bg-accentRed text-white text-xl shadow-lg shadow-accentRed/20">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+
+                        <span class="text-sm font-bold text-white/30">
+                            09
+                        </span>
+                    </div>
+
+                    <h4 class="text-xl font-bold mb-2">
+                        AI Digital Growth System
+                    </h4>
+
+                    <p class="text-accentRed font-bold text-lg mb-4">
+                        Starting at $700/project
+                    </p>
+
+                    <p class="text-textMuted leading-relaxed mb-6">
+                        A customized digital solution combining multiple
+                        services into one connected business system.
+                    </p>
+
+                    <ul class="space-y-3 text-sm text-textMuted">
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Website or landing page
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Lead capture system
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            AI-assisted workflows
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Live chat integration
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check text-accentRed mt-1"></i>
+                            Digital business organization
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ================= FLEXIBLE PROJECT NOTE ================= -->
+        <div class="max-w-4xl mx-auto mb-16">
+
+            <div class="bg-cardBg/70 border border-white/10 rounded-3xl p-8 md:p-10 text-center">
+
+                <div class="w-14 h-14 mx-auto mb-5 flex items-center justify-center
+                            rounded-2xl bg-accentRed/10 text-accentRed text-2xl">
+                    <i class="fas fa-handshake"></i>
+                </div>
+
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                    Need Something Different?
                 </h3>
 
                 <p class="text-textMuted leading-relaxed max-w-2xl mx-auto">
-                    I combine professional operations experience with digital tools,
-                    AI technologies, and a practical problem-solving approach to help
-                    businesses improve their everyday workflows and digital operations.
+                    Every business has different needs. If your project doesn't
+                    fit one of the offers above, let's discuss what you need and
+                    create a solution based on your goals, requirements, and scope.
                 </p>
 
-            </div>
+                <p class="text-sm text-textMuted mt-4">
+                    Custom projects are quoted individually.
+                </p>
 
-        </div>
-
-
-        <!-- BACK TO HOME -->
-        <div class="border-t border-white/10 mt-12 pt-8">
-
-            <div class="flex items-center justify-start">
-
-                <button onclick="switchView('home')"
-                    class="inline-flex items-center bg-transparent hover:bg-white/5
-                           border border-white/10 text-white font-semibold px-6 py-3
-                           rounded-full transition-all duration-300 cursor-pointer">
-
-                    <i class="fa-solid fa-house mr-2"></i>
-                    Back to Home
-
+                <button
+                    onclick="switchView('contact')"
+                    class="mt-7 inline-flex items-center gap-2 px-7 py-3 rounded-xl
+                           bg-accentRed hover:bg-accentRedHover text-white font-semibold
+                           transition-all duration-300 shadow-lg shadow-accentRed/20"
+                >
+                    Let's Discuss Your Project
+                    <i class="fas fa-arrow-right"></i>
                 </button>
 
             </div>
 
         </div>
 
+
+        <!-- ================= CLOSING STATEMENT ================= -->
+        <div class="text-center max-w-3xl mx-auto">
+
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                More Than Virtual Assistance
+            </h3>
+
+            <p class="text-textMuted leading-relaxed">
+                My goal is to provide more than task-based support.
+                I combine virtual assistance, AI tools, digital organization,
+                website development, and lead-generation solutions to help
+                businesses work smarter and build a stronger digital presence.
+            </p>
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+        <div class="text-center mt-14">
+
+            <button
+                onclick="switchView('home')"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl
+                       border border-white/10 hover:border-accentRed/50
+                       text-textMuted hover:text-white transition-all duration-300"
+            >
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </button>
+
+        </div>
+
     </div>
+
 </section>
+
+
         <!-- SKILLS VIEW -->
         <section id="view-skills" class="view-section">
 
