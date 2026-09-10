@@ -1192,91 +1192,243 @@ audio.addEventListener("ended", () => {
 </section>
 
         <!-- SERVICES VIEW -->
-        <section id="view-services" class="view-section">
+<section id="view-services" class="view-section">
     <div class="max-w-7xl mx-auto px-6 pt-8 pb-12">
+
+        <!-- HEADER -->
         <div class="flex items-center justify-between mb-12 border-b border-white/10 pb-6">
-            <button onclick="switchView('home')" class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
+            <button onclick="switchView('home')"
+                class="inline-flex items-center space-x-2 text-textMuted hover:text-white transition-colors cursor-pointer bg-cardBg/90 px-4 py-2 rounded-full border border-white/10 text-sm backdrop-blur-sm">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Home</span>
             </button>
-                    <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">Platform: Services</span>
+
+            <span class="text-xs uppercase tracking-wider text-accentRed font-semibold">
+                Platform: Services
+            </span>
+        </div>
+
+        <!-- INTRO -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                Professional Services
+            </h2>
+
+            <p class="text-textMuted leading-relaxed">
+                Reliable administrative, digital, and AI-assisted support designed
+                to help businesses stay organized, productive, and focused on growth.
+            </p>
+        </div>
+
+        <!-- SERVICES GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 01 AI & WORKFLOW -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-robot"></i>
                 </div>
 
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">VA Services</h2>
-                    <p class="text-textMuted">Comprehensive virtual assistance built on a strong professional background.</p>
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    01
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">AI Integration & Prompt Engineering</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Streamlining business writing, market research, content planning, and workflow automation using Gemini, ChatGPT, and advanced AI models.</p>
-                    </div>
+                <h3 class="text-xl font-bold mb-3">
+                    AI & Workflow Solutions
+                </h3>
 
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-calendar-check"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Email & Calendar Management</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Inbox triage, email organization, scheduling meetings, and keeping your executive timeline orderly.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Lead Generation & Research</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Boolean searching, web research, prospect database building, and outreach coordination via Apollo.io.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-share-nodes"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Content creation assistance, scheduling posts, community engagement, and managing Meta Business Suite.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Email Marketing</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Campaign setup, basic automation, writing effective emails using Mailchimp and Brevo.</p>
-                    </div>
-
-                    <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
-                        <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10 flex items-center justify-center text-accentRed text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Tech & Troubleshooting</h3>
-                        <p class="text-textMuted text-sm leading-relaxed">Computer troubleshooting, workflow automation with Zapier, and website building via Wix Studio.</p>
-                    </div>
-     <!-- Divider -->
-<div class="border-t border-white/10 pt-8">
-
-    <div class="flex items-center justify-start">
-
-        <button onclick="switchView('home')"
-            class="inline-flex items-center bg-transparent hover:bg-white/5 border border-white/10 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
-
-            <i class="fa-solid fa-house mr-2"></i>
-            Back to Home
-
-        </button>
-
-    </div>
-
-</div>           
-
-</div>
+                <p class="text-textMuted text-sm leading-relaxed">
+                    AI-assisted research, business writing, content planning,
+                    prompt engineering, workflow improvement, and digital problem-solving
+                    using modern AI tools and technologies.
+                </p>
             </div>
 
-        </section>
 
+            <!-- 02 ADMINISTRATIVE -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    02
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Administrative & Operations Support
+                </h3>
+
+                <p class="text-textMuted text-sm leading-relaxed">
+                    Administrative assistance, document organization, data entry,
+                    report preparation, task coordination, quality assurance,
+                    and day-to-day operational support.
+                </p>
+            </div>
+
+
+            <!-- 03 LEAD GENERATION -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    03
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Lead Generation & Research
+                </h3>
+
+                <p class="text-textMuted text-sm leading-relaxed">
+                    Prospect research, lead list building, online research,
+                    data gathering, database organization, and targeted
+                    prospecting to support business development.
+                </p>
+            </div>
+
+
+            <!-- 04 SOCIAL MEDIA -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    04
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Social Media Management
+                </h3>
+
+                <p class="text-textMuted text-sm leading-relaxed">
+                    Social media support including content preparation,
+                    scheduling, audience engagement, page organization,
+                    and day-to-day digital presence management.
+                </p>
+            </div>
+
+
+            <!-- 05 EMAIL MARKETING -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    05
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Email Marketing & Communication
+                </h3>
+
+                <p class="text-textMuted text-sm leading-relaxed">
+                    Email campaign support, customer communication,
+                    inbox organization, email content preparation,
+                    and basic campaign management using modern email platforms.
+                </p>
+            </div>
+
+
+            <!-- 06 CREATIVE DIGITAL -->
+            <div class="bg-cardBg/85 backdrop-blur-md border border-white/10 p-8 rounded-3xl
+                        hover:border-accentRed/50 transition-all duration-300 group shadow-lg">
+
+                <div class="w-14 h-14 rounded-2xl bg-darkBg border border-white/10
+                            flex items-center justify-center text-accentRed text-2xl mb-6
+                            group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+
+                <div class="text-xs text-accentRed font-semibold tracking-wider mb-2">
+                    06
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Creative & Digital Production
+                </h3>
+
+                <p class="text-textMuted text-sm leading-relaxed">
+                    Digital content and visual production using tools such as
+                    CapCut, AI-assisted creative technologies, and other
+                    digital platforms to support modern business communication.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE APPROACH -->
+        <div class="mt-16 border-t border-white/10 pt-12">
+
+            <div class="max-w-4xl mx-auto text-center">
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                            bg-accentRed/10 border border-accentRed/20
+                            text-accentRed text-xs font-semibold uppercase tracking-wider mb-5">
+                    <i class="fa-solid fa-bolt"></i>
+                    Digital Support
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                    More Than Virtual Assistance
+                </h3>
+
+                <p class="text-textMuted leading-relaxed max-w-2xl mx-auto">
+                    I combine professional operations experience with digital tools,
+                    AI technologies, and a practical problem-solving approach to help
+                    businesses improve their everyday workflows and digital operations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BACK TO HOME -->
+        <div class="border-t border-white/10 mt-12 pt-8">
+
+            <div class="flex items-center justify-start">
+
+                <button onclick="switchView('home')"
+                    class="inline-flex items-center bg-transparent hover:bg-white/5
+                           border border-white/10 text-white font-semibold px-6 py-3
+                           rounded-full transition-all duration-300 cursor-pointer">
+
+                    <i class="fa-solid fa-house mr-2"></i>
+                    Back to Home
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
         <!-- SKILLS VIEW -->
         <section id="view-skills" class="view-section">
 
